@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		17CD563F1A0F93DE0DDA021F /* Pods_DanaBantuan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */; };
 		733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A082F2EFCD9D600EF865F /* BaseViewController.swift */; };
-		733A08322EFCD9E400EF865F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08312EFCD9E400EF865F /* BaseView.swift */; };
 		733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08332EFCD9F500EF865F /* StartViewController.swift */; };
 		733A08372EFCDCDB00EF865F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08362EFCDCD800EF865F /* Config.swift */; };
 		733A08392EFCDEA500EF865F /* UserLoginConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08382EFCDEA500EF865F /* UserLoginConfig.swift */; };
@@ -23,6 +22,12 @@
 		733A08492EFCED2800EF865F /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08482EFCED2800EF865F /* OrderViewController.swift */; };
 		733A084B2EFCED3200EF865F /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A084A2EFCED3200EF865F /* CenterViewController.swift */; };
 		733A08512EFCF19600EF865F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 733A084F2EFCF19600EF865F /* Localizable.strings */; };
+		733A08542EFCF20500EF865F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08532EFCF20500EF865F /* LoginView.swift */; };
+		737FEDE82EFD71F800B06DE7 /* HttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDE72EFD71F800B06DE7 /* HttpRequestManager.swift */; };
+		737FEDEA2EFD73D300B06DE7 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDE92EFD73D300B06DE7 /* BaseModel.swift */; };
+		737FEDEC2EFD740300B06DE7 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDEB2EFD73FC00B06DE7 /* LaunchViewModel.swift */; };
+		737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDED2EFD74C200B06DE7 /* LoadingView.swift */; };
+		737FEDF02EFD764B00B06DE7 /* DeviceInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDEF2EFD764B00B06DE7 /* DeviceInfoHelper.swift */; };
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
@@ -32,7 +37,6 @@
 		6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.debug.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.debug.xcconfig"; sourceTree = "<group>"; };
 		733A08242EFCD8B100EF865F /* DanaBantuan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DanaBantuan.entitlements; sourceTree = "<group>"; };
 		733A082F2EFCD9D600EF865F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		733A08312EFCD9E400EF865F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		733A08332EFCD9F500EF865F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		733A08362EFCDCD800EF865F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		733A08382EFCDEA500EF865F /* UserLoginConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginConfig.swift; sourceTree = "<group>"; };
@@ -47,6 +51,12 @@
 		733A084A2EFCED3200EF865F /* CenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		733A08502EFCF19600EF865F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		733A08522EFCF1A300EF865F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		733A08532EFCF20500EF865F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		737FEDE72EFD71F800B06DE7 /* HttpRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestManager.swift; sourceTree = "<group>"; };
+		737FEDE92EFD73D300B06DE7 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		737FEDEB2EFD73FC00B06DE7 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		737FEDED2EFD74C200B06DE7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		737FEDEF2EFD764B00B06DE7 /* DeviceInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoHelper.swift; sourceTree = "<group>"; };
 		73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaBantuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,7 +81,8 @@
 		733A08252EFCD8F500EF865F /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				733A08312EFCD9E400EF865F /* BaseView.swift */,
+				737FEDED2EFD74C200B06DE7 /* LoadingView.swift */,
+				737FEDEB2EFD73FC00B06DE7 /* LaunchViewModel.swift */,
 				733A08332EFCD9F500EF865F /* StartViewController.swift */,
 				733A082F2EFCD9D600EF865F /* BaseViewController.swift */,
 				733A08402EFCEC5100EF865F /* AppTabBarController.swift */,
@@ -83,6 +94,9 @@
 		733A08262EFCD8F800EF865F /* Http */ = {
 			isa = PBXGroup;
 			children = (
+				737FEDE92EFD73D300B06DE7 /* BaseModel.swift */,
+				737FEDEF2EFD764B00B06DE7 /* DeviceInfoHelper.swift */,
+				737FEDE72EFD71F800B06DE7 /* HttpRequestManager.swift */,
 			);
 			path = Http;
 			sourceTree = "<group>";
@@ -102,6 +116,7 @@
 		733A08282EFCD8FE00EF865F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				733A08532EFCF20500EF865F /* LoginView.swift */,
 				733A08442EFCEC9E00EF865F /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -332,20 +347,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				733A08452EFCEC9E00EF865F /* LoginViewController.swift in Sources */,
-				733A08322EFCD9E400EF865F /* BaseView.swift in Sources */,
 				733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */,
 				733A08492EFCED2800EF865F /* OrderViewController.swift in Sources */,
 				733A083B2EFCE28200EF865F /* IDFVManager.swift in Sources */,
 				733A08412EFCEC5100EF865F /* AppTabBarController.swift in Sources */,
+				737FEDF02EFD764B00B06DE7 /* DeviceInfoHelper.swift in Sources */,
 				733A083D2EFCE41F00EF865F /* IDFAManager.swift in Sources */,
 				733A08392EFCDEA500EF865F /* UserLoginConfig.swift in Sources */,
+				737FEDE82EFD71F800B06DE7 /* HttpRequestManager.swift in Sources */,
 				733A08372EFCDCDB00EF865F /* Config.swift in Sources */,
 				733A084B2EFCED3200EF865F /* CenterViewController.swift in Sources */,
 				733A08432EFCEC8200EF865F /* AppNavigationController.swift in Sources */,
+				737FEDEA2EFD73D300B06DE7 /* BaseModel.swift in Sources */,
 				73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */,
 				733A083F2EFCE8B100EF865F /* LanguageManager.swift in Sources */,
 				733A08472EFCED1F00EF865F /* HomeViewController.swift in Sources */,
+				733A08542EFCF20500EF865F /* LoginView.swift in Sources */,
 				733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */,
+				737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */,
+				737FEDEC2EFD740300B06DE7 /* LaunchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

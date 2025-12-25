@@ -8,6 +8,8 @@
 import UIKit
 import Foundation
 
+let SCREEN_WIDTH = UIScreen.main.bounds.size.width
+
 extension UIFont {
     static func system(_ size: CGFloat, weightValue: CGFloat) -> UIFont {
         return UIFont.systemFont(ofSize: size, weight: UIFont.Weight(weightValue))
@@ -30,5 +32,23 @@ extension UIColor {
         let blue = CGFloat(rgbValue & 0x0000FF) / 255.0
         
         self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
+}
+
+extension Double {
+    func pix() -> CGFloat {
+        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
+    }
+}
+
+extension CGFloat {
+    func pix() -> CGFloat {
+        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
+    }
+}
+
+extension Int {
+    func pix() -> CGFloat {
+        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
     }
 }
