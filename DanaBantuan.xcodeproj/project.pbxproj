@@ -7,17 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17CD563F1A0F93DE0DDA021F /* Pods_DanaBantuan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */; };
+		733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A082F2EFCD9D600EF865F /* BaseViewController.swift */; };
+		733A08322EFCD9E400EF865F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08312EFCD9E400EF865F /* BaseView.swift */; };
+		733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08332EFCD9F500EF865F /* StartViewController.swift */; };
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.debug.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.debug.xcconfig"; sourceTree = "<group>"; };
+		733A08242EFCD8B100EF865F /* DanaBantuan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DanaBantuan.entitlements; sourceTree = "<group>"; };
+		733A082F2EFCD9D600EF865F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		733A08312EFCD9E400EF865F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		733A08332EFCD9F500EF865F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaBantuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73DC2EC92EFCD1BE00CB14F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73DC2ECA2EFCD1BE00CB14F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.release.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.release.xcconfig"; sourceTree = "<group>"; };
+		F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanaBantuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,17 +36,93 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17CD563F1A0F93DE0DDA021F /* Pods_DanaBantuan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		733A08252EFCD8F500EF865F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				733A08312EFCD9E400EF865F /* BaseView.swift */,
+				733A08332EFCD9F500EF865F /* StartViewController.swift */,
+				733A082F2EFCD9D600EF865F /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		733A08262EFCD8F800EF865F /* Http */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		733A08272EFCD8FB00EF865F /* Config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		733A08282EFCD8FE00EF865F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		733A08292EFCD90100EF865F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		733A082A2EFCD90400EF865F /* Order */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		733A082B2EFCD90700EF865F /* Center */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Center;
+			sourceTree = "<group>";
+		};
+		733A082C2EFCD90D00EF865F /* Product */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		733A082D2EFCD91600EF865F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		733A082E2EFCD91900EF865F /* Deveice */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Deveice;
+			sourceTree = "<group>";
+		};
 		73DC2EA62EFCD1B900CB14F8 = {
 			isa = PBXGroup;
 			children = (
 				73DC2ED02EFCD1BE00CB14F8 /* DanaBantuan */,
 				73DC2EB02EFCD1B900CB14F8 /* Products */,
+				EE9DFC36C089203739F210C0 /* Pods */,
+				B661F5B30CB3716E4C3840BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,9 +140,37 @@
 				73DC2EC92EFCD1BE00CB14F8 /* Info.plist */,
 				73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */,
 				73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */,
+				733A08242EFCD8B100EF865F /* DanaBantuan.entitlements */,
 				73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */,
+				733A082D2EFCD91600EF865F /* Auth */,
+				733A082C2EFCD90D00EF865F /* Product */,
+				733A082B2EFCD90700EF865F /* Center */,
+				733A082A2EFCD90400EF865F /* Order */,
+				733A08292EFCD90100EF865F /* Home */,
+				733A08282EFCD8FE00EF865F /* Login */,
+				733A082E2EFCD91900EF865F /* Deveice */,
+				733A08272EFCD8FB00EF865F /* Config */,
+				733A08262EFCD8F800EF865F /* Http */,
+				733A08252EFCD8F500EF865F /* Base */,
 			);
 			path = DanaBantuan;
+			sourceTree = "<group>";
+		};
+		B661F5B30CB3716E4C3840BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE9DFC36C089203739F210C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */,
+				A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,17 +180,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DC2EC22EFCD1BA00CB14F8 /* Build configuration list for PBXNativeTarget "DanaBantuan" */;
 			buildPhases = (
+				02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */,
 				73DC2EAB2EFCD1B900CB14F8 /* Sources */,
 				73DC2EAC2EFCD1B900CB14F8 /* Frameworks */,
 				73DC2EAD2EFCD1B900CB14F8 /* Resources */,
+				B2B605FA61BA092667F8CAA7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DanaBantuan;
-			packageProductDependencies = (
-			);
 			productName = DanaBantuan;
 			productReference = 73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */;
 			productType = "com.apple.product-type.application";
@@ -126,12 +241,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DanaBantuan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2B605FA61BA092667F8CAA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		73DC2EAB2EFCD1B900CB14F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733A08322EFCD9E400EF865F /* BaseView.swift in Sources */,
+				733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */,
 				73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */,
+				733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,14 +315,18 @@
 /* Begin XCBuildConfiguration section */
 		73DC2EC32EFCD1BA00CB14F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 57MBH2272N;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DanaBantuan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dana Bantuan";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -187,14 +355,18 @@
 		};
 		73DC2EC42EFCD1BA00CB14F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 57MBH2272N;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DanaBantuan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dana Bantuan";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
