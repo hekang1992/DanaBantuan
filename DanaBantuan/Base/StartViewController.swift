@@ -21,6 +21,18 @@ class StartViewController: BaseViewController {
         bgImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        LanguageManager.setLanguage(code: 2)
+        changeRootVc()
     }
     
+}
+
+extension StartViewController {
+    
+    private func changeRootVc() {
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil
+            )
+        }
+    }
 }

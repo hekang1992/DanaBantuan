@@ -16,6 +16,13 @@
 		733A083B2EFCE28200EF865F /* IDFVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A083A2EFCE28200EF865F /* IDFVManager.swift */; };
 		733A083D2EFCE41F00EF865F /* IDFAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A083C2EFCE41F00EF865F /* IDFAManager.swift */; };
 		733A083F2EFCE8B100EF865F /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A083E2EFCE8B100EF865F /* LanguageManager.swift */; };
+		733A08412EFCEC5100EF865F /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08402EFCEC5100EF865F /* AppTabBarController.swift */; };
+		733A08432EFCEC8200EF865F /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08422EFCEC8200EF865F /* AppNavigationController.swift */; };
+		733A08452EFCEC9E00EF865F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08442EFCEC9E00EF865F /* LoginViewController.swift */; };
+		733A08472EFCED1F00EF865F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08462EFCED1F00EF865F /* HomeViewController.swift */; };
+		733A08492EFCED2800EF865F /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08482EFCED2800EF865F /* OrderViewController.swift */; };
+		733A084B2EFCED3200EF865F /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A084A2EFCED3200EF865F /* CenterViewController.swift */; };
+		733A08512EFCF19600EF865F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 733A084F2EFCF19600EF865F /* Localizable.strings */; };
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
@@ -32,6 +39,14 @@
 		733A083A2EFCE28200EF865F /* IDFVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFVManager.swift; sourceTree = "<group>"; };
 		733A083C2EFCE41F00EF865F /* IDFAManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFAManager.swift; sourceTree = "<group>"; };
 		733A083E2EFCE8B100EF865F /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		733A08402EFCEC5100EF865F /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
+		733A08422EFCEC8200EF865F /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		733A08442EFCEC9E00EF865F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		733A08462EFCED1F00EF865F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		733A08482EFCED2800EF865F /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		733A084A2EFCED3200EF865F /* CenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
+		733A08502EFCF19600EF865F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		733A08522EFCF1A300EF865F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaBantuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +74,8 @@
 				733A08312EFCD9E400EF865F /* BaseView.swift */,
 				733A08332EFCD9F500EF865F /* StartViewController.swift */,
 				733A082F2EFCD9D600EF865F /* BaseViewController.swift */,
+				733A08402EFCEC5100EF865F /* AppTabBarController.swift */,
+				733A08422EFCEC8200EF865F /* AppNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -73,11 +90,11 @@
 		733A08272EFCD8FB00EF865F /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				733A083E2EFCE8B100EF865F /* LanguageManager.swift */,
 				733A08362EFCDCD800EF865F /* Config.swift */,
 				733A083A2EFCE28200EF865F /* IDFVManager.swift */,
 				733A083C2EFCE41F00EF865F /* IDFAManager.swift */,
 				733A08382EFCDEA500EF865F /* UserLoginConfig.swift */,
+				733A083E2EFCE8B100EF865F /* LanguageManager.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -85,6 +102,7 @@
 		733A08282EFCD8FE00EF865F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				733A08442EFCEC9E00EF865F /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -92,6 +110,7 @@
 		733A08292EFCD90100EF865F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				733A08462EFCED1F00EF865F /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -99,6 +118,7 @@
 		733A082A2EFCD90400EF865F /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				733A08482EFCED2800EF865F /* OrderViewController.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -106,6 +126,7 @@
 		733A082B2EFCD90700EF865F /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				733A084A2EFCED3200EF865F /* CenterViewController.swift */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -157,6 +178,7 @@
 				73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */,
 				733A08242EFCD8B100EF865F /* DanaBantuan.entitlements */,
 				73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */,
+				733A084F2EFCF19600EF865F /* Localizable.strings */,
 				733A082D2EFCD91600EF865F /* Auth */,
 				733A082C2EFCD90D00EF865F /* Product */,
 				733A082B2EFCD90700EF865F /* Center */,
@@ -231,6 +253,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 73DC2EA62EFCD1B900CB14F8;
 			minimizedProjectReferenceProxies = 1;
@@ -250,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */,
+				733A08512EFCF19600EF865F /* Localizable.strings in Resources */,
 				73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,14 +331,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733A08452EFCEC9E00EF865F /* LoginViewController.swift in Sources */,
 				733A08322EFCD9E400EF865F /* BaseView.swift in Sources */,
 				733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */,
+				733A08492EFCED2800EF865F /* OrderViewController.swift in Sources */,
 				733A083B2EFCE28200EF865F /* IDFVManager.swift in Sources */,
+				733A08412EFCEC5100EF865F /* AppTabBarController.swift in Sources */,
 				733A083D2EFCE41F00EF865F /* IDFAManager.swift in Sources */,
 				733A08392EFCDEA500EF865F /* UserLoginConfig.swift in Sources */,
 				733A08372EFCDCDB00EF865F /* Config.swift in Sources */,
+				733A084B2EFCED3200EF865F /* CenterViewController.swift in Sources */,
+				733A08432EFCEC8200EF865F /* AppNavigationController.swift in Sources */,
 				73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */,
 				733A083F2EFCE8B100EF865F /* LanguageManager.swift in Sources */,
+				733A08472EFCED1F00EF865F /* HomeViewController.swift in Sources */,
 				733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +352,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		733A084F2EFCF19600EF865F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				733A08502EFCF19600EF865F /* en */,
+				733A08522EFCF1A300EF865F /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -418,6 +457,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -481,6 +521,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
