@@ -14,6 +14,7 @@
 		733A08372EFCDCDB00EF865F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08362EFCDCD800EF865F /* Config.swift */; };
 		733A08392EFCDEA500EF865F /* UserLoginConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08382EFCDEA500EF865F /* UserLoginConfig.swift */; };
 		733A083B2EFCE28200EF865F /* IDFVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A083A2EFCE28200EF865F /* IDFVManager.swift */; };
+		733A083D2EFCE41F00EF865F /* IDFAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A083C2EFCE41F00EF865F /* IDFAManager.swift */; };
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		733A08362EFCDCD800EF865F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		733A08382EFCDEA500EF865F /* UserLoginConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginConfig.swift; sourceTree = "<group>"; };
 		733A083A2EFCE28200EF865F /* IDFVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFVManager.swift; sourceTree = "<group>"; };
+		733A083C2EFCE41F00EF865F /* IDFAManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFAManager.swift; sourceTree = "<group>"; };
 		73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaBantuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,8 +71,9 @@
 		733A08272EFCD8FB00EF865F /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				733A083A2EFCE28200EF865F /* IDFVManager.swift */,
 				733A08362EFCDCD800EF865F /* Config.swift */,
+				733A083A2EFCE28200EF865F /* IDFVManager.swift */,
+				733A083C2EFCE41F00EF865F /* IDFAManager.swift */,
 				733A08382EFCDEA500EF865F /* UserLoginConfig.swift */,
 			);
 			path = Config;
@@ -304,6 +307,7 @@
 				733A08322EFCD9E400EF865F /* BaseView.swift in Sources */,
 				733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */,
 				733A083B2EFCE28200EF865F /* IDFVManager.swift in Sources */,
+				733A083D2EFCE41F00EF865F /* IDFAManager.swift in Sources */,
 				733A08392EFCDEA500EF865F /* UserLoginConfig.swift in Sources */,
 				733A08372EFCDCDB00EF865F /* Config.swift in Sources */,
 				73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */,
