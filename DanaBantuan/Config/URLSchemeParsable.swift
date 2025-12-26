@@ -48,7 +48,6 @@ class URLSchemeParsable: NSObject {
         }
         
         guard let route = RouteParameters(url: url) else {
-            print("URL格式不符合要求: \(pageUrl)")
             return
         }
         
@@ -105,7 +104,9 @@ class URLSchemeParsable: NSObject {
         guard let productId = parameters["spatikin"] else {
             return
         }
-        print("productId====\(productId)")
+        let productVc = ProductViewController()
+        productVc.productID = productId
+        viewController.navigationController?.pushViewController(productVc, animated: true)
         
     }
     

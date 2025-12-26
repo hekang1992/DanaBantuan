@@ -32,6 +32,10 @@ class hairshipModel: Codable {
     var interency: String?
     var odontard: [odontardModel]?
     var clearfic: [clearficModel]?
+    var orexilike: String?
+    var play: [playModel]?
+    var vovo: vovoModel?
+    var section: sectionModel?
 }
 
 class odontardModel: Codable {
@@ -58,4 +62,29 @@ class haveionModel: Codable {
     var relateform: String?
     var oesophagable: String?
     var hydroing: String?
+}
+
+class playModel: Codable {
+    var jutcommonably: String?
+    var bariics: String?
+    var edian: String?
+    var dosaneity: String?
+    var sectionia: Int?
+}
+
+class vovoModel: Codable {
+    var barel: String?
+    var jutcommonably: String?
+}
+
+class sectionModel: Codable {
+    var ourability: String?
+    var cunely: String?
+    var tic: String?
+    var vituage: String?
+    var selenality: String?
+    var stop: Int?
+    var acetacy: String
+    var quassweightify: Int?
+    var penoern: String?
 }

@@ -10,6 +10,33 @@ import SnapKit
 import Kingfisher
 
 class AppOneView: UIView {
+    
+    var applyBlock: ((haveionModel) -> Void)?
+    
+    var model: haveionModel? {
+        didSet {
+            guard let model = model else { return }
+            
+            let logoUrl = model.vituage ?? ""
+            let name = model.tic ?? ""
+            
+            logoImageView.kf.setImage(with: URL(string: logoUrl))
+            nameLabel.text = name
+            
+            let one = model.relateform ?? ""
+            let two = model.paintingsion ?? ""
+            itemLabel.text = String(format: "%@: %@", one, two)
+            maxLabel.text = model.algics ?? ""
+            
+            moneyLabel.text = model.persicfier ?? ""
+            applyBtn.setTitle(model.penoern ?? "", for: .normal)
+            
+            let three = model.hydroing ?? ""
+            let four = model.oesophagable ?? ""
+            
+            rateLabel.text = String(format: "%@: %@", three, four)
+        }
+    }
 
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
@@ -130,6 +157,12 @@ class AppOneView: UIView {
         return rateLabel
     }()
     
+    lazy var clickBtn: UIButton = {
+        let clickBtn = UIButton(type: .custom)
+        clickBtn.addTarget(self, action: #selector(applyClick), for: .touchUpInside)
+        return clickBtn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(bgImageView)
@@ -153,6 +186,7 @@ class AppOneView: UIView {
         
         scrollView.addSubview(applyBtn)
         scrollView.addSubview(footerImageView)
+        scrollView.addSubview(clickBtn)
         
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(15)
@@ -230,6 +264,13 @@ class AppOneView: UIView {
         moneyLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        clickBtn.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.width.equalTo(SCREEN_WIDTH)
+            make.bottom.equalTo(applyBtn)
+        }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -240,25 +281,10 @@ class AppOneView: UIView {
 
 extension AppOneView {
     
-    func configCardMessage(with model: haveionModel) {
-        let logoUrl = model.vituage ?? ""
-        let name = model.tic ?? ""
-        
-        logoImageView.kf.setImage(with: URL(string: logoUrl))
-        nameLabel.text = name
-        
-        let one = model.relateform ?? ""
-        let two = model.paintingsion ?? ""
-        itemLabel.text = String(format: "%@: %@", one, two)
-        maxLabel.text = model.algics ?? ""
-        
-        moneyLabel.text = model.persicfier ?? ""
-        applyBtn.setTitle(model.penoern ?? "", for: .normal)
-        
-        let three = model.hydroing ?? ""
-        let four = model.oesophagable ?? ""
-        
-        rateLabel.text = String(format: "%@: %@", three, four)
+    @objc func applyClick() {
+        if let model = model {
+            self.applyBlock?(model)
+        }
     }
     
 }

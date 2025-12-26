@@ -35,6 +35,13 @@ class HomeViewController: BaseViewController {
             }
         })
         
+        self.oneView.applyBlock = { [weak self] model in
+            guard let self = self else { return }
+            Task {
+                await self.applyProduct(with: model)
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +84,35 @@ extension HomeViewController {
 extension HomeViewController {
     
     private func oneViewModel(with model: haveionModel) {
-        self.oneView.configCardMessage(with: model)
+        self.oneView.model = model
+    }
+    
+    private func applyProduct(with model: haveionModel) async {
+        let productID = String(model.cunely ?? 0)
+        
+        let json = [
+            "quintarian": "1001",
+            "vigenclearlyence": "1000",
+            "windowship": "1000",
+            "spatikin": productID,
+            "susment": "1001"
+        ]
+        
+        do {
+            let model = try await viewModel.applyProductInfo(json: json)
+            if model.mountization == "0" {
+                let pageUrl = model.hairship?.orexilike ?? ""
+                if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
+                    URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
+                } else {
+                    self.goWebVc(with: pageUrl)
+                }
+            } else {
+                ToastManager.showMessage(message: model.se ?? "")
+            }
+        } catch {
+            
+        }
     }
     
 }
