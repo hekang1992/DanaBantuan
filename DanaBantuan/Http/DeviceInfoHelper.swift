@@ -23,9 +23,9 @@ final class DeviceInfoHelper {
         
         let idfv = IDFVManager.shared.getIDFV()
         
-        let language = Locale.preferredLanguages.first ?? "en"
-        
         let sessionId = UserLoginConfig.token ?? ""
+        
+        let languageCode = LanguageManager.currentLanguage.rawValue
         
         return [
             "epstoryaneous": "ios",
@@ -36,7 +36,7 @@ final class DeviceInfoHelper {
             "elseence": "dana_bantuan",
             "cotylly": sessionId,
             "scaloon": idfv,
-            "ie": LanguageManager.currentLanguage.rawValue
+            "ie": languageCode == "2" ? "7641" : "2836"
         ]
     }
 }

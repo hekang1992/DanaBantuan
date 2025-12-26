@@ -5,9 +5,9 @@
 //  Created by hekang on 2025/12/25.
 //
 
-
 import UIKit
 import SnapKit
+import Toast_Swift
 
 final class LoadingView {
     
@@ -78,3 +78,11 @@ final class LoadingView {
         }
     }
 }
+
+class ToastManager {
+    static func showMessage(message: String) {
+        guard let window = UIApplication.shared.windows.first else { return }
+        window.makeToast(message, duration: 3.0, position: .center)
+    }
+}
+

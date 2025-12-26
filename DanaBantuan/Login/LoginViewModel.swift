@@ -1,5 +1,5 @@
 //
-//  LaunchViewModel.swift
+//  LoginViewModel.swift
 //  DanaBantuan
 //
 //  Created by hekang on 2025/12/25.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class LaunchViewModel {
+class LoginViewModel {
     
-    func launchInfo(json: [String: String]) async throws -> BaseModel {
+    func codeInfo(json: [String: String]) async throws -> BaseModel {
         
         LoadingView.shared.show()
         
@@ -20,7 +20,7 @@ class LaunchViewModel {
         }
         
         do {
-            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/pteracy", parameters: json)
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/sors", parameters: json)
             return model
         } catch {
             print("error===: \(error)")
@@ -28,7 +28,7 @@ class LaunchViewModel {
         }
     }
     
-    func uploadIDFAinfo(json: [String: String]) async throws -> BaseModel {
+    func loginInfo(json: [String: String]) async throws -> BaseModel {
         
         LoadingView.shared.show()
         
@@ -39,7 +39,7 @@ class LaunchViewModel {
         }
         
         do {
-            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/persicfier", parameters: json)
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/emness", parameters: json)
             return model
         } catch {
             print("error===: \(error)")

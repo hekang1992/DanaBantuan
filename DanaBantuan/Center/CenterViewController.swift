@@ -6,24 +6,47 @@
 //
 
 import UIKit
+import SnapKit
 
 class CenterViewController: BaseViewController {
-
+    
+    private let viewModel = CenterViewModel()
+    
+    lazy var centerView: CenterView = {
+        let centerView = CenterView(frame: .zero)
+        return centerView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view.addSubview(centerView)
+        centerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task {
+            await self.centerInfo()
+        }
     }
-    */
+    
+}
 
+extension CenterViewController {
+    
+    private func centerInfo() async {
+        do {
+            let json = ["vitiitious": UserLoginConfig.isLoggedIn ? "1" : "0"]
+            let model = try await viewModel.centerInfo(json: json)
+            if model.mountization == "0" {
+                
+            }
+        } catch {
+            
+        }
+    }
+    
 }

@@ -48,7 +48,7 @@ class IDFAManager {
         }
     }
     
-    private func getCurrentIDFA() -> String {
+    func getCurrentIDFA() -> String {
         guard ATTrackingManager.trackingAuthorizationStatus == .authorized else {
             return ""
         }

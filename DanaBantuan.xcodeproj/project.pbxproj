@@ -28,6 +28,11 @@
 		737FEDEC2EFD740300B06DE7 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDEB2EFD73FC00B06DE7 /* LaunchViewModel.swift */; };
 		737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDED2EFD74C200B06DE7 /* LoadingView.swift */; };
 		737FEDF02EFD764B00B06DE7 /* DeviceInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDEF2EFD764B00B06DE7 /* DeviceInfoHelper.swift */; };
+		737FEDF22EFD794C00B06DE7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDF12EFD794A00B06DE7 /* LoginViewModel.swift */; };
+		737FEDF42EFD79E700B06DE7 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDF32EFD79E700B06DE7 /* NetworkMonitor.swift */; };
+		737FEDF62EFD7CDD00B06DE7 /* NetworkProxyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDF52EFD7CDD00B06DE7 /* NetworkProxyInfo.swift */; };
+		737FEDF82EFD8C3A00B06DE7 /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDF72EFD8C3A00B06DE7 /* CenterView.swift */; };
+		737FEDFA2EFD8CA700B06DE7 /* CenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDF92EFD8CA500B06DE7 /* CenterViewModel.swift */; };
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
@@ -57,6 +62,11 @@
 		737FEDEB2EFD73FC00B06DE7 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		737FEDED2EFD74C200B06DE7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		737FEDEF2EFD764B00B06DE7 /* DeviceInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoHelper.swift; sourceTree = "<group>"; };
+		737FEDF12EFD794A00B06DE7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		737FEDF32EFD79E700B06DE7 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		737FEDF52EFD7CDD00B06DE7 /* NetworkProxyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProxyInfo.swift; sourceTree = "<group>"; };
+		737FEDF72EFD8C3A00B06DE7 /* CenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
+		737FEDF92EFD8CA500B06DE7 /* CenterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewModel.swift; sourceTree = "<group>"; };
 		73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaBantuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +91,7 @@
 		733A08252EFCD8F500EF865F /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				737FEDF52EFD7CDD00B06DE7 /* NetworkProxyInfo.swift */,
 				737FEDED2EFD74C200B06DE7 /* LoadingView.swift */,
 				737FEDEB2EFD73FC00B06DE7 /* LaunchViewModel.swift */,
 				733A08332EFCD9F500EF865F /* StartViewController.swift */,
@@ -95,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				737FEDE92EFD73D300B06DE7 /* BaseModel.swift */,
+				737FEDF32EFD79E700B06DE7 /* NetworkMonitor.swift */,
 				737FEDEF2EFD764B00B06DE7 /* DeviceInfoHelper.swift */,
 				737FEDE72EFD71F800B06DE7 /* HttpRequestManager.swift */,
 			);
@@ -116,6 +128,7 @@
 		733A08282EFCD8FE00EF865F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				737FEDF12EFD794A00B06DE7 /* LoginViewModel.swift */,
 				733A08532EFCF20500EF865F /* LoginView.swift */,
 				733A08442EFCEC9E00EF865F /* LoginViewController.swift */,
 			);
@@ -141,6 +154,8 @@
 		733A082B2EFCD90700EF865F /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				737FEDF92EFD8CA500B06DE7 /* CenterViewModel.swift */,
+				737FEDF72EFD8C3A00B06DE7 /* CenterView.swift */,
 				733A084A2EFCED3200EF865F /* CenterViewController.swift */,
 			);
 			path = Center;
@@ -346,11 +361,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				737FEDFA2EFD8CA700B06DE7 /* CenterViewModel.swift in Sources */,
 				733A08452EFCEC9E00EF865F /* LoginViewController.swift in Sources */,
 				733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */,
 				733A08492EFCED2800EF865F /* OrderViewController.swift in Sources */,
 				733A083B2EFCE28200EF865F /* IDFVManager.swift in Sources */,
+				737FEDF62EFD7CDD00B06DE7 /* NetworkProxyInfo.swift in Sources */,
+				737FEDF42EFD79E700B06DE7 /* NetworkMonitor.swift in Sources */,
 				733A08412EFCEC5100EF865F /* AppTabBarController.swift in Sources */,
+				737FEDF82EFD8C3A00B06DE7 /* CenterView.swift in Sources */,
 				737FEDF02EFD764B00B06DE7 /* DeviceInfoHelper.swift in Sources */,
 				733A083D2EFCE41F00EF865F /* IDFAManager.swift in Sources */,
 				733A08392EFCDEA500EF865F /* UserLoginConfig.swift in Sources */,
@@ -366,6 +385,7 @@
 				733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */,
 				737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */,
 				737FEDEC2EFD740300B06DE7 /* LaunchViewModel.swift in Sources */,
+				737FEDF22EFD794C00B06DE7 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
