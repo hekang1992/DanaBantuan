@@ -24,6 +24,15 @@ class CenterViewController: BaseViewController {
         centerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        centerView.tapClickBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
+                
+            }else if pageUrl.hasPrefix("http://") || pageUrl.hasPrefix("https://") {
+                self.goWebVc(with: pageUrl)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +51,9 @@ extension CenterViewController {
             let json = ["vitiitious": UserLoginConfig.isLoggedIn ? "1" : "0"]
             let model = try await viewModel.centerInfo(json: json)
             if model.mountization == "0" {
-                
+                self.centerView.modelArray = model.hairship?.odontard ?? []
+            }else {
+                ToastManager.showMessage(message: model.se ?? "")
             }
         } catch {
             

@@ -9,6 +9,11 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
+    lazy var headView: AppHeadView = {
+        let headView = AppHeadView(frame: .zero)
+        return headView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +29,12 @@ extension BaseViewController {
             NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil
             )
         }
+    }
+    
+    func goWebVc(with pageUrl: String) {
+        let webVc = H5WebViewController()
+        webVc.pageUrl = pageUrl
+        self.navigationController?.pushViewController(webVc, animated: true)
     }
     
 }

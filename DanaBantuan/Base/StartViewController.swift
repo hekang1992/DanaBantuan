@@ -41,8 +41,8 @@ class StartViewController: BaseViewController {
 extension StartViewController {
     
     private func requestAll() async {
-        async let oneTask: Void = getAppIDFA()
-        async let twoTask: Void = launchInfo()
+        async let oneTask: Void = launchInfo()
+        async let twoTask: Void = getAppIDFA()
         
         _ = await (oneTask, twoTask)
         

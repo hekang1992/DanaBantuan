@@ -25,7 +25,17 @@ final class DeviceInfoHelper {
         
         let sessionId = UserLoginConfig.token ?? ""
         
-        let languageCode = LanguageManager.currentLanguage.rawValue
+        var ie: String = ""
+        
+        let savedCode = UserDefaults.standard.string(forKey: "app_language") ?? ""
+        
+        if savedCode.isEmpty {
+            ie = ""
+        }else if savedCode == "2" {
+            ie = "7641"
+        }else if savedCode == "1" {
+            ie = "2836"
+        }
         
         return [
             "epstoryaneous": "ios",
@@ -36,7 +46,7 @@ final class DeviceInfoHelper {
             "elseence": "dana_bantuan",
             "cotylly": sessionId,
             "scaloon": idfv,
-            "ie": languageCode == "2" ? "7641" : "2836"
+            "ie": ie
         ]
     }
 }

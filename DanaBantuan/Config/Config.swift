@@ -9,6 +9,7 @@ import UIKit
 import Foundation
 
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
+let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 
 extension UIFont {
     static func system(_ size: CGFloat, weightValue: CGFloat) -> UIFont {
@@ -50,5 +51,29 @@ extension CGFloat {
 extension Int {
     func pix() -> CGFloat {
         return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
+    }
+}
+
+class PhoneFormatter {
+    static func formatPhoneNumber(_ phone: String) -> String {
+        guard phone.count >= 8 else { return phone }
+        
+        let startIndex = phone.index(phone.startIndex, offsetBy: 3)
+        let endIndex = phone.index(phone.endIndex, offsetBy: -4)
+        
+        guard startIndex < endIndex else {
+            let prefix = String(phone.prefix(3))
+            return "\(prefix)***"
+        }
+        
+        let range = startIndex..<endIndex
+        
+        var formatted = phone
+        formatted.replaceSubrange(range, with: "***")
+        return formatted
+    }
+    
+    func format(_ phone: String) -> String {
+        return PhoneFormatter.formatPhoneNumber(phone)
     }
 }
