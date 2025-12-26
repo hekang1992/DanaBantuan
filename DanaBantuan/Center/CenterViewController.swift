@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import MJRefresh
 
 class CenterViewController: BaseViewController {
     
@@ -33,6 +34,13 @@ class CenterViewController: BaseViewController {
                 self.goWebVc(with: pageUrl)
             }
         }
+        
+        self.centerView.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+            guard let self = self else { return }
+            Task {
+                await self.centerInfo()
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,8 +63,13 @@ extension CenterViewController {
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }
+            await MainActor.run {
+                self.centerView.tableView.mj_header?.endRefreshing()
+            }
         } catch {
-            
+            await MainActor.run {
+                self.centerView.tableView.mj_header?.endRefreshing()
+            }
         }
     }
     

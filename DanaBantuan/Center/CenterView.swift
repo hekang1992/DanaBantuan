@@ -93,10 +93,11 @@ class CenterView: UIView {
             make.height.equalTo(22)
         }
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(iconImageView.snp.bottom).offset(15)
+            make.top.equalTo(iconImageView.snp.bottom).offset(5)
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -134,6 +135,36 @@ extension CenterView: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .white
         cell.contentView.layer.cornerRadius = 14
         cell.contentView.layer.masksToBounds = true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15.pix()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headView = UIView()
+        headView.backgroundColor = .clear
+        return headView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 160.pix()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        if self.modelArray != nil {
+            let footImageView = UIImageView()
+            let languageCode = LanguageManager.currentLanguage
+            footImageView.image = languageCode == .id ? UIImage(named: "mine_foot_id_image") : UIImage(named: "mine_foot_en_image")
+            footerView.addSubview(footImageView)
+            footImageView.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.top.equalToSuperview().offset(15.pix())
+                make.size.equalTo(CGSize(width: 335.pix(), height: 141.pix()))
+            }
+        }
+        return footerView
     }
     
 }
