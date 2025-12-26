@@ -67,6 +67,15 @@ class H5WebViewController: BaseViewController {
             self.webView.load(request)
         }
         
+        headView.tapClickBlock = { [weak self] in
+            guard let self = self else { return }
+            if self.webView.canGoBack {
+                self.webView.goBack()
+            }else {
+                backProductPageVc()
+            }
+        }
+        
         print("h5Url====: \(h5Url)")
     }
     
