@@ -23,7 +23,6 @@ class LaunchViewModel {
             let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/pteracy", parameters: json)
             return model
         } catch {
-            print("error===: \(error)")
             throw error
         }
     }
@@ -42,7 +41,6 @@ class LaunchViewModel {
             let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/persicfier", parameters: json)
             return model
         } catch {
-            print("error===: \(error)")
             throw error
         }
     }

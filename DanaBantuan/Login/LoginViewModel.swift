@@ -23,7 +23,6 @@ class LoginViewModel {
             let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/sors", parameters: json)
             return model
         } catch {
-            print("error===: \(error)")
             throw error
         }
     }
@@ -42,7 +41,6 @@ class LoginViewModel {
             let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/emness", parameters: json)
             return model
         } catch {
-            print("error===: \(error)")
             throw error
         }
     }

@@ -31,10 +31,31 @@ class hairshipModel: Codable {
     var cotylly: String?
     var interency: String?
     var odontard: [odontardModel]?
+    var clearfic: [clearficModel]?
 }
 
 class odontardModel: Codable {
     var jutcommonably: String?
     var pung: String?
     var goodard: String?
+}
+
+class clearficModel: Codable {
+    var gymn: String?
+    var haveion: [haveionModel]?
+}
+
+class haveionModel: Codable {
+    var cunely: Int?
+    var tic: String?
+    var vituage: String?
+    var penoern: String?
+    var persicfier: String?
+    var algics: String?
+    var paintingsion: String?
+    var listen: String?
+    var cardineur: String?
+    var relateform: String?
+    var oesophagable: String?
+    var hydroing: String?
 }

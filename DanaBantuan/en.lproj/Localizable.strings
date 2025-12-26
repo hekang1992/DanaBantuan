@@ -10,7 +10,6 @@
 "Order" = "Order";
 "My" = "My";
 
-
 "+91" = "+91";
 "Please enter mobile phone number" = "Please enter mobile phone number";
 "Please enter verification code" = "Please enter verification code";
@@ -19,3 +18,8 @@
 "I have read and agree to the <Privacy Policy>" = "I have read and agree to the <Privacy Policy>";
 "<Privacy Policy>" = "<Privacy Policy>";
 "Please confirm and read the agreement" = "Please confirm and read the agreement";
+
+"Set Up" = "Set Up";
+"Cancel Account" = "Cancel Account";
+"Version" = "Version";
+"Log Out" = "Log Out";

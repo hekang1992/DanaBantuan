@@ -1,15 +1,15 @@
 //
-//  CenterViewModel.swift
+//  HomeViewModel.swift
 //  DanaBantuan
 //
-//  Created by hekang on 2025/12/25.
+//  Created by hekang on 2025/12/26.
 //
 
 import Foundation
 
-class CenterViewModel {
+class HomeViewModel {
     
-    func centerInfo(json: [String: String]) async throws -> BaseModel {
+    func homeInfo(json: [String: String]) async throws -> BaseModel {
         
         LoadingView.shared.show()
         
@@ -20,12 +20,12 @@ class CenterViewModel {
         }
         
         do {
-            let model: BaseModel = try await HttpRequestManager.shared.get("/alwaysad/interency", parameters: json)
+            let model: BaseModel = try await HttpRequestManager.shared.get("/alwaysad/se", parameters: json)
             return model
         } catch {
-            print("error===: \(error)")
             throw error
         }
     }
+    
     
 }

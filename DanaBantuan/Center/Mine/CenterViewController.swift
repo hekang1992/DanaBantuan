@@ -27,10 +27,10 @@ class CenterViewController: BaseViewController {
         }
         
         centerView.tapClickBlock = { [weak self] pageUrl in
-            guard let self = self else { return }
+            guard let self = self, !pageUrl.isEmpty else { return }
             if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
-                
-            }else if pageUrl.hasPrefix("http://") || pageUrl.hasPrefix("https://") {
+                URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
+            } else {
                 self.goWebVc(with: pageUrl)
             }
         }

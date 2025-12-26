@@ -93,7 +93,7 @@ class CenterView: UIView {
             make.height.equalTo(22)
         }
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(iconImageView.snp.bottom).offset(5)
+            make.top.equalTo(iconImageView.snp.bottom).offset(15.pix())
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -107,10 +107,6 @@ class CenterView: UIView {
 }
 
 extension CenterView: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.modelArray?.count ?? 0
@@ -138,7 +134,7 @@ extension CenterView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 15.pix()
+        return 10.pix()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

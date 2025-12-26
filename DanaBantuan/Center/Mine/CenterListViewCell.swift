@@ -28,7 +28,7 @@ class CenterListViewCell: UITableViewCell {
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
-        nameLabel.textColor = UIColor.init(hex: "#333333")
+        nameLabel.textColor = UIColor.init(hex: "#0A1121")
         nameLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return nameLabel
     }()
