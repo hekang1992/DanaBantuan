@@ -84,6 +84,8 @@ extension LoginViewController {
         let phone = self.loginView.phoneFiled.text ?? ""
         let code = self.loginView.codeFiled.text ?? ""
         let isAgreeMent = self.loginView.sureBtn.isSelected
+        self.loginView.codeFiled.resignFirstResponder()
+        self.loginView.phoneFiled.resignFirstResponder()
         if phone.isEmpty {
             ToastManager.showMessage(message: LanguageManager.localizedString(for: "Please enter mobile phone number"))
             return
@@ -106,14 +108,7 @@ extension LoginViewController {
                 let phone = model.hairship?.interency ?? ""
                 let token = model.hairship?.cotylly ?? ""
                 UserLoginConfig.saveUserInformation(phone: phone, token: token)
-                DispatchQueue.main.async {
-                    self.loginView.codeFiled.resignFirstResponder()
-                    self.loginView.phoneFiled.resignFirstResponder()
-                    DispatchQueue.main.async {
-                        NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil
-                        )
-                    }
-                }
+                self.changeRootVc()
             }
             ToastManager.showMessage(message: model.se ?? "")
         } catch {

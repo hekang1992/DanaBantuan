@@ -11,6 +11,8 @@ import TYAlertController
 
 class SettingViewController: BaseViewController {
     
+    private let viewModel = CenterViewModel()
+    
     lazy var logoImageView: UIImageView = {
         let logoImageView = UIImageView()
         logoImageView.image = UIImage(named: "login_logo_image")
@@ -164,12 +166,78 @@ extension SettingViewController {
         alertDeleteView()
     }
     
+    /// logout_info
     private func alertLogoutView() {
+        let popView = AppAlertLogoutView(frame: self.view.bounds)
+        let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
         
+        popView.cancelBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
+        
+        popView.sureBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true) {
+                Task {
+                    await self.logoutInfo()
+                }
+            }
+        }
     }
     
+    /// delete_account_info
     private func alertDeleteView() {
+        let popView = AppAlertDeleteView(frame: self.view.bounds)
+        let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
         
+        popView.cancelBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
+        
+        popView.sureBlock = { [weak self] in
+            guard let self = self else { return }
+            if popView.sureBtn.isSelected == false {
+                ToastManager.showMessage(message: "Please confirm the agreement")
+                return
+            }
+            self.dismiss(animated: true) {
+                Task {
+                    await self.deleteInfo()
+                }
+            }
+        }
+    }
+    
+    private func logoutInfo() async {
+        do {
+            let json = ["nothfic": String(LanguageManager.currentLanguage.rawValue)]
+            let model = try await viewModel.logoutInfo(json: json)
+            if model.mountization == "0" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+            }
+            ToastManager.showMessage(message: model.se ?? "")
+        } catch {
+        
+        }
+    }
+    
+    private func deleteInfo() async {
+        do {
+            let json = ["consumeraneous": String(LanguageManager.currentLanguage.rawValue)]
+            let model = try await viewModel.deleteInfo(json: json)
+            if model.mountization == "0" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+            }
+            ToastManager.showMessage(message: model.se ?? "")
+        } catch {
+        
+        }
     }
     
 }
