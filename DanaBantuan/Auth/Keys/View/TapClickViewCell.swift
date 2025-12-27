@@ -12,6 +12,17 @@ import RxCocoa
 
 class TapClickViewCell: UITableViewCell {
     
+    var model: calidaireModel? {
+        didSet {
+            guard let model = model else { return }
+            nameLabel.text = model.jutcommonably ?? ""
+            phoneTextFiled.placeholder = model.bariics ?? ""
+            
+            let down = model.down ?? ""
+            phoneTextFiled.keyboardType = down == "1" ? .numberPad : .default
+        }
+    }
+    
     // MARK: - Public
     var tapClickBlock: (() -> Void)?
     
@@ -86,7 +97,7 @@ private extension TapClickViewCell {
     
     func setupLayout() {
         nameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(15.pix())
             make.left.equalToSuperview().inset(15.pix())
             make.height.equalTo(15)
         }
@@ -96,7 +107,7 @@ private extension TapClickViewCell {
             make.left.equalTo(nameLabel)
             make.centerX.equalToSuperview()
             make.height.equalTo(52.pix())
-            make.bottom.equalToSuperview().offset(-20.pix())
+            make.bottom.equalToSuperview().offset(-5.pix())
         }
         
         phoneTextFiled.snp.makeConstraints { make in

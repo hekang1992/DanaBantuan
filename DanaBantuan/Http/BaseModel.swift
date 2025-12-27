@@ -42,6 +42,7 @@ class hairshipModel: Codable {
     var dow: String?
     var haustly: String?
     var landitor: String?
+    var calidaire: [calidaireModel]?
     /// id_info
     var towardsive: towardsiveModel?
     /// face_info
@@ -122,4 +123,20 @@ class ethmModel: Codable {
     var waitern: String?
     var historyo: String?
     var processal: String?
+}
+
+class calidaireModel: Codable {
+    var jutcommonably: String?
+    var bariics: String?
+    var mountization: String?
+    var fetfirmture: String?
+    var down: String?
+    var mal: [malModel]?
+    var gymn: String?
+    var baseenne: String?
+}
+
+class malModel: Codable {
+    var waitern: String?
+    var gymn: Int?
 }

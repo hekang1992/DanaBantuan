@@ -24,7 +24,9 @@ class PersonalViewController: BaseViewController {
     
     var baseModel: BaseModel?
     
-    private let viewModel = ProductViewModel()
+    private let viewModel = MainViewModel()
+    
+    private var modelArray = BehaviorRelay<[calidaireModel]>(value: [])
     
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
@@ -46,8 +48,6 @@ class PersonalViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 70
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.rowHeight = UITableView.automaticDimension
@@ -84,8 +84,6 @@ class PersonalViewController: BaseViewController {
             self.backProductPageVc()
         }
         
-        
-        
         let languageCode = LanguageManager.currentLanguage
         
         headImageView.image = languageCode == .id ? UIImage(named: "per_nor_id_image") : UIImage(named: "per_nor_en_image")
@@ -118,27 +116,46 @@ class PersonalViewController: BaseViewController {
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                Task {
-                    await self.getDetailInfo(with: self.productID)
-                }
+                
             })
             .disposed(by: disposeBag)
         
+        modelArray
+            .asObservable()
+            .bind(to: tableView.rx.items) { tableView, row, model in
+                let fetfirmture = model.fetfirmture ?? ""
+                let indexPath = IndexPath(row: row, section: 1)
+                if fetfirmture == "personalty" {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "EnterTextViewCell", for: indexPath) as! EnterTextViewCell
+                    cell.model = model
+                    return cell
+                }else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "TapClickViewCell", for: indexPath) as! TapClickViewCell
+                    cell.model = model
+                    return cell
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        
     }
     
-}
-
-
-extension PersonalViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task {
+            do {
+                let json = ["spatikin": productID]
+                let model = try await viewModel.userDetailInfo(json: json)
+                if model.mountization == "0" {
+                    let modelArray = model.hairship?.calidaire ?? []
+                    self.modelArray.accept(modelArray)
+                }else {
+                    ToastManager.showMessage(message: model.mountization ?? "")
+                }
+            } catch {
+                
+            }
+        }
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TapClickViewCell", for: indexPath) as! TapClickViewCell
-        cell.textLabel?.text = "\(indexPath.row)=========="
-        return cell
-    }
-    
     
 }

@@ -92,9 +92,7 @@ class ContactViewController: BaseViewController {
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                Task {
-                    await self.getDetailInfo(with: self.productID)
-                }
+                
             })
             .disposed(by: disposeBag)
         
