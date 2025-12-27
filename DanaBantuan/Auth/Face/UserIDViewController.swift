@@ -1,5 +1,5 @@
 //
-//  FaceViewController.swift
+//  UserIDViewController.swift
 //  DanaBantuan
 //
 //  Created by hekang on 2025/12/27.
@@ -8,11 +8,16 @@
 import UIKit
 import SnapKit
 
-class FaceViewController: BaseViewController {
+class UserIDViewController: BaseViewController {
     
     var productID: String = ""
     
     var name: String = ""
+    
+    lazy var faceView: FaceView = {
+        let faceView = FaceView(frame: .zero)
+        return faceView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +41,21 @@ class FaceViewController: BaseViewController {
             guard let self = self else { return }
             self.backProductPageVc()
         }
+        
+        view.addSubview(faceView)
+        faceView.snp.makeConstraints { make in
+            make.top.equalTo(headView.snp.bottom).offset(5.pix())
+            make.left.right.bottom.equalToSuperview()
+        }
+        
+        let languageCode = LanguageManager.currentLanguage
+        
+        faceView.oneImageView.image = languageCode == .id ? UIImage(named: "left_id_b_image") : UIImage(named: "left_en_b_image")
+        
+        faceView.twoImageView.image = UIImage(named: "all_cd_ad_image")
+        
+        faceView.footImageView.image = languageCode == .id ? UIImage(named: "left_id_fot_image") : UIImage(named: "left_en_fot_image")
+        
     }
 
 }

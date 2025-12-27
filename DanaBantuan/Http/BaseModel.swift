@@ -36,6 +36,10 @@ class hairshipModel: Codable {
     var play: [playModel]?
     var vovo: vovoModel?
     var section: sectionModel?
+    /// id_info
+    var towardsive: towardsiveModel?
+    /// face_info
+    var pilious: towardsiveModel?
 }
 
 class odontardModel: Codable {
@@ -100,4 +104,16 @@ class stereoModel: Codable {
 class outModel: Codable {
     var jutcommonably: String?
     var futilition: String?
+}
+
+class towardsiveModel: Codable {
+    var sectionia: Int?
+    var orexilike: String?
+    var ethm: ethmModel?
+}
+
+class ethmModel: Codable {
+    var waitern: String?
+    var historyo: String?
+    var processal: String?
 }

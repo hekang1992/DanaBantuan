@@ -10,6 +10,7 @@ import SnapKit
 import Kingfisher
 import RxSwift
 import RxCocoa
+import MJRefresh
 
 class ProductViewController: BaseViewController {
     
@@ -247,6 +248,13 @@ class ProductViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        self.scrollView.mj_header = MJRefreshStateHeader(refreshingBlock: { [weak self] in
+            guard let self = self else { return }
+            Task {
+                await self.getProductDetailInfo()
+            }
+        })
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -271,8 +279,13 @@ extension ProductViewController {
                 self.baseModel = model
                 configWithMessage(with: model)
             }
+            await MainActor.run {
+                self.scrollView.mj_header?.endRefreshing()
+            }
         } catch {
-            
+            await MainActor.run {
+                self.scrollView.mj_header?.endRefreshing()
+            }
         }
     }
     
@@ -435,10 +448,9 @@ extension ProductViewController {
     private func goNextVc(with type: String, name: String) {
         switch type {
         case "preparefold":
-            let faceVc = FaceViewController()
-            faceVc.name = name
-            faceVc.productID = productID
-            self.navigationController?.pushViewController(faceVc, animated: true)
+            Task {
+                await self.judegeFaceInfo(with: name)
+            }
             break
         case "tapetfilm":
             break
@@ -452,3 +464,39 @@ extension ProductViewController {
     }
     
 }
+
+extension ProductViewController {
+    
+    private func judegeFaceInfo(with name: String) async {
+        do {
+            let json = ["spatikin": productID]
+            let model = try await viewModel.getUserlInfo(json: json)
+            if model.mountization == "0" {
+                let idModel = model.hairship?.towardsive ?? towardsiveModel()
+                let faceModel = model.hairship?.pilious ?? towardsiveModel()
+                if idModel.sectionia == 0 {
+                    let idVc = UserIDViewController()
+                    idVc.name = name
+                    idVc.productID = productID
+                    self.navigationController?.pushViewController(idVc, animated: true)
+                    return
+                }
+                if faceModel.sectionia == 0 {
+                    let faceVc = FaceViewController()
+                    faceVc.name = name
+                    faceVc.productID = productID
+                    self.navigationController?.pushViewController(faceVc, animated: true)
+                    return
+                }
+                
+            }else {
+                ToastManager.showMessage(message: model.se ?? "")
+            }
+        } catch {
+            
+        }
+        
+    }
+    
+}
+
