@@ -11,6 +11,7 @@ import TYAlertController
 import Kingfisher
 import RxSwift
 import RxCocoa
+import TYAlertController
 
 class PersonalViewController: BaseViewController {
     
@@ -116,7 +117,15 @@ class PersonalViewController: BaseViewController {
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                
+                var json = ["spatikin": productID]
+                for model in modelArray.value {
+                    let key = model.mountization ?? ""
+                    let name = model.gymn ?? ""
+                    json[key] = name
+                }
+                Task {
+                    await self.saveUserInfo(with: json)
+                }
             })
             .disposed(by: disposeBag)
         
@@ -124,14 +133,24 @@ class PersonalViewController: BaseViewController {
             .asObservable()
             .bind(to: tableView.rx.items) { tableView, row, model in
                 let fetfirmture = model.fetfirmture ?? ""
-                let indexPath = IndexPath(row: row, section: 1)
+                let indexPath = IndexPath(row: row, section: 0)
                 if fetfirmture == "personalty" {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "EnterTextViewCell", for: indexPath) as! EnterTextViewCell
                     cell.model = model
+                    cell.phoneTextChanged = { name in
+                        cell.phoneTextFiled.text = name
+                        model.baseenne = name
+                        model.gymn = name
+                    }
                     return cell
                 }else {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "TapClickViewCell", for: indexPath) as! TapClickViewCell
                     cell.model = model
+                    cell.tapClickBlock = { [weak self] in
+                        guard let self = self else { return }
+                        self.view.endEditing(true)
+                        self.tapClickCell(with: model, selectCell: cell)
+                    }
                     return cell
                 }
             }
@@ -154,6 +173,61 @@ class PersonalViewController: BaseViewController {
                 }
             } catch {
                 
+            }
+        }
+    }
+    
+}
+
+extension PersonalViewController {
+    
+    private func saveUserInfo(with json: [String: String]) async {
+        do {
+            let model = try await viewModel.saveUserDetailInfo(json: json)
+            if model.mountization == "0" {
+                Task {
+                    await self.getDetailInfo(with: productID)
+                }
+            }else {
+                ToastManager.showMessage(message: model.se ?? "")
+            }
+        } catch {
+            
+        }
+    }
+    
+}
+
+extension PersonalViewController {
+    
+    private func tapClickCell(with model: calidaireModel,
+                              selectCell: TapClickViewCell) {
+        
+        let popView = AlertPopEnmuView(frame: view.bounds)
+        popView.ttleLabel.text = model.jutcommonably ?? ""
+        
+        let modelArray = model.mal ?? []
+        popView.modelArray = modelArray
+        
+        if let text = selectCell.phoneTextFiled.text,
+           let selectedIndex = modelArray.firstIndex(where: { $0.waitern == text }) {
+            popView.selectedIndexPath = IndexPath(row: selectedIndex, section: 0)
+        }
+        
+        let alertVC = TYAlertController(alert: popView, preferredStyle: .actionSheet)
+        present(alertVC!, animated: true)
+        
+        popView.cancelBlock = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+        
+        popView.sureBlock = { [weak self] listModel in
+            guard let self = self else { return }
+            self.dismiss(animated: true) {
+                let value = listModel.waitern ?? ""
+                selectCell.phoneTextFiled.text = value
+                model.baseenne = value
+                model.gymn = listModel.gymn ?? ""
             }
         }
     }

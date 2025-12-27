@@ -42,6 +42,7 @@ class hairshipModel: Codable {
     var dow: String?
     var haustly: String?
     var landitor: String?
+    var terg: tergModel?
     var calidaire: [calidaireModel]?
     /// id_info
     var towardsive: towardsiveModel?
@@ -53,11 +54,6 @@ class odontardModel: Codable {
     var jutcommonably: String?
     var pung: String?
     var goodard: String?
-}
-
-class clearficModel: Codable {
-    var gymn: String?
-    var haveion: [haveionModel]?
 }
 
 class haveionModel: Codable {
@@ -138,5 +134,47 @@ class calidaireModel: Codable {
 
 class malModel: Codable {
     var waitern: String?
-    var gymn: Int?
+    var gymn: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case waitern
+        case gymn
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        waitern = try container.decodeIfPresent(String.self, forKey: .waitern)
+        
+        if let stringValue = try container.decodeIfPresent(String.self, forKey: .gymn) {
+            gymn = stringValue
+        } else if let intValue = try container.decodeIfPresent(Int.self, forKey: .gymn) {
+            gymn = String(intValue)
+        } else {
+            gymn = nil
+        }
+    }
+    
+}
+
+
+class tergModel: Codable {
+    var clearfic: [clearficModel]?
+}
+
+class clearficModel: Codable {
+    var gymn: String?
+    var haveion: [haveionModel]?
+    var closdemocraticeous: String?
+    
+    var authcontaino: String?
+    var cubitude: String?
+    var lexular: String?
+    var futilition: String?
+    var roborexpertety: String?
+    var dreament: String?
+    
+    var managerness: String?
+    var waitern: String?
+    var logo: [malModel]?
 }

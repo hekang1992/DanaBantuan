@@ -20,6 +20,8 @@ class TapClickViewCell: UITableViewCell {
             
             let down = model.down ?? ""
             phoneTextFiled.keyboardType = down == "1" ? .numberPad : .default
+            
+            phoneTextFiled.text = model.baseenne ?? ""
         }
     }
     
@@ -46,7 +48,6 @@ class TapClickViewCell: UITableViewCell {
         return view
     }()
     
-    /// ⚠️ 保持原命名，避免外部引用受影响
     lazy var phoneTextFiled: UITextField = {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 14, weight: .medium)

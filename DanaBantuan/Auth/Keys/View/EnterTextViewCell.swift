@@ -20,8 +20,12 @@ class EnterTextViewCell: UITableViewCell {
             
             let down = model.down ?? ""
             phoneTextFiled.keyboardType = down == "1" ? .numberPad : .default
+            
+            phoneTextFiled.text = model.baseenne ?? ""
         }
     }
+    
+    var phoneTextChanged: ((String?) -> Void)?
     
     // MARK: - Public
     var tapClickBlock: (() -> Void)?
@@ -98,6 +102,15 @@ private extension EnterTextViewCell {
             make.top.left.bottom.equalToSuperview()
             make.right.equalToSuperview().offset(-30.pix())
         }
+        
+        phoneTextFiled
+            .rx
+            .text
+            .subscribe(onNext: { [weak self] text in
+                self?.phoneTextChanged?(text)
+            })
+            .disposed(by: disposeBag)
+        
     }
 }
 
