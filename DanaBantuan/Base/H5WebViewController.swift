@@ -10,6 +10,7 @@ import SnapKit
 import WebKit
 import RxSwift
 import RxCocoa
+import StoreKit
 
 class H5WebViewController: BaseViewController {
     
@@ -31,7 +32,7 @@ class H5WebViewController: BaseViewController {
     
     private lazy var progressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .default)
-        progressView.progressTintColor = UIColor.systemPink
+        progressView.progressTintColor = UIColor(hex: "#EF7CFC")
         progressView.trackTintColor = .clear
         progressView.progress = 0
         progressView.isHidden = true
@@ -146,6 +147,75 @@ extension H5WebViewController: WKScriptMessageHandler {
     
     func userContentController(_ userContentController: WKUserContentController,
                                didReceive message: WKScriptMessage) {
-        // JS 回调处理
+        
+        let name = message.name
+        let body = message.body
+        
+        print("name=====\(name)")
+        print("body=====\(body)")
+        
+        switch name {
+        case "fortior":
+            break
+            
+        case "suggestage":
+            handleSuggestage(message.body)
+            
+        case "septuagesimability":
+            navigationController?.popViewController(animated: true)
+            
+        case "athroidward":
+            changeRootVc()
+            
+        case "issuesome":
+            handleSendEmail(message.body)
+            
+        case "itemon":
+            toAppStore()
+            
+        default:
+            break
+        }
+    }
+}
+
+// MARK: - Private Methods
+private extension H5WebViewController {
+    
+    func handleSuggestage(_ body: Any) {
+        guard let pageUrl = body as? String, !pageUrl.isEmpty else { return }
+        
+        if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
+            URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
+        } else {
+            self.pageUrl = pageUrl
+            loadWeb()
+        }
+    }
+    
+    func handleSendEmail(_ body: Any) {
+        guard let email = body as? String, !email.isEmpty else { return }
+        sendEmailInfo(with: email)
+    }
+    
+    func toAppStore() {
+        guard #available(iOS 14.0, *),
+              let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return
+        }
+        SKStoreReviewController.requestReview(in: windowScene)
+    }
+    
+    func sendEmailInfo(with email: String) {
+        let phone = UserLoginConfig.phone ?? ""
+        let body = "Dana Bantuan: \(phone)"
+        
+        guard let encodedBody = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let emailURL = URL(string: "mailto:\(email)?body=\(encodedBody)"),
+              UIApplication.shared.canOpenURL(emailURL) else {
+            return
+        }
+        
+        UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
     }
 }
