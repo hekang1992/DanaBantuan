@@ -7,10 +7,17 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
+import RxSwift
+import RxCocoa
 
 class ProductViewController: BaseViewController {
     
     var productID: String = ""
+    
+    private var baseModel: BaseModel?
+    
+    private let disposeBag = DisposeBag()
     
     private let viewModel = ProductViewModel()
     
@@ -29,6 +36,87 @@ class ProductViewController: BaseViewController {
         nextBtn.setBackgroundImage(UIImage(named: "list_detai_bg_image"), for: .normal)
         nextBtn.adjustsImageWhenHighlighted = false
         return nextBtn
+    }()
+    
+    lazy var logoImageView: UIImageView = {
+        let logoImageView = UIImageView()
+        logoImageView.layer.cornerRadius = 5
+        logoImageView.layer.masksToBounds = true
+        logoImageView.backgroundColor = .gray
+        return logoImageView
+    }()
+    
+    lazy var nameLabel: UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.textAlignment = .left
+        nameLabel.textColor = UIColor.init(hex: "#052861")
+        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        return nameLabel
+    }()
+    
+    lazy var itemLabel: UILabel = {
+        let itemLabel = UILabel()
+        itemLabel.textAlignment = .right
+        itemLabel.textColor = UIColor.init(hex: "#052861")
+        itemLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        return itemLabel
+    }()
+    
+    lazy var oneStarImageView: UIImageView = {
+        let oneStarImageView = UIImageView()
+        oneStarImageView.image = UIImage(named: "hone_state_image")
+        return oneStarImageView
+    }()
+    
+    lazy var twoStarImageView: UIImageView = {
+        let twoStarImageView = UIImageView()
+        twoStarImageView.image = UIImage(named: "hone_state_image")
+        return twoStarImageView
+    }()
+    
+    lazy var maxLabel: UILabel = {
+        let maxLabel = UILabel()
+        maxLabel.textAlignment = .center
+        maxLabel.textColor = UIColor.init(hex: "#1CC7EF")
+        maxLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        return maxLabel
+    }()
+    
+    lazy var moneyLabel: UILabel = {
+        let moneyLabel = UILabel()
+        moneyLabel.textAlignment = .center
+        moneyLabel.textColor = UIColor.init(hex: "#0A1121")
+        moneyLabel.font = UIFont.systemFont(ofSize: 46, weight: UIFont.Weight(700))
+        return moneyLabel
+    }()
+    
+    lazy var rateLabel: UILabel = {
+        let rateLabel = UILabel()
+        rateLabel.textAlignment = .center
+        rateLabel.textColor = UIColor.init(hex: "#759199")
+        rateLabel.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        return rateLabel
+    }()
+    
+    lazy var threeImageView: UIImageView = {
+        let threeImageView = UIImageView()
+        threeImageView.image = UIImage(named: "mon_e_image")
+        return threeImageView
+    }()
+    
+    lazy var fourImageView: UIImageView = {
+        let fourImageView = UIImageView()
+        let languageCode = LanguageManager.currentLanguage
+        fourImageView.image = languageCode == .id ? UIImage(named: "id_com_ad_image") : UIImage(named: "en_com_ad_image@")
+        fourImageView.contentMode = .scaleAspectFit
+        return fourImageView
+    }()
+    
+    lazy var authImageView: UIImageView = {
+        let authImageView = UIImageView()
+        authImageView.image = UIImage(named: "lis_app_auth_image")
+        authImageView.isUserInteractionEnabled = true
+        return authImageView
     }()
     
     override func viewDidLoad() {
@@ -78,8 +166,6 @@ class ProductViewController: BaseViewController {
             make.bottom.equalTo(nextBtn.snp.top).offset(-10.pix())
         }
         
-        let authImageView = UIImageView()
-        authImageView.image = UIImage(named: "lis_app_auth_image")
         scrollView.addSubview(authImageView)
         authImageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -88,11 +174,85 @@ class ProductViewController: BaseViewController {
             make.bottom.equalToSuperview().offset(-10.pix())
         }
         
+        authImageView.addSubview(logoImageView)
+        authImageView.addSubview(nameLabel)
+        authImageView.addSubview(itemLabel)
+        authImageView.addSubview(oneStarImageView)
+        authImageView.addSubview(twoStarImageView)
+        authImageView.addSubview(threeImageView)
+        authImageView.addSubview(maxLabel)
+        authImageView.addSubview(rateLabel)
+        threeImageView.addSubview(moneyLabel)
+        authImageView.addSubview(fourImageView)
+        
+        logoImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(94.pix())
+            make.left.equalToSuperview().offset(25.pix())
+            make.size.equalTo(CGSize(width: 30.pix(), height: 30.pix()))
+        }
+        nameLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(logoImageView)
+            make.left.equalTo(logoImageView.snp.right).offset(5.pix())
+            make.height.equalTo(16)
+        }
+        itemLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(logoImageView)
+            make.right.equalToSuperview().offset(-25.pix())
+            make.height.equalTo(16)
+        }
+        oneStarImageView.snp.makeConstraints { make in
+            make.top.equalTo(logoImageView.snp.bottom).offset(31.pix())
+            make.left.equalTo(logoImageView).offset(25.pix())
+            make.size.equalTo(CGSize(width: 41, height: 13))
+        }
+        twoStarImageView.snp.makeConstraints { make in
+            make.top.equalTo(logoImageView.snp.bottom).offset(31.pix())
+            make.right.equalToSuperview().offset(-49.pix())
+            make.size.equalTo(CGSize(width: 41, height: 13))
+        }
+        maxLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(oneStarImageView)
+            make.left.equalTo(oneStarImageView.snp.right).offset(5.pix())
+            make.right.equalTo(twoStarImageView.snp.left).offset(-5.pix())
+            make.height.equalTo(15)
+        }
+        threeImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(187.pix())
+            make.size.equalTo(CGSize(width: 282.pix(), height: 74.pix()))
+            make.centerX.equalToSuperview()
+        }
+        rateLabel.snp.makeConstraints { make in
+            make.top.equalTo(threeImageView.snp.bottom).offset(12.pix())
+            make.centerX.equalToSuperview()
+            make.height.equalTo(13)
+        }
+        moneyLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        fourImageView.snp.makeConstraints { make in
+            make.top.equalTo(rateLabel.snp.bottom).offset(15.pix())
+            make.centerX.equalToSuperview()
+            make.height.equalTo(24.pix())
+        }
+        
+        nextBtn
+            .rx
+            .tap
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                if let baseModel = baseModel {
+                    self.clickNoCompleteToNextVc(with: baseModel.hairship?.vovo ?? vovoModel())
+                }
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Task {
+            try? await Task.sleep(nanoseconds: 200_000_000)
             await self.getProductDetailInfo()
         }
     }
@@ -108,11 +268,186 @@ extension ProductViewController {
             ]
             let model = try await viewModel.productDetailInfo(json: json)
             if model.mountization == "0" {
-                self.headView.configure(withTitle: model.hairship?.section?.tic ?? "")
-                self.nextBtn.setTitle(model.hairship?.section?.penoern ?? "", for: .normal)
+                self.baseModel = model
+                configWithMessage(with: model)
             }
         } catch {
             
+        }
+    }
+    
+}
+
+extension ProductViewController {
+    
+    private func configWithMessage(with model: BaseModel) {
+        let name = model.hairship?.section?.tic ?? ""
+        self.headView.configure(withTitle: name)
+        self.nextBtn.setTitle(model.hairship?.section?.penoern ?? "", for: .normal)
+        
+        let logoUrl = model.hairship?.section?.vituage ?? ""
+        logoImageView.kf.setImage(with: URL(string: logoUrl))
+        nameLabel.text = name
+        
+        maxLabel.text = model.hairship?.section?.cordeous ?? ""
+        moneyLabel.text = model.hairship?.section?.ourability ?? ""
+        
+        let three = model.hairship?.section?.stereo?.clysmonceit?.jutcommonably ?? ""
+        let four = model.hairship?.section?.stereo?.clysmonceit?.futilition ?? ""
+        
+        let threePart = String(format: "%@: ", three)
+        let fullText = threePart + four
+        
+        let attributedText = NSMutableAttributedString(string: fullText)
+        attributedText.addAttribute(.foregroundColor,
+                                    value: UIColor.init(hex: "#759199"),
+                                    range: NSRange(location: 0, length: threePart.count))
+        attributedText.addAttribute(.foregroundColor,
+                                    value: UIColor.init(hex: "#29C1F3"),
+                                    range: NSRange(location: threePart.count, length: four.count))
+        rateLabel.attributedText = attributedText
+        
+        let modelArray = model.hairship?.play ?? []
+        createDynamicViews(with: modelArray)
+    }
+    
+    private func createDynamicViews(with modelArray: [playModel]) {
+        removeExistingDynamicViews()
+        let referenceView = fourImageView
+        
+        let containerView = UIView()
+        containerView.backgroundColor = .clear
+        authImageView.addSubview(containerView)
+        
+        containerView.snp.makeConstraints { make in
+            make.top.equalTo(referenceView.snp.bottom).offset(20.pix())
+            make.left.right.equalToSuperview()
+            make.bottom.lessThanOrEqualToSuperview().offset(-10.pix())
+        }
+        
+        var previousView: UIView?
+        let itemHeight = 54.pix()
+        let spacing = 10.pix()
+        
+        for (index, model) in modelArray.enumerated() {
+            let itemView = createItemView(for: model, index: index)
+            containerView.addSubview(itemView)
+            
+            itemView.snp.makeConstraints { make in
+                make.left.right.equalToSuperview()
+                make.height.equalTo(itemHeight)
+                
+                if let previous = previousView {
+                    make.top.equalTo(previous.snp.bottom).offset(spacing)
+                } else {
+                    make.top.equalToSuperview()
+                }
+                
+                if index == modelArray.count - 1 {
+                    make.bottom.equalToSuperview()
+                }
+            }
+            
+            previousView = itemView
+        }
+        
+        if modelArray.isEmpty {
+            containerView.snp.makeConstraints { make in
+                make.height.equalTo(0)
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.updateScrollViewContentSize()
+        }
+    }
+    
+    private func createItemView(for model: playModel, index: Int) -> UIView {
+        let itemView = CompleteListView()
+        let barel = model.barel ?? ""
+        let sectionia = model.sectionia ?? 0
+        itemView.numLabel.text = String(format: "%@:", String(index + 1))
+        itemView.nameLabel.text = model.jutcommonably ?? ""
+        if sectionia == 1 {
+            itemView.numLabel.textColor = UIColor.init(hex: "#96EF24")
+            itemView.nameLabel.textColor = UIColor.init(hex: "#96EF24")
+            itemView.iconImageView.image = UIImage(named: "\(barel)_sel_image")
+            itemView.bgView.layer.borderWidth = 2
+            itemView.bgView.layer.borderColor = UIColor.init(hex: "#96EF24").cgColor
+            itemView.authImageView.isHidden = false
+            itemView.rightImageView.isHidden = true
+        }else {
+            itemView.numLabel.textColor = UIColor.init(hex: "#759199")
+            itemView.nameLabel.textColor = UIColor.init(hex: "#759199")
+            itemView.iconImageView.image = UIImage(named: "\(barel)_nor_image")
+            itemView.authImageView.isHidden = true
+            itemView.rightImageView.isHidden = false
+        }
+        itemView.tapClickBlock = { [weak self] in
+            guard let self = self else { return }
+            if sectionia == 1 {
+                self.clickCompleteToNextVc(with: model)
+            }else {
+                if let baseModel = baseModel {
+                    self.clickNoCompleteToNextVc(with: baseModel.hairship?.vovo ?? vovoModel())
+                }
+            }
+        }
+        return itemView
+    }
+    
+    private func removeExistingDynamicViews() {
+        for view in authImageView.subviews {
+            if view != logoImageView && view != nameLabel && view != itemLabel &&
+                view != oneStarImageView && view != twoStarImageView && view != threeImageView &&
+                view != maxLabel && view != rateLabel && view != moneyLabel && view != fourImageView {
+                view.removeFromSuperview()
+            }
+        }
+    }
+    
+    private func updateScrollViewContentSize() {
+        view.layoutIfNeeded()
+        var totalHeight: CGFloat = 0
+        for view in authImageView.subviews {
+            totalHeight = max(totalHeight, view.frame.maxY)
+        }
+        scrollView.contentSize = CGSize(width: SCREEN_WIDTH, height: totalHeight + 20)
+    }
+}
+
+extension ProductViewController {
+    
+    /// complete_auth_info
+    private func clickCompleteToNextVc(with model: playModel) {
+        let barel = model.barel ?? ""
+        let jutcommonably = model.jutcommonably ?? ""
+        self.goNextVc(with: barel, name: jutcommonably)
+    }
+    
+    /// nocomp_auth_info
+    private func clickNoCompleteToNextVc(with model: vovoModel) {
+        let barel = model.barel ?? ""
+        let jutcommonably = model.jutcommonably ?? ""
+        self.goNextVc(with: barel, name: jutcommonably)
+    }
+    
+    private func goNextVc(with type: String, name: String) {
+        switch type {
+        case "preparefold":
+            let faceVc = FaceViewController()
+            faceVc.name = name
+            faceVc.productID = productID
+            self.navigationController?.pushViewController(faceVc, animated: true)
+            break
+        case "tapetfilm":
+            break
+        case "tropid":
+            break
+        case "montible":
+            break
+        default:
+            break
         }
     }
     

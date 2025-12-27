@@ -33,8 +33,21 @@ class AppOneView: UIView {
             
             let three = model.hydroing ?? ""
             let four = model.oesophagable ?? ""
-            
-            rateLabel.text = String(format: "%@: %@", three, four)
+                        
+            let threePart = String(format: "%@: ", three)
+            let fullText = threePart + four
+
+            let attributedText = NSMutableAttributedString(string: fullText)
+
+            attributedText.addAttribute(.foregroundColor,
+                                       value: UIColor.init(hex: "#759199"),
+                                       range: NSRange(location: 0, length: threePart.count))
+
+            attributedText.addAttribute(.foregroundColor,
+                                       value: UIColor.init(hex: "#29C1F3"),
+                                       range: NSRange(location: threePart.count, length: four.count))
+
+            rateLabel.attributedText = attributedText
         }
     }
 
@@ -228,7 +241,7 @@ class AppOneView: UIView {
         logoImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(94.pix())
             make.left.equalToSuperview().offset(25.pix())
-            make.size.equalTo(CGSize(width: 34.pix(), height: 34.pix()))
+            make.size.equalTo(CGSize(width: 30.pix(), height: 30.pix()))
         }
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalTo(logoImageView)

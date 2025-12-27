@@ -70,6 +70,7 @@ class playModel: Codable {
     var edian: String?
     var dosaneity: String?
     var sectionia: Int?
+    var barel: String?
 }
 
 class vovoModel: Codable {
@@ -87,4 +88,16 @@ class sectionModel: Codable {
     var acetacy: String
     var quassweightify: Int?
     var penoern: String?
+    var cordeous: String?
+    var stereo: stereoModel?
+}
+
+class stereoModel: Codable {
+    var out: outModel?
+    var clysmonceit: outModel?
+}
+
+class outModel: Codable {
+    var jutcommonably: String?
+    var futilition: String?
 }

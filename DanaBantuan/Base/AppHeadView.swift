@@ -21,7 +21,7 @@ class AppHeadView: UIView {
         static let backButtonLeftMargin: CGFloat = 20
         static let nameLabelWidth: CGFloat = 200
         static let nameLabelHeight: CGFloat = 20
-        static let nameLabelFontSize: CGFloat = 14
+        static let nameLabelFontSize: CGFloat = 16
         static let nameLabelTextColor = UIColor(hex: "#0A1121")
     }
     
@@ -42,7 +42,7 @@ class AppHeadView: UIView {
         let label = UILabel()
         label.textColor = Constants.nameLabelTextColor
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: Constants.nameLabelFontSize, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: Constants.nameLabelFontSize, weight: .medium)
         label.accessibilityIdentifier = "appHeadView_nameLabel"
         return label
     }()
