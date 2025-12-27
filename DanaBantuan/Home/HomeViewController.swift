@@ -59,7 +59,7 @@ extension HomeViewController {
         do {
             let json = ["se": "1"]
             let model = try await viewModel.homeInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 self.baseModel = model
                 let modelArray = model.hairship?.clearfic ?? []
                 for item in modelArray {
@@ -100,7 +100,7 @@ extension HomeViewController {
         
         do {
             let model = try await viewModel.applyProductInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 let pageUrl = model.hairship?.orexilike ?? ""
                 if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
                     URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)

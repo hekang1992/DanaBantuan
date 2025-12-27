@@ -68,7 +68,7 @@ extension LoginViewController {
         do {
             let json = ["sors": phone, "spirness": "1", "emness": "0"]
             let model = try await viewModel.codeInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 startCountDown()
                 DispatchQueue.main.async {
                     self.loginView.codeFiled.becomeFirstResponder()
@@ -104,7 +104,7 @@ extension LoginViewController {
                         "inproof": "1",
                         "pungsion": code]
             let model = try await viewModel.loginInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 let phone = model.hairship?.interency ?? ""
                 let token = model.hairship?.cotylly ?? ""
                 UserLoginConfig.saveUserInformation(phone: phone, token: token)

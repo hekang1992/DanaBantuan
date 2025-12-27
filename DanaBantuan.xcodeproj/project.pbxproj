@@ -49,6 +49,7 @@
 		73CA0FA72EFE8BE40010CDC9 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0FA62EFE8BE00010CDC9 /* ProductViewModel.swift */; };
 		73D7A7AB2F0012C1008C8879 /* AlertPopEnmuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7AA2F0012C1008C8879 /* AlertPopEnmuView.swift */; };
 		73D7A7AD2F002249008C8879 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7AC2F002249008C8879 /* ContactViewCell.swift */; };
+		73D7A7AF2F002A0C008C8879 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7AE2F002A0C008C8879 /* ContactManager.swift */; };
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
@@ -110,6 +111,7 @@
 		73CA0FA62EFE8BE00010CDC9 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		73D7A7AA2F0012C1008C8879 /* AlertPopEnmuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopEnmuView.swift; sourceTree = "<group>"; };
 		73D7A7AC2F002249008C8879 /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
+		73D7A7AE2F002A0C008C8879 /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaBantuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 		73EC216B2EFFECEC00F58012 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				73D7A7AE2F002A0C008C8879 /* ContactManager.swift */,
 				73EC21682EFFEBE600F58012 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
@@ -524,6 +527,7 @@
 				73CA0F952EFE3CA30010CDC9 /* URLSchemeParsable.swift in Sources */,
 				73CA0F932EFE30230010CDC9 /* AppHeadView.swift in Sources */,
 				733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */,
+				73D7A7AF2F002A0C008C8879 /* ContactManager.swift in Sources */,
 				73CA0F9D2EFE54E50010CDC9 /* SettingListView.swift in Sources */,
 				733A08492EFCED2800EF865F /* OrderViewController.swift in Sources */,
 				73D7A7AB2F0012C1008C8879 /* AlertPopEnmuView.swift in Sources */,

@@ -288,7 +288,7 @@ extension BothCompleteViewController {
         do {
             let json = ["spatikin": productID]
             let model = try await viewModel.getUserlInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 self.oneNameLabel.textColor = UIColor(hex: "#0A1121")
                 self.oneNameLabel.text = model.hairship?.towardsive?.ethm?.waitern ?? ""
                 self.twoFiled.text = model.hairship?.towardsive?.ethm?.historyo ?? ""

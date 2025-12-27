@@ -60,7 +60,7 @@ extension BaseViewController {
                         "preventitude": String(Int(1))
             ]
             let model = try await detailViewModel.productDetailInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 let type = model.hairship?.vovo?.barel ?? ""
                 let name = model.hairship?.vovo?.jutcommonably ?? ""
                 let orderNo = model.hairship?.section?.selenality ?? ""
@@ -109,7 +109,7 @@ extension BaseViewController {
             let json = ["spatikin": productID]
             let model = try await detailViewModel.getUserlInfo(json: json)
             
-            guard model.mountization == "0" else {
+            guard model.mountization == "0" || model.mountization == "00" else {
                 ToastManager.showMessage(message: model.se ?? "")
                 return
             }

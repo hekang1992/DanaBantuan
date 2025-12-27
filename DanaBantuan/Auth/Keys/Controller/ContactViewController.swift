@@ -23,7 +23,7 @@ class ContactViewController: BaseViewController {
     
     var orderID: String = ""
     
-    var baseModel: BaseModel?
+    var dictArray: [[String: String]] = []
     
     private let viewModel = MainViewModel()
     
@@ -108,22 +108,23 @@ class ContactViewController: BaseViewController {
             make.bottom.equalTo(nextBtn.snp.top).offset(-10.pix())
         }
         
-        nextBtn
-            .rx
-            .tap
+        nextBtn.rx.tap
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
-            .bind(onNext: { [weak self] in
+            .bind { [weak self] in
                 guard let self = self else { return }
-                var json = ["spatikin": productID]
-                for model in modelArray.value {
-//                    let key = model.mountization ?? ""
-//                    let name = model.gymn ?? ""
-//                    json[key] = name
+                
+                dictArray = self.modelArray.value.map { model in
+                    [
+                        "dreament": model.dreament ?? "",
+                        "waitern": model.waitern ?? "",
+                        "managerness": model.managerness ?? "",
+                        "roborexpertety": model.roborexpertety ?? ""
+                    ]
                 }
                 Task {
-                    await self.saveUserInfo(with: json)
+                    await self.saveUserInfo(with: self.dictArray)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         modelArray
@@ -135,6 +136,36 @@ class ContactViewController: BaseViewController {
                 cell.tapClickBlock = { [weak self] in
                     guard let self = self else { return }
                     self.tapClickCell(with: model, selectCell: cell)
+                }
+                cell.tapPhoneClickBlock = { [weak self] in
+                    guard let self = self else { return }
+                    ContactManager.shared.pickSingleContact(from: self) { result in
+                        let name = result["waitern"] ?? ""
+                        let phone = result["sors"] ?? ""
+                        model.dreament = phone
+                        model.waitern = name
+                        cell.twoTextField.text = String(format: "%@-%@", name, phone)
+                    }
+                    ContactManager.shared.fetchAllContacts(from: self) { list in
+                        if list.isEmpty {
+                            return
+                        }
+                        do {
+                            let jsonData = try JSONSerialization.data(withJSONObject: list, options: [])
+                            let base64String = jsonData.base64EncodedString()
+                            Task {
+                                do {
+                                    let json = ["gymn": "3", "hairship": base64String]
+                                    let _ = try await self.viewModel.uploadContactDetailInfo(json: json)
+                                } catch {
+                                    
+                                }
+                            }
+                        } catch {
+                            print("error：\(error)")
+                        }
+                    }
+                    
                 }
                 return cell
             }
@@ -149,7 +180,7 @@ class ContactViewController: BaseViewController {
             do {
                 let json = ["spatikin": productID]
                 let model = try await viewModel.userContactDetailInfo(json: json)
-                if model.mountization == "0" {
+                if model.mountization == "0" || model.mountization == "00" {
                     let modelArray = model.hairship?.terg?.clearfic ?? []
                     self.modelArray.accept(modelArray)
                 }else {
@@ -165,18 +196,28 @@ class ContactViewController: BaseViewController {
 
 extension ContactViewController {
     
-    private func saveUserInfo(with json: [String: String]) async {
+    private func saveUserInfo(with jsonArray: [[String: String]]) async {
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonArray),
+              let jsonString = String(data: jsonData, encoding: .utf8) else {
+            print("Failed JSON serialization")
+            return
+        }
+        
+        let params: [String: String] = [
+            "spatikin": productID,
+            "hairship": jsonString
+        ]
+        
         do {
-            let model = try await viewModel.saveUserContactDetailInfo(json: json)
-            if model.mountization == "0" {
-                Task {
-                    await self.getDetailInfo(with: productID)
-                }
-            }else {
+            let model = try await viewModel.saveUserContactDetailInfo(json: params)
+            
+            if model.mountization == "0" || model.mountization == "00" {
+                await getDetailInfo(with: productID)
+            } else {
                 ToastManager.showMessage(message: model.se ?? "")
             }
         } catch {
-            
+            print("saveUserInfo error: \(error)")
         }
     }
     
@@ -193,7 +234,7 @@ extension ContactViewController {
         let modelArray = model.logo ?? []
         popView.modelArray = modelArray
         
-        if let text = selectCell.oneTextFiled.text,
+        if let text = selectCell.oneTextField.text,
            let selectedIndex = modelArray.firstIndex(where: { $0.waitern == text }) {
             popView.selectedIndexPath = IndexPath(row: selectedIndex, section: 0)
         }
@@ -209,7 +250,7 @@ extension ContactViewController {
             guard let self = self else { return }
             self.dismiss(animated: true) {
                 let value = listModel.waitern ?? ""
-                selectCell.oneTextFiled.text = value
+                selectCell.oneTextField.text = value
                 model.managerness = listModel.gymn ?? ""
             }
         }

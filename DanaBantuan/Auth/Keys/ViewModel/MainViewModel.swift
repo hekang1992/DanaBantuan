@@ -85,6 +85,16 @@ class MainViewModel {
         }
     }
     
+    /// upload_user_detail_info
+    func uploadContactDetailInfo(json: [String: String]) async throws -> BaseModel {
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/algics", parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
     /// get_user_bank_detail_info
     func userBankDetailInfo(json: [String: String]) async throws -> BaseModel {
         
@@ -98,6 +108,25 @@ class MainViewModel {
         
         do {
             let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/clearfic", parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// save_user_bank_detail_info
+    func saveUserBankDetailInfo(json: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/gymn", parameters: json)
             return model
         } catch {
             throw error

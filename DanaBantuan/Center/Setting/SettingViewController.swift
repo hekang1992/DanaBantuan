@@ -214,9 +214,9 @@ extension SettingViewController {
     
     private func logoutInfo() async {
         do {
-            let json = ["nothfic": String(LanguageManager.currentLanguage.rawValue)]
+            let json = ["nothfic": LanguageManager.currentLanguage.rawValue]
             let model = try await viewModel.logoutInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 UserLoginConfig.deleteUserInformation()
                 self.changeRootVc()
             }
@@ -228,9 +228,9 @@ extension SettingViewController {
     
     private func deleteInfo() async {
         do {
-            let json = ["consumeraneous": String(LanguageManager.currentLanguage.rawValue)]
+            let json = ["consumeraneous": LanguageManager.currentLanguage.rawValue]
             let model = try await viewModel.deleteInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 UserLoginConfig.deleteUserInformation()
                 self.changeRootVc()
             }

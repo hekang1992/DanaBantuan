@@ -244,7 +244,15 @@ class ProductViewController: BaseViewController {
                 guard let self = self else { return }
                 if let baseModel = baseModel {
                     let orderID = baseModel.hairship?.section?.selenality ?? ""
-                    self.clickNoCompleteToNextVc(with: baseModel.hairship?.vovo ?? vovoModel(), orderID: orderID)
+                    let barel = baseModel.hairship?.vovo?.barel ?? ""
+                    let jutcommonably = baseModel.hairship?.vovo?.jutcommonably ?? ""
+                    if barel.isEmpty || jutcommonably.isEmpty {
+                        Task {
+                            await self.orderInfo(with: baseModel)
+                        }
+                    }else {
+                        self.clickNoCompleteToNextVc(with: baseModel.hairship?.vovo ?? vovoModel(), orderID: orderID)
+                    }
                 }
             })
             .disposed(by: disposeBag)
@@ -276,7 +284,7 @@ extension ProductViewController {
                         "preventitude": String(Int(1))
             ]
             let model = try await viewModel.productDetailInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 self.baseModel = model
                 configWithMessage(with: model)
             }
@@ -446,4 +454,37 @@ extension ProductViewController {
         let jutcommonably = model.jutcommonably ?? ""
         self.goNextVc(with: barel, name: jutcommonably, orderID: orderID, productID: productID)
     }
+}
+
+extension ProductViewController {
+    
+    private func orderInfo(with model: BaseModel) async {
+        let last = model.hairship?.section?.selenality ?? ""
+        let ourability = model.hairship?.section?.ourability ?? ""
+        let acetacy = model.hairship?.section?.acetacy ?? ""
+        let quassweightify = String(model.hairship?.section?.quassweightify ?? 0)
+        let yourselfibility = LanguageManager.currentLanguage.rawValue
+        
+        do {
+            let json = ["last": last,
+                        "ourability": ourability,
+                        "acetacy": acetacy,
+                        "quassweightify": quassweightify,
+                        "yourselfibility": yourselfibility]
+            let model = try await viewModel.orderInfo(json: json)
+            if model.mountization == "0" || model.mountization == "00" {
+                let pageUrl = model.hairship?.orexilike ?? ""
+                if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
+                    URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
+                } else {
+                    self.goWebVc(with: pageUrl)
+                }
+            }else {
+                ToastManager.showMessage(message: model.se ?? "")
+            }
+        } catch {
+            
+        }
+    }
+    
 }

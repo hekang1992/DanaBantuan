@@ -87,7 +87,7 @@ extension StartViewController {
                         "privateness": privateness,
                         "payot": payot]
             let model = try await viewModel.launchInfo(json: json)
-            if model.mountization == "00" {
+            if model.mountization == "0" || model.mountization == "00" {
                 let languageCode = model.hairship?.ie ?? ""
                 if languageCode == "7641" {
                     LanguageManager.setLanguage(code: 2)

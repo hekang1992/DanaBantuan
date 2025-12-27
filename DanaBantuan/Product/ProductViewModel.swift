@@ -83,4 +83,22 @@ class ProductViewModel {
         }
     }
     
+    /// order_info
+    func orderInfo(json: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/haveion", parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
 }

@@ -121,7 +121,7 @@ extension UserIDViewController {
         do {
             let json = ["spatikin": productID]
             let model = try await viewModel.getUserlInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 self.baseModel = model
                 let idModel = model.hairship?.towardsive ?? towardsiveModel()
                 if idModel.sectionia == 1 {
@@ -144,7 +144,7 @@ extension UserIDViewController {
                         "itemon": "",
                         "bari": "1"]
             let model = try await viewModel.uploadImageInfo(json: json, data: data)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 self.popAlertView(with: model)
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
@@ -185,14 +185,15 @@ extension UserIDViewController {
                         "spatikin": productID,
                         "dreament": UserLoginConfig.phone ?? ""]
             let model = try await viewModel.saveUserlInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 self.dismiss(animated: true) {
                     Task {
                         await self.getUserMeaageInfo()
                     }
                 }
+            }else {
+                ToastManager.showMessage(message: model.se ?? "")
             }
-            ToastManager.showMessage(message: model.se ?? "")
         } catch {
             
         }

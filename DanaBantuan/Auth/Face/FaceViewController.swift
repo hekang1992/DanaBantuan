@@ -121,7 +121,7 @@ extension FaceViewController {
         do {
             let json = ["spatikin": productID]
             let model = try await viewModel.getUserlInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 self.baseModel = model
                 let faceModel = model.hairship?.pilious ?? towardsiveModel()
                 if faceModel.sectionia == 1 {
@@ -144,7 +144,7 @@ extension FaceViewController {
                         "itemon": "",
                         "bari": "1"]
             let model = try await viewModel.uploadImageInfo(json: json, data: data)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 Task {
                     await self.getUserMeaageInfo()
                 }

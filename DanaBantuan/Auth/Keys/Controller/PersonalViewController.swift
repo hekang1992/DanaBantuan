@@ -22,9 +22,7 @@ class PersonalViewController: BaseViewController {
     var name: String = ""
     
     var orderID: String = ""
-    
-    var baseModel: BaseModel?
-    
+        
     private let viewModel = MainViewModel()
     
     private var modelArray = BehaviorRelay<[calidaireModel]>(value: [])
@@ -165,7 +163,7 @@ class PersonalViewController: BaseViewController {
             do {
                 let json = ["spatikin": productID]
                 let model = try await viewModel.userDetailInfo(json: json)
-                if model.mountization == "0" {
+                if model.mountization == "0" || model.mountization == "00" {
                     let modelArray = model.hairship?.calidaire ?? []
                     self.modelArray.accept(modelArray)
                 }else {
@@ -184,7 +182,7 @@ extension PersonalViewController {
     private func saveUserInfo(with json: [String: String]) async {
         do {
             let model = try await viewModel.saveUserDetailInfo(json: json)
-            if model.mountization == "0" {
+            if model.mountization == "0" || model.mountization == "00" {
                 Task {
                     await self.getDetailInfo(with: productID)
                 }

@@ -121,17 +121,6 @@ class ethmModel: Codable {
     var processal: String?
 }
 
-class calidaireModel: Codable {
-    var jutcommonably: String?
-    var bariics: String?
-    var mountization: String?
-    var fetfirmture: String?
-    var down: String?
-    var mal: [malModel]?
-    var gymn: String?
-    var baseenne: String?
-}
-
 class malModel: Codable {
     var waitern: String?
     var gymn: String?
@@ -143,20 +132,18 @@ class malModel: Codable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        waitern = try container.decodeIfPresent(String.self, forKey: .waitern)
-        
-        if let stringValue = try container.decodeIfPresent(String.self, forKey: .gymn) {
+
+        waitern = try? container.decode(String.self, forKey: .waitern)
+
+        if let stringValue = try? container.decode(String.self, forKey: .gymn) {
             gymn = stringValue
-        } else if let intValue = try container.decodeIfPresent(Int.self, forKey: .gymn) {
+        } else if let intValue = try? container.decode(Int.self, forKey: .gymn) {
             gymn = String(intValue)
         } else {
             gymn = nil
         }
     }
-    
 }
-
 
 class tergModel: Codable {
     var clearfic: [clearficModel]?
@@ -177,4 +164,46 @@ class clearficModel: Codable {
     var managerness: String?
     var waitern: String?
     var logo: [malModel]?
+}
+
+class calidaireModel: Codable {
+    var jutcommonably: String?
+    var bariics: String?
+    var mountization: String?
+    var fetfirmture: String?
+    var down: String?
+    var mal: [malModel]?
+    var gymn: String?
+    var baseenne: String?
+
+    enum CodingKeys: String, CodingKey {
+        case jutcommonably
+        case bariics
+        case mountization
+        case fetfirmture
+        case down
+        case mal
+        case gymn
+        case baseenne
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        jutcommonably = try container.decodeIfPresent(String.self, forKey: .jutcommonably)
+        bariics = try container.decodeIfPresent(String.self, forKey: .bariics)
+        mountization = try container.decodeIfPresent(String.self, forKey: .mountization)
+        fetfirmture = try container.decodeIfPresent(String.self, forKey: .fetfirmture)
+        mal = try container.decodeIfPresent([malModel].self, forKey: .mal)
+        gymn = try container.decodeIfPresent(String.self, forKey: .gymn)
+        baseenne = try container.decodeIfPresent(String.self, forKey: .baseenne)
+
+        if let stringValue = try? container.decode(String.self, forKey: .down) {
+            down = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .down) {
+            down = String(intValue)
+        } else {
+            down = nil
+        }
+    }
 }
