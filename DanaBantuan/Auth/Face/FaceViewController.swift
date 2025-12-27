@@ -50,6 +50,8 @@ class FaceViewController: BaseViewController {
         
         let languageCode = LanguageManager.currentLanguage
         
+        faceView.headImageView.image = languageCode == .id ? UIImage(named: "id_big_ima_face_image") : UIImage(named: "en_big_ima_face_image")
+        
         faceView.oneImageView.image = languageCode == .id ? UIImage(named: "id_face_desc_image") : UIImage(named: "en_face_desc_image")
         
         faceView.twoImageView.image = UIImage(named: "face_com_ad_b_image")

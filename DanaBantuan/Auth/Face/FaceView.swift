@@ -16,6 +16,8 @@ class FaceView: UIView {
     
     var clickTapBlock: (() -> Void)?
     
+    var nextClickBlock: (() -> Void)?
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -36,7 +38,6 @@ class FaceView: UIView {
     
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
-        headImageView.backgroundColor = .gray
         return headImageView
     }()
     
@@ -107,9 +108,9 @@ class FaceView: UIView {
             make.bottom.equalTo(nextBtn.snp.top).offset(-5.pix())
         }
         headImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(15.pix())
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 345.pix(), height: 170.pix()))
+            make.width.equalTo(345.pix())
         }
         whiteView.snp.makeConstraints { make in
             make.top.equalTo(headImageView.snp.bottom).offset(15.pix())
@@ -159,10 +160,26 @@ class FaceView: UIView {
             make.edges.equalToSuperview()
         }
         
-        clickBtn.rx.tap.bind(onNext: { [weak self] in
-            guard let self = self else { return }
-            self.clickTapBlock?()
-        }).disposed(by: disposeBag)
+        clickBtn
+            .rx
+            .tap
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.clickTapBlock?()
+            })
+            .disposed(by: disposeBag)
+        
+        nextBtn
+            .rx
+            .tap
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.nextClickBlock?()
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     required init?(coder: NSCoder) {

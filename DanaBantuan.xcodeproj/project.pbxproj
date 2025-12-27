@@ -52,6 +52,8 @@
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
 		73EC21562EFFB0B200F58012 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC21552EFFB0B200F58012 /* FaceView.swift */; };
 		73EC21582EFFB2A900F58012 /* UserIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC21572EFFB2A900F58012 /* UserIDViewController.swift */; };
+		73EC215C2EFFBC0D00F58012 /* CameraOnlyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC215B2EFFBC0D00F58012 /* CameraOnlyManager.swift */; };
+		73EC215E2EFFC2DD00F58012 /* AlertIDSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC215D2EFFC2DD00F58012 /* AlertIDSuccessView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,8 @@
 		73DC2ECA2EFCD1BE00CB14F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73EC21552EFFB0B200F58012 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		73EC21572EFFB2A900F58012 /* UserIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIDViewController.swift; sourceTree = "<group>"; };
+		73EC215B2EFFBC0D00F58012 /* CameraOnlyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraOnlyManager.swift; sourceTree = "<group>"; };
+		73EC215D2EFFC2DD00F58012 /* AlertIDSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertIDSuccessView.swift; sourceTree = "<group>"; };
 		A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.release.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.release.xcconfig"; sourceTree = "<group>"; };
 		F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanaBantuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,9 +127,11 @@
 		7316585F2EFEFF5F00B19562 /* Face */ = {
 			isa = PBXGroup;
 			children = (
+				73EC215B2EFFBC0D00F58012 /* CameraOnlyManager.swift */,
 				73EC21552EFFB0B200F58012 /* FaceView.swift */,
 				73EC21572EFFB2A900F58012 /* UserIDViewController.swift */,
 				731658602EFEFF7700B19562 /* FaceViewController.swift */,
+				73EC215D2EFFC2DD00F58012 /* AlertIDSuccessView.swift */,
 			);
 			path = Face;
 			sourceTree = "<group>";
@@ -319,8 +325,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DC2EC22EFCD1BA00CB14F8 /* Build configuration list for PBXNativeTarget "DanaBantuan" */;
 			buildPhases = (
-				E31DF26F71544C3390A5DE54 /* Build Target Dependencies */,
 				02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */,
+				E31DF26F71544C3390A5DE54 /* Build Target Dependencies */,
 				73DC2EAB2EFCD1B900CB14F8 /* Sources */,
 				73DC2EAC2EFCD1B900CB14F8 /* Frameworks */,
 				73DC2EAD2EFCD1B900CB14F8 /* Resources */,
@@ -476,6 +482,7 @@
 				73EC21562EFFB0B200F58012 /* FaceView.swift in Sources */,
 				737FEDE82EFD71F800B06DE7 /* HttpRequestManager.swift in Sources */,
 				73CA0FA52EFE69F60010CDC9 /* HomeViewModel.swift in Sources */,
+				73EC215C2EFFBC0D00F58012 /* CameraOnlyManager.swift in Sources */,
 				733A08372EFCDCDB00EF865F /* Config.swift in Sources */,
 				733A084B2EFCED3200EF865F /* CenterViewController.swift in Sources */,
 				73CA0F972EFE475D0010CDC9 /* ProductViewController.swift in Sources */,
@@ -486,6 +493,7 @@
 				733A08472EFCED1F00EF865F /* HomeViewController.swift in Sources */,
 				733A08542EFCF20500EF865F /* LoginView.swift in Sources */,
 				733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */,
+				73EC215E2EFFC2DD00F58012 /* AlertIDSuccessView.swift in Sources */,
 				73CA0F9B2EFE4E900010CDC9 /* SettingViewController.swift in Sources */,
 				737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */,
 				73EC21582EFFB2A900F58012 /* UserIDViewController.swift in Sources */,

@@ -26,3 +26,10 @@
 
 "Next Step" = "Langkah Selanjutnya";
 "Click to upload" = "Klik untuk mengunggah";
+"The file has been uploaded successfully, no need to submit it again" = "Berkas sudah berhasil diunggah, tidak perlu dikirim lagi";
+"Confirming" = "Mengonfirmasi";
+"Confirm Information" = "Konfirmasikan Informasi";
+"*Please check your lD information correctly, oncesubmitted it is not changed again" = "*Mohon periksa kembali informasi lD Anda dengan benar, jika sudah terkirim tidak akan diubah lagi";
+"Real Name" = "Nama Sesuai KTP";
+"ID Number" = "Nomor KTP";
+"Birthday" = "Ulang Tahun";

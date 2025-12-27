@@ -36,6 +36,11 @@ class hairshipModel: Codable {
     var play: [playModel]?
     var vovo: vovoModel?
     var section: sectionModel?
+    var waitern: String?
+    var historyo: String?
+    var dow: String?
+    var haustly: String?
+    var landitor: String?
     /// id_info
     var towardsive: towardsiveModel?
     /// face_info

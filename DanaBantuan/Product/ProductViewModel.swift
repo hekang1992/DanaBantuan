@@ -45,4 +45,22 @@ class ProductViewModel {
         }
     }
     
+    func uploadImageInfo(json: [String: String], data: Data) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.upload("/alwaysad/ectosion", data: data, parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
 }
