@@ -130,7 +130,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(1)
         }
         
-        let isShow = LanguageManager.currentLanguage == .en
+        let isShow = LanguageManager.currentLanguage == .id
         
         [deleteBtn, lineView].forEach { $0.isHidden = isShow }
         

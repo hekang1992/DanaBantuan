@@ -9,6 +9,7 @@ import Foundation
 
 class ProductViewModel {
     
+    /// get_product_detail_info
     func productDetailInfo(json: [String: String]) async throws -> BaseModel {
         
         LoadingView.shared.show()
@@ -57,6 +58,25 @@ class ProductViewModel {
         
         do {
             let model: BaseModel = try await HttpRequestManager.shared.upload("/alwaysad/ectosion", data: data, parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// sace_user_info
+    func saveUserlInfo(json: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/tinaceous", parameters: json)
             return model
         } catch {
             throw error

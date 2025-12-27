@@ -8,12 +8,15 @@
 import UIKit
 import SnapKit
 import TYAlertController
+import Kingfisher
 
 class UserIDViewController: BaseViewController {
     
     var productID: String = ""
     
     var name: String = ""
+    
+    var orderID: String = ""
     
     var baseModel: BaseModel?
     
@@ -89,6 +92,7 @@ class UserIDViewController: BaseViewController {
             if idModel.sectionia == 1 {
                 let faceVc = FaceViewController()
                 faceVc.name = name
+                faceVc.orderID = orderID
                 faceVc.productID = productID
                 self.navigationController?.pushViewController(faceVc, animated: true)
             }else {
@@ -119,6 +123,11 @@ extension UserIDViewController {
             let model = try await viewModel.getUserlInfo(json: json)
             if model.mountization == "0" {
                 self.baseModel = model
+                let idModel = model.hairship?.towardsive ?? towardsiveModel()
+                if idModel.sectionia == 1 {
+                    let logoUrl = idModel.orexilike ?? ""
+                    self.faceView.twoImageView.kf.setImage(with: URL(string: logoUrl))
+                }
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }
@@ -147,6 +156,7 @@ extension UserIDViewController {
     
     private func popAlertView(with model: BaseModel) {
         let popView = AlertIDSuccessView(frame: self.view.bounds)
+        popView.model = model
         let alertVc = TYAlertController(alert: popView, preferredStyle: .actionSheet)
         self.present(alertVc!, animated: true)
         
@@ -157,7 +167,34 @@ extension UserIDViewController {
         
         popView.sureBlock = { [weak self] in
             guard let self = self else { return }
-            self.dismiss(animated: true)
+            Task {
+                await self.saveUserInfo(with: popView)
+            }
+        }
+    }
+    
+    private func saveUserInfo(with listView: AlertIDSuccessView) async {
+        let name = listView.oneFiled.text ?? ""
+        let num = listView.twoFiled.text ?? ""
+        let time = listView.threeFiled.text ?? ""
+        do {
+            let json = ["waitern": name,
+                        "historyo": num,
+                        "processal": time,
+                        "last": orderID,
+                        "spatikin": productID,
+                        "dreament": UserLoginConfig.phone ?? ""]
+            let model = try await viewModel.saveUserlInfo(json: json)
+            if model.mountization == "0" {
+                self.dismiss(animated: true) {
+                    Task {
+                        await self.getUserMeaageInfo()
+                    }
+                }
+            }
+            ToastManager.showMessage(message: model.se ?? "")
+        } catch {
+            
         }
     }
     

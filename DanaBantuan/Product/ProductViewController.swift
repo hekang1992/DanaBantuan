@@ -161,7 +161,7 @@ class ProductViewController: BaseViewController {
         
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(headImageView.snp.bottom)
+            make.top.equalTo(headImageView.snp.bottom).offset(2.pix())
             make.left.equalToSuperview()
             make.width.equalTo(SCREEN_WIDTH)
             make.bottom.equalTo(nextBtn.snp.top).offset(-10.pix())
@@ -243,7 +243,8 @@ class ProductViewController: BaseViewController {
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
                 if let baseModel = baseModel {
-                    self.clickNoCompleteToNextVc(with: baseModel.hairship?.vovo ?? vovoModel())
+                    let orderID = baseModel.hairship?.section?.selenality ?? ""
+                    self.clickNoCompleteToNextVc(with: baseModel.hairship?.vovo ?? vovoModel(), orderID: orderID)
                 }
             })
             .disposed(by: disposeBag)
@@ -398,11 +399,12 @@ extension ProductViewController {
         }
         itemView.tapClickBlock = { [weak self] in
             guard let self = self else { return }
+            let orderID = self.baseModel?.hairship?.section?.selenality ?? ""
             if sectionia == 1 {
-                self.clickCompleteToNextVc(with: model)
+                self.clickCompleteToNextVc(with: model, orderID: orderID)
             }else {
                 if let baseModel = baseModel {
-                    self.clickNoCompleteToNextVc(with: baseModel.hairship?.vovo ?? vovoModel())
+                    self.clickNoCompleteToNextVc(with: baseModel.hairship?.vovo ?? vovoModel(), orderID: orderID)
                 }
             }
         }
@@ -432,71 +434,16 @@ extension ProductViewController {
 extension ProductViewController {
     
     /// complete_auth_info
-    private func clickCompleteToNextVc(with model: playModel) {
+    private func clickCompleteToNextVc(with model: playModel, orderID: String) {
         let barel = model.barel ?? ""
         let jutcommonably = model.jutcommonably ?? ""
-        self.goNextVc(with: barel, name: jutcommonably)
+        self.goNextVc(with: barel, name: jutcommonably, orderID: orderID, productID: productID)
     }
     
     /// nocomp_auth_info
-    private func clickNoCompleteToNextVc(with model: vovoModel) {
+    private func clickNoCompleteToNextVc(with model: vovoModel, orderID: String) {
         let barel = model.barel ?? ""
         let jutcommonably = model.jutcommonably ?? ""
-        self.goNextVc(with: barel, name: jutcommonably)
+        self.goNextVc(with: barel, name: jutcommonably, orderID: orderID, productID: productID)
     }
-    
-    private func goNextVc(with type: String, name: String) {
-        switch type {
-        case "preparefold":
-            Task {
-                await self.judegeFaceInfo(with: name)
-            }
-            break
-        case "tapetfilm":
-            break
-        case "tropid":
-            break
-        case "montible":
-            break
-        default:
-            break
-        }
-    }
-    
 }
-
-extension ProductViewController {
-    
-    private func judegeFaceInfo(with name: String) async {
-        do {
-            let json = ["spatikin": productID]
-            let model = try await viewModel.getUserlInfo(json: json)
-            if model.mountization == "0" {
-                let idModel = model.hairship?.towardsive ?? towardsiveModel()
-                let faceModel = model.hairship?.pilious ?? towardsiveModel()
-                if idModel.sectionia == 0 {
-                    let idVc = UserIDViewController()
-                    idVc.name = name
-                    idVc.productID = productID
-                    self.navigationController?.pushViewController(idVc, animated: true)
-                    return
-                }
-                if faceModel.sectionia == 0 {
-                    let faceVc = FaceViewController()
-                    faceVc.name = name
-                    faceVc.productID = productID
-                    self.navigationController?.pushViewController(faceVc, animated: true)
-                    return
-                }
-                
-            }else {
-                ToastManager.showMessage(message: model.se ?? "")
-            }
-        } catch {
-            
-        }
-        
-    }
-    
-}
-

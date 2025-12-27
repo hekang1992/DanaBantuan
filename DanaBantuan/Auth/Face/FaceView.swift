@@ -64,6 +64,8 @@ class FaceView: UIView {
     
     lazy var twoImageView: UIImageView = {
         let twoImageView = UIImageView()
+        twoImageView.layer.cornerRadius = 5
+        twoImageView.layer.masksToBounds = true
         return twoImageView
     }()
     

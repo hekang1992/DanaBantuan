@@ -9,12 +9,25 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import BRPickerView
 
 class AlertIDSuccessView: UIView {
     
     var model: BaseModel? {
         didSet {
             guard let model = model else { return }
+            oneFiled.text = model.hairship?.waitern ?? ""
+            twoFiled.text = model.hairship?.historyo ?? ""
+            let day = model.hairship?.dow ?? ""
+            let month = model.hairship?.haustly ?? ""
+            let year = model.hairship?.landitor ?? ""
+            
+            if day.isEmpty || month.isEmpty || year.isEmpty {
+                threeFiled.text = ""
+            }else {
+                threeFiled.text = String(format: "%@-%@-%@", day, month, year)
+            }
+            
         }
     }
     
@@ -23,6 +36,8 @@ class AlertIDSuccessView: UIView {
     var cancelBlock: (() -> Void)?
     
     var sureBlock: (() -> Void)?
+    
+    var selectTimeBlock: (() -> Void)?
     
     lazy var bgView: UIView = {
         let bgView = UIView()
@@ -160,6 +175,11 @@ class AlertIDSuccessView: UIView {
         return rightImagView
     }()
     
+    lazy var clickBtn: UIButton = {
+        let clickBtn = UIButton(type: .custom)
+        return clickBtn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(bgView)
@@ -179,6 +199,7 @@ class AlertIDSuccessView: UIView {
         twoView.addSubview(twoFiled)
         threeView.addSubview(threeFiled)
         threeView.addSubview(rightImagView)
+        threeView.addSubview(clickBtn)
         
         bgView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
@@ -228,47 +249,51 @@ class AlertIDSuccessView: UIView {
         
         oneLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(8.pix())
+            make.left.equalToSuperview().offset(12.pix())
             make.width.equalTo(120)
         }
         
         twoLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(8.pix())
+            make.left.equalToSuperview().offset(12.pix())
             make.width.equalTo(90)
         }
         
         threeLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(8.pix())
+            make.left.equalToSuperview().offset(12.pix())
             make.width.equalTo(90)
         }
         
         oneFiled.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-8.pix())
+            make.right.equalToSuperview().offset(-12.pix())
             make.left.equalTo(oneLabel.snp.right).offset(5.pix())
             make.height.equalTo(25.pix())
         }
         
         twoFiled.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-8.pix())
+            make.right.equalToSuperview().offset(-12.pix())
             make.left.equalTo(oneLabel.snp.right).offset(5.pix())
             make.height.equalTo(25.pix())
         }
         
         rightImagView.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-8.pix())
+            make.right.equalToSuperview().offset(-12.pix())
             make.size.equalTo(CGSize(width: 10.pix(), height: 14.pix()))
             make.centerY.equalToSuperview()
         }
         
         threeFiled.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-20.pix())
+            make.right.equalTo(rightImagView.snp.left).offset(-10.pix())
             make.left.equalTo(oneLabel.snp.right).offset(5.pix())
             make.height.equalTo(25.pix())
+        }
+        
+        clickBtn.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
         cancelBtn
@@ -291,10 +316,90 @@ class AlertIDSuccessView: UIView {
             })
             .disposed(by: disposeBag)
         
+        clickBtn
+            .rx
+            .tap
+            .debounce(.milliseconds(100), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                //                self.selectTimeBlock?()
+                tapTimeClick(with: self.threeFiled.text ?? "")
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+}
+
+extension AlertIDSuccessView {
+    
+    private func tapTimeClick(with time: String?) {
+        let datePickerView = createDatePickerView()
+        datePickerView.selectDate = parseDate(from: time)
+        datePickerView.pickerStyle = createPickerStyle()
+        
+        datePickerView.resultBlock = { [weak self] selectDate, selectValue in
+            self?.handleDateSelection(selectDate)
+        }
+        
+        datePickerView.show()
+    }
+    
+    private func createDatePickerView() -> BRDatePickerView {
+        let datePickerView = BRDatePickerView()
+        datePickerView.pickerMode = .YMD
+        datePickerView.title = LanguageManager.localizedString(for: "Select Date")
+        return datePickerView
+    }
+    
+    private func parseDate(from timeString: String?) -> Date {
+        guard let timeString = timeString, !timeString.isEmpty else {
+            return getDefaultDate()
+        }
+        
+        let dateFormats = ["dd-MM-yyyy", "yyyy-MM-dd"]
+        let dateFormatter = DateFormatter()
+        
+        for format in dateFormats {
+            dateFormatter.dateFormat = format
+            if let date = dateFormatter.date(from: timeString) {
+                return date
+            }
+        }
+        
+        return getDefaultDate()
+    }
+    
+    private func getDefaultDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        return dateFormatter.date(from: "11-11-2000") ?? Date()
+    }
+    
+    private func createPickerStyle() -> BRPickerStyle {
+        let customStyle = BRPickerStyle()
+        customStyle.rowHeight = 44
+        customStyle.language = "en"
+        customStyle.doneTextColor = UIColor(hex: "#1CC7EF")
+        customStyle.selectRowTextColor = UIColor(hex: "#1CC7EF")
+        customStyle.pickerTextFont = UIFont.systemFont(ofSize: 14, weight: .medium)
+        customStyle.selectRowTextFont = UIFont.systemFont(ofSize: 14, weight: .medium)
+        return customStyle
+    }
+    
+    private func handleDateSelection(_ selectedDate: Date?) {
+        guard let selectedDate = selectedDate else { return }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let resultDateString = dateFormatter.string(from: selectedDate)
+        
+        threeFiled.text = resultDateString
+    }
+    
     
 }

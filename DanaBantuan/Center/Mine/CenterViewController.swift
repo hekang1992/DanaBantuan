@@ -59,7 +59,8 @@ extension CenterViewController {
             let json = ["vitiitious": UserLoginConfig.isLoggedIn ? "1" : "0"]
             let model = try await viewModel.centerInfo(json: json)
             if model.mountization == "0" {
-                self.centerView.modelArray = model.hairship?.odontard ?? []
+                let modelArray = model.hairship?.odontard ?? []
+                self.centerView.modelArray = modelArray
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

@@ -1,0 +1,68 @@
+//
+//  MainViewModel.swift
+//  DanaBantuan
+//
+//  Created by hekang on 2025/12/27.
+//
+
+import Foundation
+
+class MainViewModel {
+    
+    /// get_user_detail_info
+    func userDetailInfo(json: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/fidelage", parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// get_user_contact_detail_info
+    func userContactDetailInfo(json: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/pung", parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// get_user_bank_detail_info
+    func userBankDetailInfo(json: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/clearfic", parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+}

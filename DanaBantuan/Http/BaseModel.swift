@@ -24,6 +24,7 @@ class BaseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case mountization, se, hairship
     }
+    
 }
 
 class hairshipModel: Codable {
@@ -94,7 +95,7 @@ class sectionModel: Codable {
     var vituage: String?
     var selenality: String?
     var stop: Int?
-    var acetacy: String
+    var acetacy: String?
     var quassweightify: Int?
     var penoern: String?
     var cordeous: String?
