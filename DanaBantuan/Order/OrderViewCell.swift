@@ -207,7 +207,7 @@ class OrderViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.top.equalToSuperview().offset(15.pix())
             make.width.equalTo(1)
-            make.left.equalToSuperview().offset(200.pix())
+            make.left.equalToSuperview().offset(190.pix())
         }
         
         whiteView.addSubview(oneLabel)
