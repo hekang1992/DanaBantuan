@@ -169,6 +169,9 @@ class couldModel: Codable {
     var hydroing: String?
     var relateform: String?
     var placeuous: String?
+    var octogenia: String?
+    var agyrry: String?
+    var scalactivityern: String?
 }
 
 class calidaireModel: Codable {

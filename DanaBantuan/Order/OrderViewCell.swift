@@ -22,8 +22,37 @@ class OrderViewCell: UITableViewCell {
             applyLabel.text = model.could?.placeuous ?? ""
             oneLabel.text = model.could?.relateform ?? ""
             twoLabel.text = model.could?.paintingsion ?? ""
-            threeLabel.text = model.could?.oesophagable ?? ""
-            fourLabel.text = model.could?.hydroing ?? ""
+            threeLabel.text = model.could?.agyrry ?? ""
+            fourLabel.text = model.could?.scalactivityern ?? ""
+            
+            let octogenia = model.could?.octogenia ?? ""
+            
+            switch octogenia {
+            case "optionain":
+                applyView.backgroundColor = UIColor.init(hex: "#FFB843")
+                break
+            case "tachoenne":
+                applyView.backgroundColor = UIColor.init(hex: "#EF5045")
+                applyLabel.textColor = UIColor.init(hex: "#FFFFFF")
+                break
+            case "hippproof":
+                applyView.backgroundColor = UIColor.init(hex: "#7EE706")
+                applyLabel.textColor = UIColor.init(hex: "#FFFFFF")
+                break
+            case "tredecwise":
+                applyView.backgroundColor = UIColor.init(hex: "#D2F4FC")
+                applyLabel.textColor = UIColor.init(hex: "#1CC7EF")
+                break
+            case "gnar":
+                applyView.backgroundColor = UIColor.init(hex: "#E4EAEB")
+                applyLabel.textColor = UIColor.init(hex: "#759199")
+                break
+            default:
+                applyView.backgroundColor = UIColor.init(hex: "#D2F4FC")
+                applyLabel.textColor = UIColor.init(hex: "#1CC7EF")
+                break
+            }
+            
         }
     }
     
@@ -67,10 +96,11 @@ class OrderViewCell: UITableViewCell {
         return moneyLabel
     }()
     
-    lazy var applyImageView: UIImageView = {
-        let applyImageView = UIImageView()
-        applyImageView.image = UIImage(named: "soft_ap_bt_image")
-        return applyImageView
+    lazy var applyView: UIView = {
+        let applyView = UIView()
+        applyView.layer.cornerRadius = 11.pix()
+        applyView.layer.masksToBounds = true
+        return applyView
     }()
     
     lazy var applyLabel: UILabel = {
@@ -160,14 +190,14 @@ class OrderViewCell: UITableViewCell {
             make.height.equalTo(20.pix())
         }
         
-        whiteView.addSubview(applyImageView)
-        applyImageView.snp.makeConstraints { make in
+        whiteView.addSubview(applyView)
+        applyView.snp.makeConstraints { make in
             make.top.equalTo(moneyLabel.snp.bottom).offset(5.pix())
             make.left.equalTo(logoImageView)
             make.size.equalTo(CGSize(width: 140.pix(), height: 38.pix()))
         }
         
-        applyImageView.addSubview(applyLabel)
+        applyView.addSubview(applyLabel)
         applyLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
