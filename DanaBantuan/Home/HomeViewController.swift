@@ -68,6 +68,19 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        self.softView.tapBannerClickBlock = { [weak self] model in
+            guard let self = self else { return }
+            let pageUrl = model.orexilike ?? ""
+            if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
+                URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
+            } else {
+                if pageUrl.isEmpty {
+                    return
+                }
+                self.goWebVc(with: pageUrl)
+            }
+        }
+        
         Task {
             do {
                 let model = try await viewModel.getAddresslInfo()
@@ -156,6 +169,9 @@ extension HomeViewController {
                 if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
                     URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
                 } else {
+                    if pageUrl.isEmpty {
+                        return
+                    }
                     self.goWebVc(with: pageUrl)
                 }
             } else {

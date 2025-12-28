@@ -10,18 +10,24 @@ import SnapKit
 import Kingfisher
 import RxSwift
 import RxCocoa
+import FSPagerView
 
 class AppSoftView: UIView {
     
     var modelArray: [clearficModel]? {
         didSet {
             tableView.reloadData()
+            pagerView.reloadData()
+            setupAutoScroll()
         }
     }
     
     private let disposeBag = DisposeBag()
+    private var autoScrollTimer: Timer?
     
     var tapClickBlock: ((haveionModel) -> Void)?
+    
+    var tapBannerClickBlock: ((haveionModel) -> Void)?
     
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
@@ -132,16 +138,45 @@ class AppSoftView: UIView {
     lazy var bannerImageView: UIImageView = {
         let bannerImageView = UIImageView()
         bannerImageView.image = UIImage(named: "soft_ban_a_image")
+        bannerImageView.isUserInteractionEnabled = true
         return bannerImageView
+    }()
+    
+    lazy var pagerView: FSPagerView = {
+        let pv = FSPagerView()
+        pv.dataSource = self
+        pv.delegate = self
+        pv.register(CustomPagerCell.self, forCellWithReuseIdentifier: "CustomPagerCell")
+        pv.interitemSpacing = 5
+        pv.transformer = FSPagerViewTransformer(type: .linear)
+        pv.isInfinite = true
+        pv.automaticSlidingInterval = 3.0
+        pv.backgroundColor = .clear
+        pv.layer.borderWidth = 0
+        return pv
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        stopAutoScroll()
+    }
+    
+    private func setupUI() {
         addSubview(bgImageView)
         addSubview(tableView)
+        
         bgImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
         tableView.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(2.pix())
             make.left.right.equalToSuperview()
@@ -149,12 +184,29 @@ class AppSoftView: UIView {
         }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private func setupAutoScroll() {
+        stopAutoScroll()
+
+        let haveion = modelArray?
+            .first(where: { $0.gymn == "vigesimose" })?
+            .haveion ?? []
+        
+        if haveion.count <= 1 {
+            pagerView.automaticSlidingInterval = 0
+            pagerView.isInfinite = false
+            pagerView.isScrollEnabled = false
+        } else {
+            pagerView.automaticSlidingInterval = 3.0
+            pagerView.isInfinite = true
+            pagerView.isScrollEnabled = true
+        }
     }
     
+    private func stopAutoScroll() {
+        autoScrollTimer?.invalidate()
+        autoScrollTimer = nil
+    }
 }
-
 
 extension AppSoftView: UITableViewDelegate, UITableViewDataSource {
     
@@ -263,9 +315,15 @@ extension AppSoftView: UITableViewDelegate, UITableViewDataSource {
             make.height.equalTo(358.pix())
         }
         
+        bannerImageView.addSubview(pagerView)
+        pagerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         if exists {
             bannerImageView.isHidden = false
-        }else {
+            pagerView.itemSize = CGSize(width: 325.pix(), height: 80.pix())
+        } else {
             bannerImageView.isHidden = true
         }
         
@@ -339,4 +397,113 @@ extension AppSoftView: UITableViewDelegate, UITableViewDataSource {
         self.tapClickBlock?(model)
     }
     
+}
+
+extension AppSoftView: FSPagerViewDelegate, FSPagerViewDataSource {
+    
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        let haveion = modelArray?
+            .first(where: { $0.gymn == "vigesimose" })?
+            .haveion ?? []
+        return haveion.count
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        let haveion = modelArray?
+            .first(where: { $0.gymn == "vigesimose" })?
+            .haveion ?? []
+        let model = haveion[index]
+        
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "CustomPagerCell", at: index) as! CustomPagerCell
+        cell.titleLabel.text = model.se ?? ""
+        
+        cell.contentView.layer.shadowColor = UIColor.clear.cgColor
+        cell.contentView.layer.shadowRadius = 0
+        cell.contentView.layer.shadowOpacity = 0
+        cell.contentView.layer.shadowOffset = .zero
+        
+        cell.contentView.transform = CGAffineTransform.identity
+        
+        cell.contentView.backgroundColor = .clear
+        cell.backgroundColor = .clear
+        
+        return cell
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        let haveion = modelArray?
+            .first(where: { $0.gymn == "vigesimose" })?
+            .haveion ?? []
+        let model = haveion[index]
+        self.tapBannerClickBlock?(model)
+    }
+    
+}
+
+class CustomPagerCell: FSPagerViewCell {
+    
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.init(hex: "#0A1121")
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        return label
+    }()
+    
+    lazy var bottomLabel: UILabel = {
+        let label = UILabel()
+        let text = LanguageManager.localizedString(for: "Repayment")
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttribute(
+            .underlineStyle,
+            value: NSUnderlineStyle.single.rawValue,
+            range: NSRange(location: 0, length: text.count)
+        )
+        attributedString.addAttribute(
+            .foregroundColor,
+            value: UIColor.init(hex: "#1CC7EF"),
+            range: NSRange(location: 0, length: text.count)
+        )
+        
+        label.attributedText = attributedString
+        label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        label.textAlignment = .left
+        return label
+    }()
+    
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupUI() {
+        contentView.addSubview(containerView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(bottomLabel)
+        
+        containerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 5.pix(), left: 5.pix(), bottom: 10.pix(), right: 5.pix()))
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(bottomLabel.snp.top).offset(-5)
+        }
+        
+        bottomLabel.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(15)
+        }
+    }
 }

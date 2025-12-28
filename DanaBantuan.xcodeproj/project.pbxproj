@@ -414,8 +414,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DC2EC22EFCD1BA00CB14F8 /* Build configuration list for PBXNativeTarget "DanaBantuan" */;
 			buildPhases = (
-				E068848BD5B94AB9ADA5DE54 /* Build Target Dependencies */,
 				02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */,
+				E068848BD5B94AB9ADA5DE54 /* Build Target Dependencies */,
 				73DC2EAB2EFCD1B900CB14F8 /* Sources */,
 				73DC2EAC2EFCD1B900CB14F8 /* Frameworks */,
 				73DC2EAD2EFCD1B900CB14F8 /* Resources */,
@@ -509,13 +509,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

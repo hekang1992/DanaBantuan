@@ -477,6 +477,9 @@ extension ProductViewController {
                 if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
                     URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
                 } else {
+                    if pageUrl.isEmpty {
+                        return
+                    }
                     self.goWebVc(with: pageUrl)
                 }
             }else {

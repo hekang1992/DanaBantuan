@@ -12,6 +12,7 @@ target 'DanaBantuan' do
   pod 'Kingfisher'
   pod 'RxGesture'
   pod 'Alamofire'
+  pod 'FSPagerView'
   pod 'Toast-Swift'
   pod 'MJRefresh'
   pod 'FBSDKCoreKit'

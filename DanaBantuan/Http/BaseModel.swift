@@ -48,6 +48,7 @@ class hairshipModel: Codable {
     var towardsive: towardsiveModel?
     /// face_info
     var pilious: towardsiveModel?
+    var se: String?
 }
 
 class odontardModel: Codable {
@@ -69,6 +70,8 @@ class haveionModel: Codable {
     var relateform: String?
     var oesophagable: String?
     var hydroing: String?
+    var se: String?
+    var orexilike: String?
 }
 
 class playModel: Codable {
@@ -160,6 +163,8 @@ class clearficModel: Codable {
     var physalidory: String?
     var tricenen: [clearficModel]?
     var mountization: String?
+    var se: String?
+    var orexilike: String?
 }
 
 class couldModel: Codable {

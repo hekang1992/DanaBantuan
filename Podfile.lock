@@ -32,6 +32,7 @@ PODS:
     - FBAEMKit (= 18.0.1)
     - FBSDKCoreKit_Basics (= 18.0.1)
   - FBSDKCoreKit_Basics (18.0.1)
+  - FSPagerView (0.8.3)
   - IQKeyboardManagerSwift (6.5.16)
   - Kingfisher (8.6.2)
   - MJRefresh (3.7.9)
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - Alamofire
   - BRPickerView
   - FBSDKCoreKit
+  - FSPagerView
   - IQKeyboardManagerSwift (~> 6.5.16)
   - Kingfisher
   - MJRefresh
@@ -69,6 +71,7 @@ SPEC REPOS:
     - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
+    - FSPagerView
     - IQKeyboardManagerSwift
     - Kingfisher
     - MJRefresh
@@ -86,6 +89,7 @@ SPEC CHECKSUMS:
   FBAEMKit: b2ed182002dbcb65d5a60059c9693d322186cd00
   FBSDKCoreKit: 7f96852f2539bdb88ba8d47e5ab4ae70a6f8d691
   FBSDKCoreKit_Basics: 22d4c1a509ded4e45116f3bb167a14907550f62e
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   Kingfisher: 23d18f54677d973b713e54ce6a8f5eef6e7056ba
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
@@ -97,6 +101,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: 018892441fcc6c5cc6597741a9064d6bc7d0ef2e
+PODFILE CHECKSUM: 83698009bd0ba7ccc99acde1813e3b11dcc2c8d7
 
 COCOAPODS: 1.16.2
