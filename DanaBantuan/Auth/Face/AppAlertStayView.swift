@@ -28,16 +28,16 @@ class AppAlertStayView: UIView {
         return cancelBtn
     }()
     
-    lazy var twoBtn: UIButton = {
-        let twoBtn = UIButton(type: .custom)
-        twoBtn.addTarget(self, action: #selector(cancelClick), for: .touchUpInside)
-        return twoBtn
-    }()
-    
     lazy var oneBtn: UIButton = {
         let oneBtn = UIButton(type: .custom)
-        oneBtn.addTarget(self, action: #selector(sureClick), for: .touchUpInside)
+        oneBtn.addTarget(self, action: #selector(cancelClick), for: .touchUpInside)
         return oneBtn
+    }()
+    
+    lazy var twoBtn: UIButton = {
+        let twoBtn = UIButton(type: .custom)
+        twoBtn.addTarget(self, action: #selector(sureClick), for: .touchUpInside)
+        return twoBtn
     }()
     
     override init(frame: CGRect) {
