@@ -107,6 +107,7 @@ class AppOneView: UIView {
         let footerImageView = UIImageView()
         let languageCode = LanguageManager.currentLanguage
         footerImageView.image = languageCode == .id ? UIImage(named: "mine_foot_id_image") : UIImage(named: "home_footer_id_image")
+        footerImageView.contentMode = .scaleAspectFit
         return footerImageView
     }()
     

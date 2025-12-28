@@ -99,15 +99,17 @@ extension HomeViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 self.baseModel = model
                 let modelArray = model.hairship?.clearfic ?? []
-                for item in modelArray {
-                    let gymn = item.gymn ?? ""
-                    if gymn == "pulmonain" {
+                let pulmonainItems = modelArray.filter { $0.gymn == "pulmonain" }
+                
+                if !pulmonainItems.isEmpty {
+                    for item in pulmonainItems {
                         oneViewModel(with: item.haveion?.first ?? haveionModel())
-                    }else {
-                        softViewModel(with: modelArray)
                     }
+                } else {
+                    softViewModel(with: modelArray)
                 }
             }
+            
             await MainActor.run {
                 self.oneView.scrollView.mj_header?.endRefreshing()
                 self.softView.tableView.mj_header?.endRefreshing()
