@@ -181,6 +181,7 @@ class PersonalViewController: BaseViewController {
         super.viewWillAppear(animated)
         Task {
             do {
+                try? await Task.sleep(nanoseconds: 200_000_000)
                 let json = ["spatikin": productID]
                 let model = try await viewModel.userDetailInfo(json: json)
                 if model.mountization == "0" || model.mountization == "00" {

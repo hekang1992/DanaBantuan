@@ -202,6 +202,7 @@ extension UserIDViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 self.dismiss(animated: true) {
                     Task {
+                        try? await Task.sleep(nanoseconds: 200_000_000)
                         await self.getUserMeaageInfo()
                     }
                 }

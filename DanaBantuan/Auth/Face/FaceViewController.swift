@@ -160,6 +160,7 @@ extension FaceViewController {
             let model = try await viewModel.uploadImageInfo(json: json, data: data)
             if model.mountization == "0" || model.mountization == "00" {
                 Task {
+                    try? await Task.sleep(nanoseconds: 200_000_000)
                     await self.getUserMeaageInfo()
                 }
             }else {
