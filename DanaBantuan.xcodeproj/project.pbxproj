@@ -52,6 +52,12 @@
 		73D7A7AF2F002A0C008C8879 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7AE2F002A0C008C8879 /* ContactManager.swift */; };
 		73D7A7B12F0127EC008C8879 /* AppSoftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7B02F0127EC008C8879 /* AppSoftView.swift */; };
 		73D7A7B32F013381008C8879 /* AppSoftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7B22F013381008C8879 /* AppSoftViewCell.swift */; };
+		73D7A7B52F013F5D008C8879 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7B42F013F5D008C8879 /* OrderView.swift */; };
+		73D7A7B92F0143CD008C8879 /* SelectableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7B82F0143CD008C8879 /* SelectableItemView.swift */; };
+		73D7A7BB2F014796008C8879 /* OrderViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7BA2F014793008C8879 /* OrderViewMode.swift */; };
+		73D7A7BD2F014B44008C8879 /* OrderEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7BC2F014B44008C8879 /* OrderEmptyView.swift */; };
+		73D7A7BF2F014EEA008C8879 /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7BE2F014EEA008C8879 /* OrderViewCell.swift */; };
+		73D7A7C12F01555F008C8879 /* AddressDecodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7C02F01555F008C8879 /* AddressDecodeModel.swift */; };
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
@@ -116,6 +122,12 @@
 		73D7A7AE2F002A0C008C8879 /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		73D7A7B02F0127EC008C8879 /* AppSoftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSoftView.swift; sourceTree = "<group>"; };
 		73D7A7B22F013381008C8879 /* AppSoftViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSoftViewCell.swift; sourceTree = "<group>"; };
+		73D7A7B42F013F5D008C8879 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		73D7A7B82F0143CD008C8879 /* SelectableItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableItemView.swift; sourceTree = "<group>"; };
+		73D7A7BA2F014793008C8879 /* OrderViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewMode.swift; sourceTree = "<group>"; };
+		73D7A7BC2F014B44008C8879 /* OrderEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyView.swift; sourceTree = "<group>"; };
+		73D7A7BE2F014EEA008C8879 /* OrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = "<group>"; };
+		73D7A7C02F01555F008C8879 /* AddressDecodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDecodeModel.swift; sourceTree = "<group>"; };
 		73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaBantuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,6 +226,7 @@
 		733A08292EFCD90100EF865F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				73D7A7C02F01555F008C8879 /* AddressDecodeModel.swift */,
 				73CA0FA42EFE69F30010CDC9 /* HomeViewModel.swift */,
 				73CA0FA22EFE62E70010CDC9 /* AppOneView.swift */,
 				73D7A7B02F0127EC008C8879 /* AppSoftView.swift */,
@@ -226,7 +239,12 @@
 		733A082A2EFCD90400EF865F /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				73D7A7BA2F014793008C8879 /* OrderViewMode.swift */,
+				73D7A7B82F0143CD008C8879 /* SelectableItemView.swift */,
+				73D7A7B42F013F5D008C8879 /* OrderView.swift */,
 				733A08482EFCED2800EF865F /* OrderViewController.swift */,
+				73D7A7BC2F014B44008C8879 /* OrderEmptyView.swift */,
+				73D7A7BE2F014EEA008C8879 /* OrderViewCell.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -538,26 +556,31 @@
 				73CA0F9D2EFE54E50010CDC9 /* SettingListView.swift in Sources */,
 				733A08492EFCED2800EF865F /* OrderViewController.swift in Sources */,
 				73D7A7AB2F0012C1008C8879 /* AlertPopEnmuView.swift in Sources */,
+				73D7A7C12F01555F008C8879 /* AddressDecodeModel.swift in Sources */,
 				733A083B2EFCE28200EF865F /* IDFVManager.swift in Sources */,
 				73EC21602EFFD87F00F58012 /* BothCompleteViewController.swift in Sources */,
 				737FEDF62EFD7CDD00B06DE7 /* NetworkProxyInfo.swift in Sources */,
 				73CA0FA32EFE62E70010CDC9 /* AppOneView.swift in Sources */,
 				737FEDF42EFD79E700B06DE7 /* NetworkMonitor.swift in Sources */,
 				733A08412EFCEC5100EF865F /* AppTabBarController.swift in Sources */,
+				73D7A7BB2F014796008C8879 /* OrderViewMode.swift in Sources */,
 				731658612EFEFF7700B19562 /* FaceViewController.swift in Sources */,
 				73CA0F9F2EFE5C000010CDC9 /* AppAlertLogoutView.swift in Sources */,
 				737FEDF82EFD8C3A00B06DE7 /* CenterView.swift in Sources */,
 				73CA0F912EFE2FBC0010CDC9 /* H5WebViewController.swift in Sources */,
+				73D7A7BF2F014EEA008C8879 /* OrderViewCell.swift in Sources */,
 				737FEDF02EFD764B00B06DE7 /* DeviceInfoHelper.swift in Sources */,
 				733A083D2EFCE41F00EF865F /* IDFAManager.swift in Sources */,
 				733A08392EFCDEA500EF865F /* UserLoginConfig.swift in Sources */,
 				73EC21562EFFB0B200F58012 /* FaceView.swift in Sources */,
 				737FEDE82EFD71F800B06DE7 /* HttpRequestManager.swift in Sources */,
+				73D7A7B52F013F5D008C8879 /* OrderView.swift in Sources */,
 				73CA0FA52EFE69F60010CDC9 /* HomeViewModel.swift in Sources */,
 				73EC215C2EFFBC0D00F58012 /* CameraOnlyManager.swift in Sources */,
 				733A08372EFCDCDB00EF865F /* Config.swift in Sources */,
 				733A084B2EFCED3200EF865F /* CenterViewController.swift in Sources */,
 				73CA0F972EFE475D0010CDC9 /* ProductViewController.swift in Sources */,
+				73D7A7BD2F014B44008C8879 /* OrderEmptyView.swift in Sources */,
 				733A08432EFCEC8200EF865F /* AppNavigationController.swift in Sources */,
 				73EC21632EFFE98300F58012 /* PersonalViewController.swift in Sources */,
 				73D7A7B32F013381008C8879 /* AppSoftViewCell.swift in Sources */,
@@ -574,6 +597,7 @@
 				73EC21652EFFEA8F00F58012 /* ContactViewController.swift in Sources */,
 				737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */,
 				73EC21582EFFB2A900F58012 /* UserIDViewController.swift in Sources */,
+				73D7A7B92F0143CD008C8879 /* SelectableItemView.swift in Sources */,
 				73CA0FA12EFE5C0E0010CDC9 /* AppAlertDeleteView.swift in Sources */,
 				73CA0F8F2EFE1F090010CDC9 /* CenterListViewCell.swift in Sources */,
 				73EC21702EFFED7700F58012 /* EnterTextViewCell.swift in Sources */,

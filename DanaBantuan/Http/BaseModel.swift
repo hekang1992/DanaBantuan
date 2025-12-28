@@ -85,20 +85,6 @@ class vovoModel: Codable {
     var jutcommonably: String?
 }
 
-class sectionModel: Codable {
-    var ourability: String?
-    var cunely: String?
-    var tic: String?
-    var vituage: String?
-    var selenality: String?
-    var stop: Int?
-    var acetacy: String?
-    var quassweightify: Int?
-    var penoern: String?
-    var cordeous: String?
-    var stereo: stereoModel?
-}
-
 class stereoModel: Codable {
     var out: outModel?
     var clysmonceit: outModel?
@@ -164,6 +150,25 @@ class clearficModel: Codable {
     var managerness: String?
     var waitern: String?
     var logo: [malModel]?
+    
+    var vituage: String?
+    var tic: String?
+    var archaeoourster: String?
+    var raphite: String?
+    var situationsion: String?
+    var could: couldModel?
+    var physalidory: String?
+    var tricenen: [clearficModel]?
+    var mountization: String?
+}
+
+class couldModel: Codable {
+    var wonderment: String?
+    var paintingsion: String?
+    var oesophagable: String?
+    var hydroing: String?
+    var relateform: String?
+    var placeuous: String?
 }
 
 class calidaireModel: Codable {
@@ -205,5 +210,45 @@ class calidaireModel: Codable {
         } else {
             down = nil
         }
+    }
+}
+
+class sectionModel: Codable {
+    var ourability: String?
+    var cunely: String?
+    var tic: String?
+    var vituage: String?
+    var selenality: String?
+    var stop: Int?
+    var acetacy: String?
+    var quassweightify: Int?
+    var penoern: String?
+    var cordeous: String?
+    var stereo: stereoModel?
+
+    enum CodingKeys: String, CodingKey {
+        case ourability, cunely, tic, vituage, selenality
+        case stop, acetacy, quassweightify, penoern, cordeous, stereo
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        if let str = try? container.decode(String.self, forKey: .ourability) {
+            ourability = str
+        } else if let int = try? container.decode(Int.self, forKey: .ourability) {
+            ourability = String(int)
+        }
+
+        cunely = try? container.decode(String.self, forKey: .cunely)
+        tic = try? container.decode(String.self, forKey: .tic)
+        vituage = try? container.decode(String.self, forKey: .vituage)
+        selenality = try? container.decode(String.self, forKey: .selenality)
+        stop = try? container.decode(Int.self, forKey: .stop)
+        acetacy = try? container.decode(String.self, forKey: .acetacy)
+        quassweightify = try? container.decode(Int.self, forKey: .quassweightify)
+        penoern = try? container.decode(String.self, forKey: .penoern)
+        cordeous = try? container.decode(String.self, forKey: .cordeous)
+        stereo = try? container.decode(stereoModel.self, forKey: .stereo)
     }
 }

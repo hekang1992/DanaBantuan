@@ -12,6 +12,7 @@ import Kingfisher
 import RxSwift
 import RxCocoa
 import TYAlertController
+import BRPickerView
 
 class PersonalViewController: BaseViewController {
     
@@ -22,7 +23,7 @@ class PersonalViewController: BaseViewController {
     var name: String = ""
     
     var orderID: String = ""
-        
+    
     private let viewModel = MainViewModel()
     
     private var modelArray = BehaviorRelay<[calidaireModel]>(value: [])
@@ -148,7 +149,11 @@ class PersonalViewController: BaseViewController {
                     cell.tapClickBlock = { [weak self] in
                         guard let self = self else { return }
                         self.view.endEditing(true)
-                        self.tapClickCell(with: model, selectCell: cell)
+                        if fetfirmture == "anteitive" {
+                            self.tapCityClickCell(with: model, selectCell: cell)
+                        }else {
+                            self.tapClickCell(with: model, selectCell: cell)
+                        }
                     }
                     return cell
                 }
@@ -230,5 +235,53 @@ extension PersonalViewController {
             }
         }
     }
+    
+    private func tapCityClickCell(
+        with model: calidaireModel,
+        selectCell: TapClickViewCell
+    ) {
+        guard
+            let cityModelArray = AppAddressCityModel.shared.modelArray,
+            !cityModelArray.isEmpty
+        else {
+            return
+        }
+        
+        let listArray = AddressDecodeModel.getAddressModelArray(
+            dataSourceArr: cityModelArray
+        )
+        
+        let pickerView = BRTextPickerView()
+        pickerView.pickerMode = .componentCascade
+        pickerView.title = model.jutcommonably ?? ""
+        pickerView.dataSourceArr = listArray
+        pickerView.pickerStyle = makePickerStyle()
+        
+        pickerView.multiResultBlock = { models, _ in
+            guard let models = models else { return }
+            
+            let selectText = models
+                .compactMap { $0.text }
+                .joined(separator: "-")
+            
+            selectCell.phoneTextFiled.text = selectText
+            model.baseenne = selectText
+            model.gymn = selectText
+        }
+        
+        pickerView.show()
+    }
+    
+    private func makePickerStyle() -> BRPickerStyle {
+        let style = BRPickerStyle()
+        style.rowHeight = 44
+        style.language = "en"
+        style.doneTextColor = UIColor(hex: "#1CC7EF")
+        style.selectRowTextColor = UIColor(hex: "#1CC7EF")
+        style.pickerTextFont = .systemFont(ofSize: 14, weight: .medium)
+        style.selectRowTextFont = .systemFont(ofSize: 14, weight: .medium)
+        return style
+    }
+    
     
 }

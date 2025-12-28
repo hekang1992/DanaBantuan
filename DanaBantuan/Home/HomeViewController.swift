@@ -68,6 +68,17 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        Task {
+            do {
+                let model = try await viewModel.getAddresslInfo()
+                if model.mountization == "0" || model.mountization == "00" {
+                    AppAddressCityModel.shared.modelArray = model.hairship?.clearfic ?? []
+                }
+            } catch {
+            
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

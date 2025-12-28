@@ -331,4 +331,12 @@ extension AppSoftView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let haveion = modelArray?
+            .first(where: { $0.gymn == "bettereer" })?
+            .haveion ?? []
+        let model = haveion[indexPath.row]
+        self.tapClickBlock?(model)
+    }
+    
 }

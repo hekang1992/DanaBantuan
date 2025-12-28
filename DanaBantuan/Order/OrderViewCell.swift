@@ -1,5 +1,5 @@
 //
-//  AppSoftViewCell.swift
+//  OrderViewCell.swift
 //  DanaBantuan
 //
 //  Created by hekang on 2025/12/28.
@@ -9,21 +9,21 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class AppSoftViewCell: UITableViewCell {
+class OrderViewCell: UITableViewCell {
     
-    var model: haveionModel? {
+    var model: clearficModel? {
         didSet {
             guard let model = model else { return }
             let logoUrl = model.vituage ?? ""
             logoImageView.kf.setImage(with: URL(string: logoUrl))
             nameLabel.text = model.tic ?? ""
-            descLabel.text = model.algics ?? ""
-            moneyLabel.text = model.persicfier ?? ""
-            applyLabel.text = model.penoern ?? ""
-            oneLabel.text = LanguageManager.localizedString(for: "The term")
-            twoLabel.text = model.paintingsion ?? ""
-            threeLabel.text = LanguageManager.localizedString(for: "Interest rates")
-            fourLabel.text = model.hydroing ?? ""
+            descLabel.text = model.raphite ?? ""
+            moneyLabel.text = model.situationsion ?? ""
+            applyLabel.text = model.could?.placeuous ?? ""
+            oneLabel.text = model.could?.relateform ?? ""
+            twoLabel.text = model.could?.paintingsion ?? ""
+            threeLabel.text = model.could?.oesophagable ?? ""
+            fourLabel.text = model.could?.hydroing ?? ""
         }
     }
     

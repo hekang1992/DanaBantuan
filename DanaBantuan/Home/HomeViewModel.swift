@@ -45,4 +45,23 @@ class HomeViewModel {
         }
     }
     
+    /// save_user_bank_detail_info
+    func getAddresslInfo() async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.get("/alwaysad/coldise")
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
 }

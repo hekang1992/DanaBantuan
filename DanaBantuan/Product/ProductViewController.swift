@@ -108,7 +108,7 @@ class ProductViewController: BaseViewController {
     lazy var fourImageView: UIImageView = {
         let fourImageView = UIImageView()
         let languageCode = LanguageManager.currentLanguage
-        fourImageView.image = languageCode == .id ? UIImage(named: "id_com_ad_image") : UIImage(named: "en_com_ad_image@")
+        fourImageView.image = languageCode == .id ? UIImage(named: "id_com_ad_image") : UIImage(named: "en_com_ad_image")
         fourImageView.contentMode = .scaleAspectFit
         return fourImageView
     }()
