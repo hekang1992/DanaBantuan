@@ -207,7 +207,7 @@ class OrderViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.top.equalToSuperview().offset(15.pix())
             make.width.equalTo(1)
-            make.left.equalToSuperview().offset(190.pix())
+            make.left.equalToSuperview().offset(195.pix())
         }
         
         whiteView.addSubview(oneLabel)
@@ -216,25 +216,25 @@ class OrderViewCell: UITableViewCell {
         whiteView.addSubview(fourLabel)
         
         oneLabel.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(30.pix())
+            make.left.equalTo(lineView.snp.right).offset(20.pix())
             make.top.equalToSuperview().offset(14.pix())
             make.height.equalTo(16.pix())
         }
         
         twoLabel.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(30.pix())
+            make.left.equalTo(oneLabel)
             make.top.equalTo(oneLabel.snp.bottom).offset(7.pix())
             make.height.equalTo(16.pix())
         }
         
         threeLabel.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(30.pix())
+            make.left.equalTo(oneLabel)
             make.top.equalTo(twoLabel.snp.bottom).offset(14.pix())
             make.height.equalTo(16.pix())
         }
         
         fourLabel.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(30.pix())
+            make.left.equalTo(oneLabel)
             make.top.equalTo(threeLabel.snp.bottom).offset(7.pix())
             make.height.equalTo(16.pix())
         }
