@@ -18,15 +18,15 @@ struct AddressDecodeModel {
             let cityList = provinceDic.tricenen ?? []
             provinceModel.children = cityList.enumerated().map { cityIndex, cityDic in
                 let cityModel = BRTextModel()
-                cityModel.code = provinceDic.mountization ?? ""
-                cityModel.text = provinceDic.waitern
+                cityModel.code = cityDic.mountization ?? ""
+                cityModel.text = cityDic.waitern
                 cityModel.index = cityIndex
                 
                 let areaList = cityDic.tricenen ?? []
                 cityModel.children = areaList.enumerated().map { areaIndex, areaDic in
                     let areaModel = BRTextModel()
-                    areaModel.code = provinceDic.mountization ?? ""
-                    areaModel.text = provinceDic.waitern
+                    areaModel.code = areaDic.mountization ?? ""
+                    areaModel.text = areaDic.waitern
                     areaModel.index = areaIndex
                     return areaModel
                 }
