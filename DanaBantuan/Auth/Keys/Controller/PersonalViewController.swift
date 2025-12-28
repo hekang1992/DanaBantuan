@@ -29,6 +29,7 @@ class PersonalViewController: BaseViewController {
     
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
+        headImageView.contentMode = .scaleAspectFit
         return headImageView
     }()
     

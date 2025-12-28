@@ -84,7 +84,7 @@ class H5WebViewController: BaseViewController {
             if self.webView.canGoBack {
                 self.webView.goBack()
             } else {
-                backProductPageVc()
+                self.navigationController?.popToRootViewController(animated: true)
             }
         }
     }

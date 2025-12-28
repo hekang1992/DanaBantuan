@@ -64,6 +64,7 @@ class AppAlertDeleteView: UIView {
         bgImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.equalTo(315.pix())
+            make.height.equalTo(420.pix())
         }
         
         bgImageView.addSubview(cancelBtn)

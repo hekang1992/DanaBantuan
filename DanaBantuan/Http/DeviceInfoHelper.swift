@@ -52,19 +52,25 @@ final class DeviceInfoHelper {
 }
 
 class APIHelper {
-    static func apiURLString( path: String, extraParams: [String: Any] = [:]) -> String? {
+    static func apiURLString(path: String, extraParams: [String: Any] = [:]) -> String? {
+        guard var components = URLComponents(string: path) else {
+            return nil
+        }
         
-        var components = URLComponents(string: path)
         var params = DeviceInfoHelper.apiParams()
+        
+        if let existingQueryItems = components.queryItems {
+            for item in existingQueryItems {
+                params[item.name] = item.value
+            }
+        }
         
         extraParams.forEach { params[$0.key] = $0.value }
         
-        components?.queryItems = params.map {
+        components.queryItems = params.map {
             URLQueryItem(name: $0.key, value: "\($0.value)")
         }
         
-        return components?.url?.absoluteString
+        return components.url?.absoluteString
     }
-    
 }
-

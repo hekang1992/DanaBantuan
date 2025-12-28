@@ -133,6 +133,7 @@ class BothCompleteViewController: BaseViewController {
     
     lazy var typeImageView: UIImageView = {
         let typeImageView = UIImageView()
+        typeImageView.contentMode = .scaleAspectFit
         return typeImageView
     }()
     

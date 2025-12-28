@@ -38,6 +38,7 @@ class FaceView: UIView {
     
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
+        headImageView.contentMode = .scaleAspectFit
         return headImageView
     }()
     
@@ -51,6 +52,7 @@ class FaceView: UIView {
     
     lazy var oneImageView: UIImageView = {
         let oneImageView = UIImageView()
+        oneImageView.contentMode = .scaleAspectFit
         return oneImageView
     }()
     
