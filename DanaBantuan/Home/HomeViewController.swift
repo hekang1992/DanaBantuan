@@ -17,7 +17,14 @@ class HomeViewController: BaseViewController {
     
     lazy var oneView: AppOneView = {
         let oneView = AppOneView(frame: .zero)
+        oneView.isHidden = true
         return oneView
+    }()
+    
+    lazy var softView: AppSoftView = {
+        let softView = AppSoftView(frame: .zero)
+        softView.isHidden = true
+        return softView
     }()
     
     override func viewDidLoad() {
@@ -28,6 +35,11 @@ class HomeViewController: BaseViewController {
             make.edges.equalToSuperview()
         }
         
+        view.addSubview(softView)
+        softView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         self.oneView.scrollView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
             Task {
@@ -35,7 +47,21 @@ class HomeViewController: BaseViewController {
             }
         })
         
+        self.softView.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+            guard let self = self else { return }
+            Task {
+                await self.homeInfo()
+            }
+        })
+        
         self.oneView.applyBlock = { [weak self] model in
+            guard let self = self else { return }
+            Task {
+                await self.applyProduct(with: model)
+            }
+        }
+        
+        self.softView.tapClickBlock = { [weak self] model in
             guard let self = self else { return }
             Task {
                 await self.applyProduct(with: model)
@@ -66,15 +92,19 @@ extension HomeViewController {
                     let gymn = item.gymn ?? ""
                     if gymn == "pulmonain" {
                         oneViewModel(with: item.haveion?.first ?? haveionModel())
+                    }else {
+                        softViewModel(with: modelArray)
                     }
                 }
             }
             await MainActor.run {
                 self.oneView.scrollView.mj_header?.endRefreshing()
+                self.softView.tableView.mj_header?.endRefreshing()
             }
         } catch {
             await MainActor.run {
                 self.oneView.scrollView.mj_header?.endRefreshing()
+                self.softView.tableView.mj_header?.endRefreshing()
             }
         }
     }
@@ -85,6 +115,14 @@ extension HomeViewController {
     
     private func oneViewModel(with model: haveionModel) {
         self.oneView.model = model
+        self.oneView.isHidden = false
+        self.softView.isHidden = true
+    }
+    
+    private func softViewModel(with modelArray: [clearficModel]) {
+        self.softView.modelArray = modelArray
+        self.oneView.isHidden = true
+        self.softView.isHidden = false
     }
     
     private func applyProduct(with model: haveionModel) async {

