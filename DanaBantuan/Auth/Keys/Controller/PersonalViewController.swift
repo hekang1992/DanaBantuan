@@ -82,7 +82,21 @@ class PersonalViewController: BaseViewController {
         
         headView.tapClickBlock = { [weak self] in
             guard let self = self else { return }
-            self.backProductPageVc()
+            let stayView = AppAlertStayView(frame: self.view.bounds)
+            let alertVc = TYAlertController(alert: stayView, preferredStyle: .alert)
+            self.present(alertVc!, animated: true)
+            
+            stayView.cancelBlock = { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true)
+            }
+            
+            stayView.sureBlock = { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true) {
+                    self.backProductPageVc()
+                }
+            }
         }
         
         let languageCode = LanguageManager.currentLanguage
