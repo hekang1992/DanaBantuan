@@ -74,6 +74,7 @@
 		73EC216E2EFFED6500F58012 /* TapClickViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC216D2EFFED6500F58012 /* TapClickViewCell.swift */; };
 		73EC21702EFFED7700F58012 /* EnterTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC216F2EFFED7700F58012 /* EnterTextViewCell.swift */; };
 		73FB46372F020FAE005D68A0 /* LocationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB46362F020FAE005D68A0 /* LocationTool.swift */; };
+		73FB46392F0215F5005D68A0 /* DeviceInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB46382F0215F5005D68A0 /* DeviceInfoManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +149,7 @@
 		73EC216D2EFFED6500F58012 /* TapClickViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapClickViewCell.swift; sourceTree = "<group>"; };
 		73EC216F2EFFED7700F58012 /* EnterTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTextViewCell.swift; sourceTree = "<group>"; };
 		73FB46362F020FAE005D68A0 /* LocationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTool.swift; sourceTree = "<group>"; };
+		73FB46382F0215F5005D68A0 /* DeviceInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoManager.swift; sourceTree = "<group>"; };
 		A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.release.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.release.xcconfig"; sourceTree = "<group>"; };
 		F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanaBantuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -181,6 +183,7 @@
 		733A08252EFCD8F500EF865F /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				73FB46382F0215F5005D68A0 /* DeviceInfoManager.swift */,
 				73FB46362F020FAE005D68A0 /* LocationTool.swift */,
 				737FEDF52EFD7CDD00B06DE7 /* NetworkProxyInfo.swift */,
 				737FEDED2EFD74C200B06DE7 /* LoadingView.swift */,
@@ -561,6 +564,7 @@
 				73D7A7AF2F002A0C008C8879 /* ContactManager.swift in Sources */,
 				73CA0F9D2EFE54E50010CDC9 /* SettingListView.swift in Sources */,
 				733A08492EFCED2800EF865F /* OrderViewController.swift in Sources */,
+				73FB46392F0215F5005D68A0 /* DeviceInfoManager.swift in Sources */,
 				73D7A7AB2F0012C1008C8879 /* AlertPopEnmuView.swift in Sources */,
 				73D7A7C12F01555F008C8879 /* AddressDecodeModel.swift in Sources */,
 				733A083B2EFCE28200EF865F /* IDFVManager.swift in Sources */,

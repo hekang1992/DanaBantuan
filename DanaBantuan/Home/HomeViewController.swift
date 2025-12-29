@@ -83,6 +83,10 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        DeviceInfoManager.shared.collect { json in
+            print("json=======\(json)")
+        }
+        
         Task {
             do {
                 let model = try await viewModel.getAddresslInfo()
