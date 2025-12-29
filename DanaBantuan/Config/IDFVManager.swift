@@ -11,55 +11,48 @@ import Security
 class IDFVManager {
     
     static let shared = IDFVManager()
-    private init() {}
     
-    private let service = Bundle.main.bundleIdentifier ?? "com.app.danabantuan.idfv"
-    private let account = "device_danabantuan_idfv"
+    private init(){}
     
     func getIDFV() -> String {
-        if let storedIDFV = retrieveIDFVFromKeychain() {
-            return storedIDFV
+        if let existingIDFV = loadIDFVFromKeychain() {
+            return existingIDFV
         }
         
-        guard let vendorIdentifier = UIDevice.current.identifierForVendor?.uuidString else {
-            return ""
+        let idfv: String
+        if let vendorId = UIDevice.current.identifierForVendor?.uuidString {
+            idfv = vendorId
+        } else {
+            idfv = UUID().uuidString
         }
         
-        if saveIDFVToKeychain(idfv: vendorIdentifier) {
-            return vendorIdentifier
-        }
-        
-        return ""
+        saveIDFVToKeychain(idfv)
+        return idfv
     }
     
-    private func saveIDFVToKeychain(idfv: String) -> Bool {
-        guard let data = idfv.data(using: .utf8) else {
-            return false
-        }
+    private let keychainService = "com.idfv.danabantuan.app"
+    private let keychainAccount = "device_idfv"
     
+    private  func saveIDFVToKeychain(_ idfv: String) {
+        guard let data = idfv.data(using: .utf8) else { return }
+        
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service,
-            kSecAttrAccount as String: account,
+            kSecAttrService as String: keychainService,
+            kSecAttrAccount as String: keychainAccount,
             kSecValueData as String: data
         ]
         
         SecItemDelete(query as CFDictionary)
         
-        let status = SecItemAdd(query as CFDictionary, nil)
-        
-        if status == errSecSuccess {
-            return true
-        } else {
-            return false
-        }
+        SecItemAdd(query as CFDictionary, nil)
     }
     
-    private func retrieveIDFVFromKeychain() -> String? {
+    private func loadIDFVFromKeychain() -> String? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service,
-            kSecAttrAccount as String: account,
+            kSecAttrService as String: keychainService,
+            kSecAttrAccount as String: keychainAccount,
             kSecReturnData as String: true,
             kSecMatchLimit as String: kSecMatchLimitOne
         ]
@@ -67,17 +60,13 @@ class IDFVManager {
         var dataTypeRef: AnyObject?
         let status = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
         
-        if status == errSecSuccess {
-            guard let data = dataTypeRef as? Data,
-                  let idfv = String(data: data, encoding: .utf8) else {
-                return nil
-            }
+        if status == errSecSuccess,
+           let data = dataTypeRef as? Data,
+           let idfv = String(data: data, encoding: .utf8) {
             return idfv
-        } else if status == errSecItemNotFound {
-            return nil
-        } else {
-            return nil
         }
+        
+        return nil
     }
     
 }
