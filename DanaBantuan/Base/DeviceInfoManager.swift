@@ -13,7 +13,6 @@ import CoreLocation
 import AdSupport
 import NetworkExtension
 import SystemConfiguration.CaptiveNetwork
-import DeviceKit
 
 final class DeviceInfoManager: NSObject {
     
@@ -241,7 +240,6 @@ extension DeviceInfoManager {
     
     func deviceInfo() -> [String: Any] {
         let screen = UIScreen.main.bounds
-        let device = Device.current
         return [
             "rapacnecessaryfier": UIDevice.current.systemVersion,
             "fideise": "iPhone",
@@ -249,7 +247,7 @@ extension DeviceInfoManager {
             "only": UIDevice.current.model,
             "taccourtly": Int(screen.height),
             "eoshistoryery": Int(screen.width),
-            "vas": String(device.diagonal)
+            "vas": String(format: "%.1f", DeviceInfo.diagonal(for: machineModel()))
         ]
     }
     
@@ -264,3 +262,4 @@ extension DeviceInfoManager {
     }
     
 }
+

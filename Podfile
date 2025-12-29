@@ -10,7 +10,6 @@ target 'DanaBantuan' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Kingfisher'
-  pod 'RxGesture'
   pod 'Alamofire'
   pod 'FSPagerView'
   pod 'Toast-Swift'
@@ -18,7 +17,6 @@ target 'DanaBantuan' do
   pod 'FBSDKCoreKit'
   pod 'BRPickerView'
   pod 'TYAlertController'
-  pod 'DeviceKit'
   pod 'IQKeyboardManagerSwift', '~> 6.5.16'
   
 end

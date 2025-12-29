@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
-import RxGesture
 
 class LoginView: UIView {
     
@@ -113,6 +112,11 @@ class LoginView: UIView {
         let agreeLabel = UILabel()
         agreeLabel.attributedText = createAgreeAttributedText()
         agreeLabel.numberOfLines = 0
+        agreeLabel.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(agreeLabelTapped))
+        agreeLabel.addGestureRecognizer(tapGesture)
+        
         return agreeLabel
     }()
     
@@ -280,17 +284,6 @@ class LoginView: UIView {
             })
             .disposed(by: disposeBag)
         
-        agreeLabel
-            .rx
-            .tapGesture()
-            .when(.recognized)
-            .debounce(.microseconds(100), scheduler: MainScheduler.instance)
-            .bind(onNext: { [weak self] _ in
-                guard let self = self else { return }
-                self.agreeBlock?()
-            })
-            .disposed(by: disposeBag)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -300,5 +293,9 @@ class LoginView: UIView {
 }
 
 extension LoginView {
+    
+    @objc func agreeLabelTapped() {
+        self.agreeBlock?()
+    }
     
 }

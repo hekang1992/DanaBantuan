@@ -26,7 +26,6 @@ PODS:
     - BRPickerView/Deprecated/Base
   - BRPickerView/TextPicker (2.9.9):
     - BRPickerView/Core
-  - DeviceKit (5.7.0)
   - FBAEMKit (18.0.1):
     - FBSDKCoreKit_Basics (= 18.0.1)
   - FBSDKCoreKit (18.0.1):
@@ -40,9 +39,6 @@ PODS:
   - RxCocoa (6.9.0):
     - RxRelay (= 6.9.0)
     - RxSwift (= 6.9.0)
-  - RxGesture (4.0.4):
-    - RxCocoa (~> 6.0)
-    - RxSwift (~> 6.0)
   - RxRelay (6.9.0):
     - RxSwift (= 6.9.0)
   - RxSwift (6.9.0)
@@ -53,14 +49,12 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - BRPickerView
-  - DeviceKit
   - FBSDKCoreKit
   - FSPagerView
   - IQKeyboardManagerSwift (~> 6.5.16)
   - Kingfisher
   - MJRefresh
   - RxCocoa
-  - RxGesture
   - RxSwift
   - SnapKit
   - Toast-Swift
@@ -70,7 +64,6 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - BRPickerView
-    - DeviceKit
     - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
@@ -79,7 +72,6 @@ SPEC REPOS:
     - Kingfisher
     - MJRefresh
     - RxCocoa
-    - RxGesture
     - RxRelay
     - RxSwift
     - SnapKit
@@ -89,7 +81,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   BRPickerView: 84b2effb81f3b9ebd27f1d31de867ae0b37024f7
-  DeviceKit: d1a956e25b957efb60a87bfe70be4e00ef36846d
   FBAEMKit: b2ed182002dbcb65d5a60059c9693d322186cd00
   FBSDKCoreKit: 7f96852f2539bdb88ba8d47e5ab4ae70a6f8d691
   FBSDKCoreKit_Basics: 22d4c1a509ded4e45116f3bb167a14907550f62e
@@ -98,13 +89,12 @@ SPEC CHECKSUMS:
   Kingfisher: 23d18f54677d973b713e54ce6a8f5eef6e7056ba
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
   RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
-  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: 624a578564968c768bfdb9ba5af5c4b2aeecb45d
+PODFILE CHECKSUM: 95ac92a25e646ee8fa564cfcc8841218a53c55d0
 
 COCOAPODS: 1.16.2
