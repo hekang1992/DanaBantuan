@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  DanaBantuan
 //
-//  Created by hekang on 2025/12/25.
+//  Created by Thomas Brown on 2025/12/25.
 //
 
 import UIKit
@@ -109,7 +109,6 @@ class HomeViewController: BaseViewController {
             if let result = result {
                 print("result====\(result)")
                 Task {
-                    try? await Task.sleep(nanoseconds: 3_000_000_000)
                     AppLocationModel.shared.locationJson = result
                 }
             } else {

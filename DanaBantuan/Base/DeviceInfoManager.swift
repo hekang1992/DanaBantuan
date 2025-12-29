@@ -2,7 +2,7 @@
 //  DeviceInfoManager.swift
 //  DanaBantuan
 //
-//  Created by hekang on 2025/12/29.
+//  Created by Thomas Brown on 2025/12/29.
 //
 
 import UIKit
