@@ -29,6 +29,12 @@ class ContactViewController: BaseViewController {
     
     private var modelArray = BehaviorRelay<[clearficModel]>(value: [])
     
+    private var locationTool: LocationTool?
+    
+    private var starttime: String = ""
+    
+    private let launchViewModel = LaunchViewModel()
+    
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
         headImageView.contentMode = .scaleAspectFit
@@ -186,6 +192,21 @@ class ContactViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        locationTool = LocationTool(presentingVC: self)
+        locationTool?.startLocation { [weak self] result, error in
+            guard let self = self else { return }
+            if let result = result {
+                print("result====\(result)")
+                Task {
+                    try? await Task.sleep(nanoseconds: 3_000_000_000)
+                    AppLocationModel.shared.locationJson = result
+                }
+            } else {
+                
+            }
+        }
+        
+        starttime = String(Date().timeIntervalSince1970)
         
     }
     
@@ -228,6 +249,7 @@ extension ContactViewController {
             let model = try await viewModel.saveUserContactDetailInfo(json: params)
             
             if model.mountization == "0" || model.mountization == "00" {
+                await self.stayApp()
                 await getDetailInfo(with: productID)
             } else {
                 ToastManager.showMessage(message: model.se ?? "")
@@ -271,6 +293,26 @@ extension ContactViewController {
             }
         }
     }
+}
+
+extension ContactViewController {
     
+    private func stayApp() async {
+        let locationJson = AppLocationModel.shared.locationJson ?? [:]
+        let amward = locationJson["amward"] ?? ""
+        let rhizeur = locationJson["rhizeur"] ?? ""
+        do {
+            let json = ["cupship": starttime,
+                        "laud": String(Int(Date().timeIntervalSince1970)),
+                        "amward": amward,
+                        "rhizeur": rhizeur,
+                        "recordage": "6",
+                        "selenality": orderID,
+                        "archaeoourster": productID]
+            let _ = try await launchViewModel.uploadSnippetInfo(json: json)
+        } catch {
+            
+        }
+    }
     
 }

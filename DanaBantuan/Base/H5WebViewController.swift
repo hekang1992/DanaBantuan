@@ -41,6 +41,10 @@ class H5WebViewController: BaseViewController {
     
     var pageUrl: String = ""
     
+    private var locationTool: LocationTool?
+    
+    private let launchViewModel = LaunchViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -156,6 +160,7 @@ extension H5WebViewController: WKScriptMessageHandler {
         
         switch name {
         case "fortior":
+            snapiktInfo(body as? [String] ?? [])
             break
             
         case "suggestage":
@@ -181,6 +186,30 @@ extension H5WebViewController: WKScriptMessageHandler {
 
 // MARK: - Private Methods
 private extension H5WebViewController {
+    
+    func snapiktInfo(_ body: [String]) {
+        locationTool = LocationTool(presentingVC: self)
+        locationTool?.startLocation { [weak self] result, error in
+            guard let self = self else { return }
+            if let result = result {
+                print("result====\(result)")
+                Task {
+                    try? await Task.sleep(nanoseconds: 3_000_000_000)
+                    AppLocationModel.shared.locationJson = result
+                }
+            } else {
+                
+            }
+        }
+        
+        Task {
+            try? await Task.sleep(nanoseconds: 3_000_000_000)
+            let productID = body.first ?? ""
+            let odrdeID = body.last ?? ""
+            await self.stayApp(with: productID, orderID: odrdeID)
+        }
+        
+    }
     
     func handleSuggestage(_ body: Any) {
         guard let pageUrl = body as? String, !pageUrl.isEmpty else { return }
@@ -221,4 +250,26 @@ private extension H5WebViewController {
         
         UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
     }
+}
+
+extension H5WebViewController {
+    
+    private func stayApp(with productID: String, orderID: String) async {
+        let locationJson = AppLocationModel.shared.locationJson ?? [:]
+        let amward = locationJson["amward"] ?? ""
+        let rhizeur = locationJson["rhizeur"] ?? ""
+        do {
+            let json = ["cupship": String(Int(Date().timeIntervalSince1970)),
+                        "laud": String(Int(Date().timeIntervalSince1970)),
+                        "amward": amward,
+                        "rhizeur": rhizeur,
+                        "recordage": "9",
+                        "selenality": orderID,
+                        "archaeoourster": productID]
+            let _ = try await launchViewModel.uploadSnippetInfo(json: json)
+        } catch {
+            
+        }
+    }
+    
 }

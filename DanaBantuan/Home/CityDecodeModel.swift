@@ -7,7 +7,7 @@
 
 import BRPickerView
 
-struct AddressDecodeModel {
+struct CityDecodeModel {
     static func getAddressModelArray(dataSourceArr: [clearficModel]) -> [BRTextModel] {
         return dataSourceArr.enumerated().map { provinceIndex, provinceDic in
             let provinceModel = BRTextModel()

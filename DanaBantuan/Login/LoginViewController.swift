@@ -51,6 +51,7 @@ class LoginViewController: BaseViewController {
         
         loginView.agreeBlock = { [weak self] in
             guard let self = self else { return }
+            ToastManager.showMessage(message: "agreeBlock")
         }
         
         locationTool = LocationTool(presentingVC: self)
@@ -79,6 +80,8 @@ class LoginViewController: BaseViewController {
                 }
             }
         }
+        
+        StayPointConfig.saveStartInfo(start: String(Int(Date().timeIntervalSince1970)))
     }
     
     @MainActor
@@ -119,6 +122,7 @@ extension LoginViewController {
         let isAgreeMent = self.loginView.sureBtn.isSelected
         self.loginView.codeFiled.resignFirstResponder()
         self.loginView.phoneFiled.resignFirstResponder()
+        StayPointConfig.saveLeaveInfo(leave: String(Int(Date().timeIntervalSince1970)))
         if phone.isEmpty {
             ToastManager.showMessage(message: LanguageManager.localizedString(for: "Please enter mobile phone number"))
             return

@@ -42,7 +42,6 @@ class LocationTool: NSObject {
             
         case .denied, .restricted:
             callbackDeniedIfNeeded()
-            showSettingAlert()
             
         @unknown default:
             break
@@ -55,26 +54,6 @@ class LocationTool: NSObject {
     
     private func stopUpdating() {
         locationManager.stopUpdatingLocation()
-    }
-    
-    private func showSettingAlert() {
-        guard let vc = presentingVC else { return }
-        
-        let alert = UIAlertController(
-            title: "定位权限未开启",
-            message: "请在系统设置中开启定位权限",
-            preferredStyle: .alert
-        )
-        
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
-        
-        alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
-            if let url = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(url)
-            }
-        })
-        
-        vc.present(alert, animated: true)
     }
     
     private func callbackDeniedIfNeeded() {
@@ -94,9 +73,6 @@ extension LocationTool: CLLocationManagerDelegate {
             
         case .denied, .restricted:
             callbackDeniedIfNeeded()
-            if UserLoginConfig.isLoggedIn && LanguageManager.currentLanguage == .id {
-                showSettingAlert()
-            }
             
         default:
             break
@@ -166,3 +142,10 @@ private extension LocationTool {
 enum LocationAuthError: Error {
     case denied
 }
+
+class AppLocationModel {
+    static let shared = AppLocationModel()
+    private init() {}
+    var locationJson: [String: String]?
+}
+

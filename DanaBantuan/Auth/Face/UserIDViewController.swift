@@ -24,6 +24,12 @@ class UserIDViewController: BaseViewController {
     
     private let camera = CameraOnlyManager()
     
+    private var locationTool: LocationTool?
+    
+    private var starttime: String = ""
+    
+    private let launchViewModel = LaunchViewModel()
+    
     lazy var faceView: FaceView = {
         let faceView = FaceView(frame: .zero)
         return faceView
@@ -120,6 +126,22 @@ class UserIDViewController: BaseViewController {
             }
         }
         
+        locationTool = LocationTool(presentingVC: self)
+        locationTool?.startLocation { [weak self] result, error in
+            guard let self = self else { return }
+            if let result = result {
+                print("result====\(result)")
+                Task {
+                    try? await Task.sleep(nanoseconds: 3_000_000_000)
+                    AppLocationModel.shared.locationJson = result
+                }
+            } else {
+                
+            }
+        }
+        
+        starttime = String(Int(Date().timeIntervalSince1970))
+        
         Task {
             await self.getUserMeaageInfo()
         }
@@ -131,7 +153,7 @@ class UserIDViewController: BaseViewController {
 extension UserIDViewController {
     
     private func getUserMeaageInfo() async {
-        
+        try? await Task.sleep(nanoseconds: 200_000_000)
         do {
             let json = ["spatikin": productID]
             let model = try await viewModel.getUserlInfo(json: json)
@@ -202,13 +224,31 @@ extension UserIDViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 self.dismiss(animated: true) {
                     Task {
-                        try? await Task.sleep(nanoseconds: 200_000_000)
+                        await self.stayApp()
                         await self.getUserMeaageInfo()
                     }
                 }
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }
+        } catch {
+            
+        }
+    }
+    
+    private func stayApp() async {
+        let locationJson = AppLocationModel.shared.locationJson ?? [:]
+        let amward = locationJson["amward"] ?? ""
+        let rhizeur = locationJson["rhizeur"] ?? ""
+        do {
+            let json = ["cupship": starttime,
+                        "laud": String(Int(Date().timeIntervalSince1970)),
+                        "amward": amward,
+                        "rhizeur": rhizeur,
+                        "recordage": "2",
+                        "selenality": orderID,
+                        "archaeoourster": productID]
+            let _ = try await launchViewModel.uploadSnippetInfo(json: json)
         } catch {
             
         }

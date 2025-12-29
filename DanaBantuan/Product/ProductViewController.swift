@@ -22,6 +22,12 @@ class ProductViewController: BaseViewController {
     
     private let viewModel = ProductViewModel()
     
+    private var locationTool: LocationTool?
+    
+    private var starttime: String = ""
+    
+    private let launchViewModel = LaunchViewModel()
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -264,6 +270,20 @@ class ProductViewController: BaseViewController {
             }
         })
         
+        locationTool = LocationTool(presentingVC: self)
+        locationTool?.startLocation { [weak self] result, error in
+            guard let self = self else { return }
+            if let result = result {
+                print("result====\(result)")
+                Task {
+                    try? await Task.sleep(nanoseconds: 3_000_000_000)
+                    AppLocationModel.shared.locationJson = result
+                }
+            } else {
+                
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -464,7 +484,7 @@ extension ProductViewController {
         let acetacy = model.hairship?.section?.acetacy ?? ""
         let quassweightify = String(model.hairship?.section?.quassweightify ?? 0)
         let yourselfibility = LanguageManager.currentLanguage.rawValue
-        
+        starttime = String(Date().timeIntervalSince1970)
         do {
             let json = ["last": last,
                         "ourability": ourability,
@@ -473,6 +493,9 @@ extension ProductViewController {
                         "yourselfibility": yourselfibility]
             let model = try await viewModel.orderInfo(json: json)
             if model.mountization == "0" || model.mountization == "00" {
+                Task {
+                    await self.stayApp(with: last)
+                }
                 let pageUrl = model.hairship?.orexilike ?? ""
                 if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
                     URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
@@ -485,6 +508,28 @@ extension ProductViewController {
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }
+        } catch {
+            
+        }
+    }
+    
+}
+
+extension ProductViewController {
+    
+    private func stayApp(with orderID: String) async {
+        let locationJson = AppLocationModel.shared.locationJson ?? [:]
+        let amward = locationJson["amward"] ?? ""
+        let rhizeur = locationJson["rhizeur"] ?? ""
+        do {
+            let json = ["cupship": starttime,
+                        "laud": String(Int(Date().timeIntervalSince1970)),
+                        "amward": amward,
+                        "rhizeur": rhizeur,
+                        "recordage": "8",
+                        "selenality": orderID,
+                        "archaeoourster": productID]
+            let _ = try await launchViewModel.uploadSnippetInfo(json: json)
         } catch {
             
         }

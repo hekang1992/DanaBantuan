@@ -40,3 +40,40 @@ struct UserLoginConfig {
         return token != nil && phone != nil
     }
 }
+
+struct StayPointConfig {
+    
+    enum Key: String {
+        case userSatrt = "user_start"
+        case userLeave = "user_leave"
+    }
+    
+    static func saveStartInfo(start: String) {
+        let defaults = UserDefaults.standard
+        defaults.set(start, forKey: Key.userSatrt.rawValue)
+        defaults.synchronize()
+    }
+    
+    static func saveLeaveInfo(leave: String) {
+        let defaults = UserDefaults.standard
+        defaults.set(leave, forKey: Key.userLeave.rawValue)
+        defaults.synchronize()
+    }
+    
+    static func deleteTrackInformation() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: Key.userSatrt.rawValue)
+        defaults.removeObject(forKey: Key.userLeave.rawValue)
+        defaults.synchronize()
+    }
+    
+    static var starttime: String? {
+        return UserDefaults.standard.string(forKey: Key.userSatrt.rawValue)
+    }
+    
+    static var leavetime: String? {
+        return UserDefaults.standard.string(forKey: Key.userLeave.rawValue)
+    }
+    
+    
+}

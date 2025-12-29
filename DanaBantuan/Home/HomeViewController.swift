@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import MJRefresh
+import CoreLocation
 
 class HomeViewController: BaseViewController {
     
@@ -15,7 +16,9 @@ class HomeViewController: BaseViewController {
     
     private var baseModel: BaseModel?
     
+    private let launchViewModel = LaunchViewModel()
     
+    private var locationTool: LocationTool?
     
     lazy var oneView: AppOneView = {
         let oneView = AppOneView(frame: .zero)
@@ -83,16 +86,6 @@ class HomeViewController: BaseViewController {
             }
         }
         
-        DeviceInfoManager.shared.collect { json in
-            do {
-                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
-                let base64String = jsonData.base64EncodedString()
-                print("Base64: \(base64String)")
-            } catch {
-                print("error：\(error)")
-            }
-        }
-        
         Task {
             do {
                 let model = try await viewModel.getAddresslInfo()
@@ -100,7 +93,24 @@ class HomeViewController: BaseViewController {
                     AppAddressCityModel.shared.modelArray = model.hairship?.clearfic ?? []
                 }
             } catch {
-            
+                
+            }
+        }
+        
+        locationTool = LocationTool(presentingVC: self)
+        locationTool?.startLocation { [weak self] result, error in
+            guard let self = self else { return }
+            if let result = result {
+                print("result====\(result)")
+                Task {
+                    try? await Task.sleep(nanoseconds: 3_000_000_000)
+                    AppLocationModel.shared.locationJson = result
+                }
+            } else {
+                print("error====\(error!)")
+                if UserLoginConfig.isLoggedIn && LanguageManager.currentLanguage == .id {
+                    showSettingAlert()
+                }
             }
         }
         
@@ -116,6 +126,25 @@ class HomeViewController: BaseViewController {
 }
 
 extension HomeViewController {
+    
+    private func showSettingAlert() {
+        
+        let alert = UIAlertController(
+            title: "定位权限未开启",
+            message: "请在系统设置中开启定位权限",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+        
+        alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url)
+            }
+        })
+        
+        self.present(alert, animated: true)
+    }
     
     private func homeInfo() async {
         do {
@@ -164,6 +193,21 @@ extension HomeViewController {
     }
     
     private func applyProduct(with model: haveionModel) async {
+        
+        if LanguageManager.currentLanguage == .id {
+            let status = CLLocationManager().authorizationStatus
+            if status != .authorizedAlways && status != .authorizedWhenInUse  {
+                self.showSettingAlert()
+                return
+            }
+        }
+        
+        if LanguageManager.currentLanguage == .id {
+            Task {
+                await self.clickHomeProductInfo()
+            }
+        }
+        
         let productID = String(model.cunely ?? 0)
         
         let json = [
@@ -192,6 +236,77 @@ extension HomeViewController {
         } catch {
             
         }
+    }
+    
+}
+
+extension HomeViewController {
+    
+    private func clickHomeProductInfo() async {
+        Task.detached {
+            await self.stayApp()
+        }
+        
+        Task.detached {
+            let locationJson = await AppLocationModel.shared.locationJson ?? [:]
+            await self.uploadLocationInfo(with: locationJson)
+        }
+        
+        DeviceInfoManager.shared.collect { json in
+            Task.detached {
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+                    let base64String = jsonData.base64EncodedString()
+                    let json = ["hairship": base64String]
+                    await self.uploadDeviceInfo(with: json)
+                } catch {
+                    print("error：\(error)")
+                }
+            }
+        }
+    }
+    
+    private func uploadLocationInfo(with json: [String: String]) async {
+        do {
+            let _ = try await launchViewModel.uploadLocationinfo(json: json)
+        } catch {
+            
+        }
+    }
+    
+    private func uploadDeviceInfo(with json: [String: String]) async {
+        do {
+            let _ = try await launchViewModel.uploadDeviceinfo(json: json)
+        } catch {
+            
+        }
+    }
+    
+    private func stayApp() async {
+        let starttime = StayPointConfig.starttime ?? ""
+        let leavetime = StayPointConfig.leavetime ?? ""
+        let locationJson = AppLocationModel.shared.locationJson ?? [:]
+        let amward = locationJson["amward"] ?? ""
+        let rhizeur = locationJson["rhizeur"] ?? ""
+        do {
+            if starttime.isEmpty && leavetime.isEmpty {
+                return
+            }
+            let json = ["cupship": starttime,
+                        "laud": leavetime,
+                        "amward": amward,
+                        "rhizeur": rhizeur,
+                        "recordage": "1",
+                        "selenality": "",
+                        "archaeoourster": ""]
+            let model = try await launchViewModel.uploadSnippetInfo(json: json)
+            if model.mountization == "0" || model.mountization == "00" {
+                StayPointConfig.deleteTrackInformation()
+            }
+        } catch {
+            
+        }
+        
     }
     
 }

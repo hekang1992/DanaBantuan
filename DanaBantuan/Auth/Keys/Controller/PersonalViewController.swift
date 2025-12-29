@@ -28,6 +28,12 @@ class PersonalViewController: BaseViewController {
     
     private var modelArray = BehaviorRelay<[calidaireModel]>(value: [])
     
+    private var locationTool: LocationTool?
+    
+    private var starttime: String = ""
+    
+    private let launchViewModel = LaunchViewModel()
+    
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
         headImageView.contentMode = .scaleAspectFit
@@ -174,6 +180,21 @@ class PersonalViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        locationTool = LocationTool(presentingVC: self)
+        locationTool?.startLocation { [weak self] result, error in
+            guard let self = self else { return }
+            if let result = result {
+                print("result====\(result)")
+                Task {
+                    try? await Task.sleep(nanoseconds: 3_000_000_000)
+                    AppLocationModel.shared.locationJson = result
+                }
+            } else {
+                
+            }
+        }
+        
+        starttime = String(Date().timeIntervalSince1970)
         
     }
     
@@ -205,6 +226,7 @@ extension PersonalViewController {
             let model = try await viewModel.saveUserDetailInfo(json: json)
             if model.mountization == "0" || model.mountization == "00" {
                 Task {
+                    await self.stayApp()
                     await self.getDetailInfo(with: productID)
                 }
             }else {
@@ -262,7 +284,7 @@ extension PersonalViewController {
             return
         }
         
-        let listArray = AddressDecodeModel.getAddressModelArray(
+        let listArray = CityDecodeModel.getAddressModelArray(
             dataSourceArr: cityModelArray
         )
         
@@ -298,5 +320,26 @@ extension PersonalViewController {
         return style
     }
     
+}
+
+extension PersonalViewController {
+    
+    private func stayApp() async {
+        let locationJson = AppLocationModel.shared.locationJson ?? [:]
+        let amward = locationJson["amward"] ?? ""
+        let rhizeur = locationJson["rhizeur"] ?? ""
+        do {
+            let json = ["cupship": starttime,
+                        "laud": String(Int(Date().timeIntervalSince1970)),
+                        "amward": amward,
+                        "rhizeur": rhizeur,
+                        "recordage": "4",
+                        "selenality": orderID,
+                        "archaeoourster": productID]
+            let _ = try await launchViewModel.uploadSnippetInfo(json: json)
+        } catch {
+            
+        }
+    }
     
 }
