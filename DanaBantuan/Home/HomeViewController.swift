@@ -283,6 +283,9 @@ extension HomeViewController {
     }
     
     private func stayApp() async {
+        if LanguageManager.currentLanguage == .en {
+            return
+        }
         let starttime = StayPointConfig.starttime ?? ""
         let leavetime = StayPointConfig.leavetime ?? ""
         let locationJson = AppLocationModel.shared.locationJson ?? [:]

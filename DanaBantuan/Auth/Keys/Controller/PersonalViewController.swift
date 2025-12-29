@@ -325,6 +325,9 @@ extension PersonalViewController {
 extension PersonalViewController {
     
     private func stayApp() async {
+        if LanguageManager.currentLanguage == .en {
+            return
+        }
         let locationJson = AppLocationModel.shared.locationJson ?? [:]
         let amward = locationJson["amward"] ?? ""
         let rhizeur = locationJson["rhizeur"] ?? ""
