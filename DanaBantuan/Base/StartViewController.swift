@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import AppTrackingTransparency
 
 class StartViewController: BaseViewController {
     
@@ -42,40 +41,11 @@ extension StartViewController {
     
     private func requestAll() async {
         async let oneTask: Void = launchInfo()
-        async let twoTask: Void = getAppIDFA()
+//        async let twoTask: Void = getAppIDFA()
         
-        _ = await (oneTask, twoTask)
+        _ = await (oneTask)
         
         changeRootVc()
-    }
-    
-    private func getAppIDFA() async {
-        guard #available(iOS 14, *) else { return }
-        
-        let status = await ATTrackingManager.requestTrackingAuthorization()
-        
-        switch status {
-        case .authorized, .denied, .notDetermined:
-            await uploadIDFAInfo()
-        case .restricted:
-            break
-        @unknown default:
-            break
-        }
-    }
-    
-    private func uploadIDFAInfo() async {
-        do {
-            let tricesimacle = IDFVManager.shared.getIDFV()
-            let militarylike = IDFAManager.shared.getCurrentIDFA()
-            let json: [String: String] = [
-                "tricesimacle": tricesimacle,
-                "militarylike": militarylike
-            ]
-            let _ = try await viewModel.uploadIDFAinfo(json: json)
-        } catch {
-            print("uploadIDFAInfo error: \(error)")
-        }
     }
     
     private func launchInfo() async {

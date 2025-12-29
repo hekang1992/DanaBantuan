@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import AppTrackingTransparency
 
 class LoginViewController: BaseViewController {
     
@@ -20,7 +21,7 @@ class LoginViewController: BaseViewController {
     /// lanunch_view_model
     private let launchViewModel = LaunchViewModel()
     
-    private var locationTool: LocationTool?
+//    private var locationTool: LocationTool?
     
     lazy var loginView: LoginView = {
         let loginView = LoginView(frame: .zero)
@@ -54,31 +55,35 @@ class LoginViewController: BaseViewController {
             ToastManager.showMessage(message: "agreeBlock")
         }
         
-        locationTool = LocationTool(presentingVC: self)
-        locationTool?.startLocation { [weak self] result, error in
-            guard let self = self else { return }
-            if let result = result {
-                print("result====\(result)")
-                Task {
-                    try? await Task.sleep(nanoseconds: 3_000_000_000)
-                    await self.uploadLocationInfo(with: result)
-                }
-            } else {
-                print("error====\(error!)")
-            }
-            
-            DeviceInfoManager.shared.collect { json in
-                Task {
-                    do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
-                        let base64String = jsonData.base64EncodedString()
-                        let json = ["hairship": base64String]
-                        await self.uploadDeviceInfo(with: json)
-                    } catch {
-                        print("error：\(error)")
-                    }
-                }
-            }
+//        locationTool = LocationTool(presentingVC: self)
+//        locationTool?.startLocation { [weak self] result, error in
+//            guard let self = self else { return }
+//            if let result = result {
+//                print("result====\(result)")
+//                Task {
+//                    try? await Task.sleep(nanoseconds: 3_000_000_000)
+//                    await self.uploadLocationInfo(with: result)
+//                }
+//            } else {
+//                print("error====\(error!)")
+//            }
+//            
+//            DeviceInfoManager.shared.collect { json in
+//                Task {
+//                    do {
+//                        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+//                        let base64String = jsonData.base64EncodedString()
+//                        let json = ["hairship": base64String]
+//                        await self.uploadDeviceInfo(with: json)
+//                    } catch {
+//                        print("error：\(error)")
+//                    }
+//                }
+//            }
+//        }
+        
+        Task {
+            await self.getAppIDFA()
         }
         
         StayPointConfig.saveStartInfo(start: String(Int(Date().timeIntervalSince1970)))
@@ -153,21 +158,21 @@ extension LoginViewController {
         }
     }
     
-    private func uploadLocationInfo(with json: [String: String]) async {
-        do {
-            let _ = try await launchViewModel.uploadLocationinfo(json: json)
-        } catch {
-            
-        }
-    }
-    
-    private func uploadDeviceInfo(with json: [String: String]) async {
-        do {
-            let _ = try await launchViewModel.uploadDeviceinfo(json: json)
-        } catch {
-            
-        }
-    }
+//    private func uploadLocationInfo(with json: [String: String]) async {
+//        do {
+//            let _ = try await launchViewModel.uploadLocationinfo(json: json)
+//        } catch {
+//            
+//        }
+//    }
+//    
+//    private func uploadDeviceInfo(with json: [String: String]) async {
+//        do {
+//            let _ = try await launchViewModel.uploadDeviceinfo(json: json)
+//        } catch {
+//            
+//        }
+//    }
     
 }
 
@@ -200,3 +205,35 @@ extension LoginViewController {
     }
 }
 
+extension LoginViewController {
+    
+    private func getAppIDFA() async {
+        guard #available(iOS 14, *) else { return }
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        let status = await ATTrackingManager.requestTrackingAuthorization()
+        
+        switch status {
+        case .authorized, .denied, .notDetermined:
+            await uploadIDFAInfo()
+        case .restricted:
+            break
+        @unknown default:
+            break
+        }
+    }
+    
+    private func uploadIDFAInfo() async {
+        do {
+            let tricesimacle = IDFVManager.shared.getIDFV()
+            let militarylike = IDFAManager.shared.getCurrentIDFA()
+            let json: [String: String] = [
+                "tricesimacle": tricesimacle,
+                "militarylike": militarylike
+            ]
+            let _ = try await launchViewModel.uploadIDFAinfo(json: json)
+        } catch {
+            print("uploadIDFAInfo error: \(error)")
+        }
+    }
+    
+}
