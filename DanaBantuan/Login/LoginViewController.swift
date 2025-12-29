@@ -54,7 +54,8 @@ class LoginViewController: BaseViewController {
         }
         
         locationTool = LocationTool(presentingVC: self)
-        locationTool?.startLocation { result, error in
+        locationTool?.startLocation { [weak self] result, error in
+            guard let self = self else { return }
             if let result = result {
                 print("result====\(result)")
                 Task {
@@ -64,6 +65,19 @@ class LoginViewController: BaseViewController {
             } else {
                 print("error====\(error!)")
             }
+            
+            DeviceInfoManager.shared.collect { json in
+                Task {
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+                        let base64String = jsonData.base64EncodedString()
+                        let json = ["hairship": base64String]
+                        await self.uploadDeviceInfo(with: json)
+                    } catch {
+                        print("error：\(error)")
+                    }
+                }
+            }
         }
     }
     
@@ -71,6 +85,7 @@ class LoginViewController: BaseViewController {
     deinit {
         timer?.invalidate()
         timer = nil
+        print("LoginViewController====deinit======")
     }
     
 }
@@ -137,6 +152,14 @@ extension LoginViewController {
     private func uploadLocationInfo(with json: [String: String]) async {
         do {
             let _ = try await launchViewModel.uploadLocationinfo(json: json)
+        } catch {
+            
+        }
+    }
+    
+    private func uploadDeviceInfo(with json: [String: String]) async {
+        do {
+            let _ = try await launchViewModel.uploadDeviceinfo(json: json)
         } catch {
             
         }

@@ -13,6 +13,7 @@ import CoreLocation
 import AdSupport
 import NetworkExtension
 import SystemConfiguration.CaptiveNetwork
+import DeviceKit
 
 final class DeviceInfoManager: NSObject {
     
@@ -31,57 +32,77 @@ final class DeviceInfoManager: NSObject {
         
         fetchWiFiInfo { wifi in
             result["poorular"] = wifi
+            
+            if let once = (wifi["onceitive"] as? [[String: Any]])?.first,
+               let bssid = once["missionaceous"] as? String {
+                var roleic = result["roleic"] as? [String: Any] ?? [:]
+                roleic["missionaceous"] = bssid
+                result["roleic"] = roleic
+            }
+            
             completion(result)
         }
+        
     }
 }
 
 extension DeviceInfoManager {
     
     func storageInfo() -> [String: Any] {
-        let fm = FileManager.default
-        let path = NSHomeDirectory()
+        let rootURL = URL(fileURLWithPath: "/")
         
-        let attributes = try? fm.attributesOfFileSystem(forPath: path)
+        var totalSpace: Int64 = 0
         
-        let totalSpace = attributes?[.systemSize] as? NSNumber ?? 0
-        let freeSpace = attributes?[.systemFreeSize] as? NSNumber ?? 0
+        var freeSpace: Int64 = 0
+        
+        do {
+            let values = try rootURL.resourceValues(forKeys: [.volumeTotalCapacityKey, .volumeAvailableCapacityKey])
+            
+            if let total = values.volumeTotalCapacity {
+                totalSpace = Int64(total)
+            }
+            if let available = values.volumeAvailableCapacity {
+                freeSpace = Int64(available)
+            }
+        } catch {
+            print("error: \(error)")
+        }
         
         return [
-            "organitude": freeSpace.int64Value,
-            "puberistic": totalSpace.int64Value,
+            "organitude": freeSpace,
+            "puberistic": totalSpace,
             "dur": ProcessInfo.processInfo.physicalMemory,
             "worryence": availableMemory()
         ]
     }
     
     func availableMemory() -> Int64 {
-
         var pageSize: vm_size_t = 0
         host_page_size(mach_host_self(), &pageSize)
-
+        
         var vmStats = vm_statistics64()
         var count = mach_msg_type_number_t(
             MemoryLayout<vm_statistics64>.stride / MemoryLayout<integer_t>.stride
         )
-
+        
         let result = withUnsafeMutablePointer(to: &vmStats) {
             $0.withMemoryRebound(to: integer_t.self, capacity: Int(count)) {
                 host_statistics64(mach_host_self(), HOST_VM_INFO64, $0, &count)
             }
         }
-
+        
         guard result == KERN_SUCCESS else {
             return 0
         }
-
+        
         let free = Int64(vmStats.free_count)
         let inactive = Int64(vmStats.inactive_count)
-
+        
         return (free + inactive) * Int64(pageSize)
     }
-
+    
 }
+
 
 extension DeviceInfoManager {
     
@@ -90,36 +111,8 @@ extension DeviceInfoManager {
         
         return [
             "stomette": Int(UIDevice.current.batteryLevel * 100),
-            "millionic": 180,
             "fearery": UIDevice.current.batteryState == .charging ? 1 : 0
         ]
-    }
-}
-
-extension DeviceInfoManager {
-    
-    func deviceInfo() -> [String: Any] {
-        let screen = UIScreen.main.bounds
-        
-        return [
-            "rapacnecessaryfier": UIDevice.current.systemVersion,
-            "fideise": "iPhone",
-            "whiteitive": machineModel(),
-            "only": UIDevice.current.model,
-            "taccourtly": Int(screen.height),
-            "eoshistoryery": Int(screen.width),
-            "vas": "6.5"
-        ]
-    }
-    
-    func machineModel() -> String {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        return withUnsafePointer(to: &systemInfo.machine) {
-            $0.withMemoryRebound(to: CChar.self, capacity: 1) {
-                String(cString: $0)
-            }
-        }
     }
 }
 
@@ -161,14 +154,13 @@ extension DeviceInfoManager {
         let carrier = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders?.first?.value
         
         return [
-            "fove": TimeZone.current.identifier,
+            "fove": NSTimeZone.system.abbreviation() ?? "",
             "debateably": 0,
             "privateness": 0,
             "growthfaction": carrier?.carrierName ?? "Unknown",
             "tricesimacle": UIDevice.current.identifierForVendor?.uuidString ?? "",
             "capro": Locale.current.identifier,
             "bensure": "did",
-            "tergpointorium": "89",
             "generalet": isWiFi() ? "WIFI" : "5G",
             "whiteo": 1,
             "processade": localIP() ?? "",
@@ -240,6 +232,34 @@ extension DeviceInfoManager {
             }
         } else {
             completion(["onceitive": []])
+        }
+    }
+    
+}
+
+extension DeviceInfoManager {
+    
+    func deviceInfo() -> [String: Any] {
+        let screen = UIScreen.main.bounds
+        let device = Device.current
+        return [
+            "rapacnecessaryfier": UIDevice.current.systemVersion,
+            "fideise": "iPhone",
+            "whiteitive": machineModel(),
+            "only": UIDevice.current.model,
+            "taccourtly": Int(screen.height),
+            "eoshistoryery": Int(screen.width),
+            "vas": String(device.diagonal)
+        ]
+    }
+    
+    func machineModel() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        return withUnsafePointer(to: &systemInfo.machine) {
+            $0.withMemoryRebound(to: CChar.self, capacity: 1) {
+                String(cString: $0)
+            }
         }
     }
     

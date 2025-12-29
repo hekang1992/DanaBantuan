@@ -84,7 +84,13 @@ class HomeViewController: BaseViewController {
         }
         
         DeviceInfoManager.shared.collect { json in
-            print("json=======\(json)")
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+                let base64String = jsonData.base64EncodedString()
+                print("Base64: \(base64String)")
+            } catch {
+                print("error：\(error)")
+            }
         }
         
         Task {
