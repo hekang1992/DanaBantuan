@@ -45,4 +45,42 @@ class LaunchViewModel {
         }
     }
     
+    /// upload_location_info
+    func uploadLocationinfo(json: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/vituage", parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// upload_device_info
+    func uploadDeviceinfo(json: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/penoern", parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
 }

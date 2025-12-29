@@ -15,6 +15,8 @@ class HomeViewController: BaseViewController {
     
     private var baseModel: BaseModel?
     
+    
+    
     lazy var oneView: AppOneView = {
         let oneView = AppOneView(frame: .zero)
         oneView.isHidden = true

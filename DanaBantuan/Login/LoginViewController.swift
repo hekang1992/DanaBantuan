@@ -14,7 +14,13 @@ class LoginViewController: BaseViewController {
     
     private var countDown: Int = 60
     
+    /// login_view_model
     private let viewModel = LoginViewModel()
+    
+    /// lanunch_view_model
+    private let launchViewModel = LaunchViewModel()
+    
+    private var locationTool: LocationTool?
     
     lazy var loginView: LoginView = {
         let loginView = LoginView(frame: .zero)
@@ -47,6 +53,18 @@ class LoginViewController: BaseViewController {
             guard let self = self else { return }
         }
         
+        locationTool = LocationTool(presentingVC: self)
+        locationTool?.startLocation { result, error in
+            if let result = result {
+                print("result====\(result)")
+                Task {
+                    try? await Task.sleep(nanoseconds: 3_000_000_000)
+                    await self.uploadLocationInfo(with: result)
+                }
+            } else {
+                print("error====\(error!)")
+            }
+        }
     }
     
     @MainActor
@@ -111,6 +129,14 @@ extension LoginViewController {
                 self.changeRootVc()
             }
             ToastManager.showMessage(message: model.se ?? "")
+        } catch {
+            
+        }
+    }
+    
+    private func uploadLocationInfo(with json: [String: String]) async {
+        do {
+            let _ = try await launchViewModel.uploadLocationinfo(json: json)
         } catch {
             
         }

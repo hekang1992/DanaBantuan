@@ -73,6 +73,7 @@
 		73EC21692EFFEBEB00F58012 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC21682EFFEBE600F58012 /* MainViewModel.swift */; };
 		73EC216E2EFFED6500F58012 /* TapClickViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC216D2EFFED6500F58012 /* TapClickViewCell.swift */; };
 		73EC21702EFFED7700F58012 /* EnterTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC216F2EFFED7700F58012 /* EnterTextViewCell.swift */; };
+		73FB46372F020FAE005D68A0 /* LocationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB46362F020FAE005D68A0 /* LocationTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +147,7 @@
 		73EC21682EFFEBE600F58012 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		73EC216D2EFFED6500F58012 /* TapClickViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapClickViewCell.swift; sourceTree = "<group>"; };
 		73EC216F2EFFED7700F58012 /* EnterTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTextViewCell.swift; sourceTree = "<group>"; };
+		73FB46362F020FAE005D68A0 /* LocationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTool.swift; sourceTree = "<group>"; };
 		A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.release.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.release.xcconfig"; sourceTree = "<group>"; };
 		F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanaBantuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -179,6 +181,7 @@
 		733A08252EFCD8F500EF865F /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				73FB46362F020FAE005D68A0 /* LocationTool.swift */,
 				737FEDF52EFD7CDD00B06DE7 /* NetworkProxyInfo.swift */,
 				737FEDED2EFD74C200B06DE7 /* LoadingView.swift */,
 				737FEDEB2EFD73FC00B06DE7 /* LaunchViewModel.swift */,
@@ -509,9 +512,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -596,6 +603,7 @@
 				73CA0F9B2EFE4E900010CDC9 /* SettingViewController.swift in Sources */,
 				73EC21652EFFEA8F00F58012 /* ContactViewController.swift in Sources */,
 				737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */,
+				73FB46372F020FAE005D68A0 /* LocationTool.swift in Sources */,
 				73EC21582EFFB2A900F58012 /* UserIDViewController.swift in Sources */,
 				73D7A7B92F0143CD008C8879 /* SelectableItemView.swift in Sources */,
 				73CA0FA12EFE5C0E0010CDC9 /* AppAlertDeleteView.swift in Sources */,
