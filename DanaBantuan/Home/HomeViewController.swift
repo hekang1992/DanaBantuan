@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import MJRefresh
 import CoreLocation
+import TYAlertController
 
 class HomeViewController: BaseViewController {
     
@@ -221,14 +222,19 @@ extension HomeViewController {
         do {
             let model = try await viewModel.applyProductInfo(json: json)
             if model.mountization == "0" || model.mountization == "00" {
-                let pageUrl = model.hairship?.orexilike ?? ""
-                if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
-                    URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
-                } else {
-                    if pageUrl.isEmpty {
-                        return
+                let modelArray = model.hairship?.finality?.stituimage ?? []
+                if modelArray.count > 0 {
+                    self.reviewInfo(with: modelArray)
+                }else {
+                    let pageUrl = model.hairship?.orexilike ?? ""
+                    if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
+                        URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
+                    } else {
+                        if pageUrl.isEmpty {
+                            return
+                        }
+                        self.goWebVc(with: pageUrl)
                     }
-                    self.goWebVc(with: pageUrl)
                 }
             } else {
                 ToastManager.showMessage(message: model.se ?? "")
@@ -241,6 +247,46 @@ extension HomeViewController {
 }
 
 extension HomeViewController {
+    
+    private func reviewInfo(with modelArray: [stituimageModel]) {
+        let popView = AppAlertReviewView(frame: self.view.bounds)
+        let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
+        
+        popView.cancelBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
+        
+        popView.oneBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+            let pageUrl = modelArray[0].orexilike ?? ""
+            if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
+                URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
+            } else {
+                if pageUrl.isEmpty {
+                    return
+                }
+                self.goWebVc(with: pageUrl)
+            }
+        }
+        
+        popView.twoBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+            let pageUrl = modelArray[1].orexilike ?? ""
+            if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
+                URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
+            } else {
+                if pageUrl.isEmpty {
+                    return
+                }
+                self.goWebVc(with: pageUrl)
+            }
+        }
+        
+    }
     
     private func clickHomeProductInfo() async {
         Task.detached {

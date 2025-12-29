@@ -75,6 +75,7 @@
 		73EC21702EFFED7700F58012 /* EnterTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC216F2EFFED7700F58012 /* EnterTextViewCell.swift */; };
 		73FB46372F020FAE005D68A0 /* LocationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB46362F020FAE005D68A0 /* LocationTool.swift */; };
 		73FB46392F0215F5005D68A0 /* DeviceInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB46382F0215F5005D68A0 /* DeviceInfoManager.swift */; };
+		73FB463B2F023EC4005D68A0 /* AppAlertReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB463A2F023EC4005D68A0 /* AppAlertReviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +151,7 @@
 		73EC216F2EFFED7700F58012 /* EnterTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTextViewCell.swift; sourceTree = "<group>"; };
 		73FB46362F020FAE005D68A0 /* LocationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTool.swift; sourceTree = "<group>"; };
 		73FB46382F0215F5005D68A0 /* DeviceInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoManager.swift; sourceTree = "<group>"; };
+		73FB463A2F023EC4005D68A0 /* AppAlertReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAlertReviewView.swift; sourceTree = "<group>"; };
 		A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.release.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.release.xcconfig"; sourceTree = "<group>"; };
 		F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanaBantuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -235,6 +237,7 @@
 		733A08292EFCD90100EF865F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				73FB463A2F023EC4005D68A0 /* AppAlertReviewView.swift */,
 				73D7A7C02F01555F008C8879 /* CityDecodeModel.swift */,
 				73CA0FA42EFE69F30010CDC9 /* HomeViewModel.swift */,
 				73CA0FA22EFE62E70010CDC9 /* AppOneView.swift */,
@@ -587,6 +590,7 @@
 				73D7A7B52F013F5D008C8879 /* OrderView.swift in Sources */,
 				73CA0FA52EFE69F60010CDC9 /* HomeViewModel.swift in Sources */,
 				73EC215C2EFFBC0D00F58012 /* CameraOnlyManager.swift in Sources */,
+				73FB463B2F023EC4005D68A0 /* AppAlertReviewView.swift in Sources */,
 				733A08372EFCDCDB00EF865F /* Config.swift in Sources */,
 				733A084B2EFCED3200EF865F /* CenterViewController.swift in Sources */,
 				73CA0F972EFE475D0010CDC9 /* ProductViewController.swift in Sources */,

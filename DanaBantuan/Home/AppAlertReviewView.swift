@@ -1,22 +1,25 @@
 //
-//  AppAlertStayView.swift
+//  AppAlertReviewView.swift
 //  DanaBantuan
 //
-//  Created by hekang on 2025/12/28.
+//  Created by hekang on 2025/12/29.
 //
 
 import UIKit
 import SnapKit
 
-class AppAlertStayView: UIView {
+class AppAlertReviewView: UIView {
     
     var cancelBlock: (() -> Void)?
-    var sureBlock: (() -> Void)?
+    
+    var oneBlock: (() -> Void)?
+    
+    var twoBlock: (() -> Void)?
 
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         let languageCode = LanguageManager.currentLanguage
-        bgImageView.image = languageCode == .id ? UIImage(named: "id_stay_pop_image") : UIImage(named: "en_stay_pop_image")
+        bgImageView.image = languageCode == .id ? UIImage(named: "id_re_loan_c_image") : UIImage(named: "en_re_loan_c_image")
         bgImageView.isUserInteractionEnabled = true
         return bgImageView
     }()
@@ -29,13 +32,13 @@ class AppAlertStayView: UIView {
     
     lazy var oneBtn: UIButton = {
         let oneBtn = UIButton(type: .custom)
-        oneBtn.addTarget(self, action: #selector(cancelClick), for: .touchUpInside)
+        oneBtn.addTarget(self, action: #selector(oneClick), for: .touchUpInside)
         return oneBtn
     }()
     
     lazy var twoBtn: UIButton = {
         let twoBtn = UIButton(type: .custom)
-        twoBtn.addTarget(self, action: #selector(sureClick), for: .touchUpInside)
+        twoBtn.addTarget(self, action: #selector(twoClick), for: .touchUpInside)
         return twoBtn
     }()
     
@@ -68,7 +71,6 @@ class AppAlertStayView: UIView {
             make.bottom.equalTo(twoBtn.snp.top).offset(-14.pix())
         }
         
-        
     }
     
     required init?(coder: NSCoder) {
@@ -76,13 +78,17 @@ class AppAlertStayView: UIView {
     }
 }
 
-extension AppAlertStayView {
+extension AppAlertReviewView {
     
     @objc func cancelClick() {
         self.cancelBlock?()
     }
     
-    @objc func sureClick() {
-        self.sureBlock?()
+    @objc func oneClick() {
+        self.oneBlock?()
+    }
+    
+    @objc func twoClick() {
+        self.twoBlock?()
     }
 }

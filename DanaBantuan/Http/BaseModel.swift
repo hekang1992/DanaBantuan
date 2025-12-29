@@ -49,6 +49,16 @@ class hairshipModel: Codable {
     /// face_info
     var pilious: towardsiveModel?
     var se: String?
+    var finality: finalityModel?
+}
+
+class finalityModel: Codable {
+    var stituimage: [stituimageModel]?
+}
+
+class stituimageModel: Codable {
+    var argueo: String?
+    var orexilike: String?
 }
 
 class odontardModel: Codable {
