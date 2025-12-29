@@ -10,6 +10,7 @@ import SnapKit
 import MJRefresh
 import CoreLocation
 import TYAlertController
+import FBSDKCoreKit
 
 class HomeViewController: BaseViewController {
     
@@ -96,6 +97,10 @@ class HomeViewController: BaseViewController {
             } catch {
                 
             }
+        }
+        
+        Task {
+            await self.uploadIDFAInfo()
         }
         
         locationTool = LocationTool(presentingVC: self)
@@ -356,6 +361,41 @@ extension HomeViewController {
             
         }
         
+    }
+    
+}
+
+extension HomeViewController {
+    
+    private func uploadIDFAInfo() async {
+        do {
+            let tricesimacle = IDFVManager.shared.getIDFV()
+            let militarylike = IDFAManager.shared.getCurrentIDFA()
+            let json: [String: String] = [
+                "tricesimacle": tricesimacle,
+                "militarylike": militarylike
+            ]
+            let model = try await launchViewModel.uploadIDFAinfo(json: json)
+            if model.mountization == "0" || model.mountization == "00" {
+                if let spuformerModel = model.hairship?.spuformer {
+                    uploadGoogleWithMessage(with: spuformerModel)
+                }
+            }
+        } catch {
+            print("uploadIDFAInfo error: \(error)")
+        }
+    }
+    
+    private func uploadGoogleWithMessage(with model: spuformerModel) {
+        Settings.shared.displayName = model.finishfold ?? ""
+        Settings.shared.appURLSchemeSuffix = model.drawior ?? ""
+        Settings.shared.appID = model.acidency ?? ""
+        Settings.shared.clientToken = model.languwifesion ?? ""
+        
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            didFinishLaunchingWithOptions: nil
+        )
     }
     
 }

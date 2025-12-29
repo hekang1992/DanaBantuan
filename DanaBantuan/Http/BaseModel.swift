@@ -50,6 +50,14 @@ class hairshipModel: Codable {
     var pilious: towardsiveModel?
     var se: String?
     var finality: finalityModel?
+    var spuformer: spuformerModel?
+}
+
+class spuformerModel: Codable {
+    var drawior: String?
+    var acidency: String?
+    var finishfold: String?
+    var languwifesion: String?
 }
 
 class finalityModel: Codable {

@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import FBSDKCoreKit
 import AppTrackingTransparency
 
 class LoginViewController: BaseViewController {
@@ -230,10 +231,27 @@ extension LoginViewController {
                 "tricesimacle": tricesimacle,
                 "militarylike": militarylike
             ]
-            let _ = try await launchViewModel.uploadIDFAinfo(json: json)
+            let model = try await launchViewModel.uploadIDFAinfo(json: json)
+            if model.mountization == "0" || model.mountization == "00" {
+                if let spuformerModel = model.hairship?.spuformer {
+                    uploadGoogleWithMessage(with: spuformerModel)
+                }
+            }
         } catch {
             print("uploadIDFAInfo error: \(error)")
         }
+    }
+    
+    private func uploadGoogleWithMessage(with model: spuformerModel) {
+        Settings.shared.displayName = model.finishfold ?? ""
+        Settings.shared.appURLSchemeSuffix = model.drawior ?? ""
+        Settings.shared.appID = model.acidency ?? ""
+        Settings.shared.clientToken = model.languwifesion ?? ""
+        
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            didFinishLaunchingWithOptions: nil
+        )
     }
     
 }
