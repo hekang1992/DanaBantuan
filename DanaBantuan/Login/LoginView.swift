@@ -36,6 +36,7 @@ class LoginView: UIView {
         let typeImageView = UIImageView()
         let code = LanguageManager.currentLanguage
         typeImageView.image = code == .id ? UIImage(named: "login_id_one_image") : UIImage(named: "login_en_one_image")
+        typeImageView.contentMode = .scaleAspectFit
         return typeImageView
     }()
     
@@ -194,8 +195,8 @@ class LoginView: UIView {
         typeImageView.snp.makeConstraints { make in
             make.left.equalTo(logoImageView)
             make.top.equalTo(logoImageView.snp.bottom).offset(14)
-            make.height.equalTo(24.pix())
-            make.width.equalTo(250.pix())
+            make.height.equalTo(26.pix())
+            make.width.equalTo(298.pix())
         }
         phoneView.snp.makeConstraints { make in
             make.top.equalTo(typeImageView.snp.bottom).offset(38)
