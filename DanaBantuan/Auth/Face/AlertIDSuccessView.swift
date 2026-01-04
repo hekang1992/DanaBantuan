@@ -384,6 +384,8 @@ extension AlertIDSuccessView {
         let customStyle = BRPickerStyle()
         customStyle.rowHeight = 44
         customStyle.language = "en"
+        customStyle.doneBtnTitle = LanguageManager.localizedString(for: "OK")
+        customStyle.cancelBtnTitle = LanguageManager.localizedString(for: "Cancel")
         customStyle.doneTextColor = UIColor(hex: "#1CC7EF")
         customStyle.selectRowTextColor = UIColor(hex: "#1CC7EF")
         customStyle.pickerTextFont = UIFont.systemFont(ofSize: 14, weight: .medium)

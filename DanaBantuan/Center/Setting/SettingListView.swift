@@ -16,7 +16,6 @@ class SettingListView: UIView {
         let iconImageView = UIImageView()
         iconImageView.layer.cornerRadius = 5
         iconImageView.layer.masksToBounds = true
-        iconImageView.backgroundColor = .gray
         return iconImageView
     }()
     

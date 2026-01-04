@@ -68,7 +68,6 @@ class OrderViewCell: UITableViewCell {
         let logoImageView = UIImageView()
         logoImageView.layer.cornerRadius = 5
         logoImageView.layer.masksToBounds = true
-        logoImageView.backgroundColor = .gray
         return logoImageView
     }()
     

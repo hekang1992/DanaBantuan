@@ -139,7 +139,7 @@ class BankViewController: BaseViewController {
                 var json = ["spatikin": productID]
                 for model in modelArray.value {
                     let key = model.mountization ?? ""
-                    let name = model.gymn ?? ""
+                    let name = model.baseenne ?? ""
                     json[key] = name
                 }
                 Task {

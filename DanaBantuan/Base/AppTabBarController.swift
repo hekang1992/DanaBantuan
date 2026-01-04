@@ -110,10 +110,16 @@ extension AppTabBarController: UITabBarControllerDelegate {
         guard let index = viewControllers?.firstIndex(of: viewController) else {
             return true
         }
-        let status = CLLocationManager().authorizationStatus
-        if status != .authorizedAlways && status != .authorizedWhenInUse  {
-            self.showSettingAlert()
-            return false
+        
+        let code = LanguageManager.currentLanguage
+        if code == .en {
+            return true
+        }else {
+            let status = CLLocationManager().authorizationStatus
+            if status != .authorizedAlways && status != .authorizedWhenInUse  {
+                self.showSettingAlert()
+                return false
+            }
         }
         return true
     }
