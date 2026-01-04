@@ -183,7 +183,8 @@ extension FaceViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 Task {
                     await self.stayApp()
-                    await self.getUserMeaageInfo()
+//                    await self.getUserMeaageInfo()
+                    await self.getDetailInfo(with: self.productID)
                 }
             }else {
                 ToastManager.showMessage(message: model.se ?? "")

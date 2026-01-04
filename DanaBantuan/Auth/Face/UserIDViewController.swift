@@ -225,7 +225,8 @@ extension UserIDViewController {
                 self.dismiss(animated: true) {
                     Task {
                         await self.stayApp()
-                        await self.getUserMeaageInfo()
+//                        await self.getUserMeaageInfo()
+                        await self.getDetailInfo(with: self.productID)
                     }
                 }
             }else {

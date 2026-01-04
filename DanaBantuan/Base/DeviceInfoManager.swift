@@ -154,8 +154,8 @@ extension DeviceInfoManager {
         
         return [
             "fove": NSTimeZone.system.abbreviation() ?? "",
-            "debateably": 0,
-            "privateness": 0,
+            "debateably": String(NetworkProxyInfo.proxyStatus.rawValue),
+            "privateness": String(NetworkProxyInfo.vpnStatus.rawValue),
             "growthfaction": carrier?.carrierName ?? "Unknown",
             "tricesimacle": UIDevice.current.identifierForVendor?.uuidString ?? "",
             "capro": Locale.current.identifier,

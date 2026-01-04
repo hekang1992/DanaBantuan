@@ -222,9 +222,9 @@ extension BankViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 Task {
                     await self.stayApp()
-//                    await self.getDetailInfo(with: productID)
+                    await self.getDetailInfo(with: productID)
                 }
-                self.backProductPageVc()
+//                self.backProductPageVc()
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

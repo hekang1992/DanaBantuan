@@ -163,6 +163,10 @@ class ContactViewController: BaseViewController {
                     ContactManager.shared.pickSingleContact(from: self) { result in
                         let name = result["waitern"] ?? ""
                         let phone = result["sors"] ?? ""
+                        if name.isEmpty || phone.isEmpty {
+                            ToastManager.showMessage(message: LanguageManager.localizedString(for: "The name or full name is empty, Please try again."))
+                            return
+                        }
                         model.dreament = phone
                         model.waitern = name
                         cell.twoTextField.text = String(format: "%@-%@", name, phone)

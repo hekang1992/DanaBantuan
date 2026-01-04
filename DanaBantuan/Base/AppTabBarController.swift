@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class AppTabBarController: UITabBarController {
     
@@ -13,6 +14,7 @@ class AppTabBarController: UITabBarController {
         super.viewDidLoad()
         setupViewControllers()
         setupTabBarAppearance()
+        self.delegate = self
     }
     
     private func setupViewControllers() {
@@ -99,5 +101,39 @@ class AppTabBarController: UITabBarController {
         
         tabBar.backgroundColor = .white
         tabBar.isTranslucent = false
+    }
+}
+
+extension AppTabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        guard let index = viewControllers?.firstIndex(of: viewController) else {
+            return true
+        }
+        let status = CLLocationManager().authorizationStatus
+        if status != .authorizedAlways && status != .authorizedWhenInUse  {
+            self.showSettingAlert()
+            return false
+        }
+        return true
+    }
+    
+    private func showSettingAlert() {
+        
+        let alert = UIAlertController(
+            title: "定位权限未开启",
+            message: "请在系统设置中开启定位权限",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+        
+        alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url)
+            }
+        })
+        
+        self.present(alert, animated: true)
     }
 }

@@ -75,8 +75,16 @@ class ProductViewModel {
             }
         }
         
+        var apiUrl = ""
+        let code = LanguageManager.currentLanguage
+        if code == .id {
+            apiUrl = "/alwaysad/tinaceous"
+        }else {
+            apiUrl = "/alwaysad/certaintion"
+        }
+        
         do {
-            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart("/alwaysad/tinaceous", parameters: json)
+            let model: BaseModel = try await HttpRequestManager.shared.postFormMultipart(apiUrl, parameters: json)
             return model
         } catch {
             throw error
