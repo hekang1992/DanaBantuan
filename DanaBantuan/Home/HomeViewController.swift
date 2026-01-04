@@ -235,6 +235,9 @@ extension HomeViewController {
                         URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
                     } else {
                         if pageUrl.isEmpty {
+                            let productVc = ProductViewController()
+                            productVc.productID = productID
+                            self.navigationController?.pushViewController(productVc, animated: true)
                             return
                         }
                         self.goWebVc(with: pageUrl)
