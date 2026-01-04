@@ -32,7 +32,7 @@ public class DeviceInfo {
     }
     
     private class func mapToDevice(identifier: String) -> Device {
-        #if os(iOS)
+#if os(iOS)
         switch identifier {
         case "iPod5,1": return .iPodTouch5
         case "iPod7,1": return .iPodTouch6
@@ -90,30 +90,45 @@ public class DeviceInfo {
             return .simulator(mapToDevice(identifier: simIdentifier))
         default: return .unknown(identifier)
         }
-        #else
+#else
         return .unknown(identifier)
-        #endif
+#endif
     }
     
     private class func diagonal(for device: Device) -> Double {
-        #if os(iOS)
+#if os(iOS)
         switch device {
         case .iPodTouch5, .iPodTouch6, .iPodTouch7: return 4.0
+            
         case .iPhone4, .iPhone4s: return 3.5
-        case .iPhone5, .iPhone5c, .iPhone5s: return 4.0
-        case .iPhone6, .iPhone6s, .iPhone7, .iPhone8, .iPhoneSE2, .iPhoneSE3, .iPhone12, .iPhone12Pro, .iPhone13, .iPhone13Pro, .iPhone14Pro, .iPhone15, .iPhone15Pro, .iPhone16, .iPhone16e: return 6.1
-        case .iPhone6Plus, .iPhone6sPlus, .iPhone7Plus, .iPhone8Plus, .iPhone11ProMax, .iPhone13ProMax, .iPhone14Plus, .iPhone14ProMax, .iPhone15Plus, .iPhone15ProMax, .iPhone16Plus, .iPhone16ProMax, .iPhone17ProMax: return 6.7
-        case .iPhoneX, .iPhoneXS, .iPhone11Pro: return 5.8
-        case .iPhoneXR, .iPhone11: return 6.1
+            
+        case .iPhone5, .iPhone5c, .iPhone5s, .iPhoneSE: return 4.0
+            
+        case .iPhone6, .iPhone6s, .iPhone7, .iPhone8, .iPhoneSE2, .iPhoneSE3: return 4.7
+            
         case .iPhone12Mini, .iPhone13Mini: return 5.4
+            
+        case .iPhone6Plus, .iPhone6sPlus, .iPhone7Plus, .iPhone8Plus: return 5.5
+            
+        case .iPhoneX, .iPhoneXS, .iPhone11Pro: return 5.8
+            
+        case .iPhoneXR, .iPhone11, .iPhone12, .iPhone12Pro, .iPhone13, .iPhone13Pro,
+                .iPhone14, .iPhone14Pro, .iPhone15, .iPhone15Pro, .iPhone16, .iPhone16e: return 6.1
+            
         case .iPhone16Pro, .iPhone17, .iPhone17Pro: return 6.3
-        case .iPhoneAir: return 6.5
+            
+        case .iPhoneXSMax, .iPhone11ProMax, .iPhoneAir: return 6.5
+            
+        case .iPhone12ProMax, .iPhone13ProMax, .iPhone14Plus, .iPhone14ProMax,
+                .iPhone15Plus, .iPhone15ProMax, .iPhone16Plus, .iPhone16ProMax,
+                .iPhone17ProMax: return 6.7
+            
         case .simulator(let model): return diagonal(for: model)
+            
         case .unknown: return -1
-        default: return -1
         }
-        #else
+#else
         return -1
-        #endif
+#endif
     }
 }

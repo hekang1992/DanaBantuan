@@ -53,7 +53,8 @@ class LoginViewController: BaseViewController {
         
         loginView.agreeBlock = { [weak self] in
             guard let self = self else { return }
-            ToastManager.showMessage(message: "agreeBlock")
+            let pageUrl = "\(base_h5_url)/styleent"
+            self.goWebVc(with: pageUrl)
         }
         
 //        locationTool = LocationTool(presentingVC: self)
