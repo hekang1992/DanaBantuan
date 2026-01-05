@@ -167,6 +167,10 @@ extension HomeViewController {
                 } else {
                     softViewModel(with: modelArray)
                 }
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }
             
             await MainActor.run {
@@ -243,6 +247,10 @@ extension HomeViewController {
                         self.goWebVc(with: pageUrl)
                     }
                 }
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             } else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

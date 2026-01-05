@@ -64,6 +64,10 @@ extension CenterViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 let modelArray = model.hairship?.odontard ?? []
                 self.centerView.modelArray = modelArray
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

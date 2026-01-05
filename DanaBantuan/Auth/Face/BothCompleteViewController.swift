@@ -306,6 +306,10 @@ extension BothCompleteViewController {
                 self.oneNameLabel.text = model.hairship?.towardsive?.ethm?.waitern ?? ""
                 self.twoFiled.text = model.hairship?.towardsive?.ethm?.historyo ?? ""
                 self.threeFiled.text = model.hairship?.towardsive?.ethm?.processal ?? ""
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

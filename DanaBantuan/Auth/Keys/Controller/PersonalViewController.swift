@@ -208,6 +208,10 @@ class PersonalViewController: BaseViewController {
                 if model.mountization == "0" || model.mountization == "00" {
                     let modelArray = model.hairship?.calidaire ?? []
                     self.modelArray.accept(modelArray)
+                }else if model.mountization == "-2" {
+                    UserLoginConfig.deleteUserInformation()
+                    self.changeRootVc()
+                    ToastManager.showMessage(message: model.se ?? "")
                 }else {
                     ToastManager.showMessage(message: model.mountization ?? "")
                 }
@@ -229,6 +233,10 @@ extension PersonalViewController {
                     await self.stayApp()
                     await self.getDetailInfo(with: productID)
                 }
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

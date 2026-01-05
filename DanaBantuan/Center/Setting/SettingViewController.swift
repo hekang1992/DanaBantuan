@@ -219,6 +219,9 @@ extension SettingViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 UserLoginConfig.deleteUserInformation()
                 self.changeRootVc()
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
             }
             ToastManager.showMessage(message: model.se ?? "")
         } catch {
@@ -231,6 +234,9 @@ extension SettingViewController {
             let json = ["consumeraneous": LanguageManager.currentLanguage.rawValue]
             let model = try await viewModel.deleteInfo(json: json)
             if model.mountization == "0" || model.mountization == "00" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+            }else if model.mountization == "-2" {
                 UserLoginConfig.deleteUserInformation()
                 self.changeRootVc()
             }

@@ -224,6 +224,10 @@ class ContactViewController: BaseViewController {
                 if model.mountization == "0" || model.mountization == "00" {
                     let modelArray = model.hairship?.terg?.clearfic ?? []
                     self.modelArray.accept(modelArray)
+                }else if model.mountization == "-2" {
+                    UserLoginConfig.deleteUserInformation()
+                    self.changeRootVc()
+                    ToastManager.showMessage(message: model.se ?? "")
                 }else {
                     ToastManager.showMessage(message: model.mountization ?? "")
                 }
@@ -255,6 +259,10 @@ extension ContactViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 await self.stayApp()
                 await getDetailInfo(with: productID)
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             } else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

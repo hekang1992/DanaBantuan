@@ -164,6 +164,10 @@ extension UserIDViewController {
                     let logoUrl = idModel.orexilike ?? ""
                     self.faceView.twoImageView.kf.setImage(with: URL(string: logoUrl))
                 }
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }
@@ -182,6 +186,10 @@ extension UserIDViewController {
             let model = try await viewModel.uploadImageInfo(json: json, data: data)
             if model.mountization == "0" || model.mountization == "00" {
                 self.popAlertView(with: model)
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }
@@ -229,6 +237,10 @@ extension UserIDViewController {
                         await self.getDetailInfo(with: self.productID)
                     }
                 }
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

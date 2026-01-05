@@ -81,6 +81,9 @@ extension OrderViewController {
             let model = try await viewModel.orderListInfo(json: json)
             if model.mountization == "0" || model.mountization == "00" {
                 self.orderView.modelArray = model.hairship?.clearfic ?? []
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
             }
             await self.orderView.tableView.mj_header?.endRefreshing()
         } catch {

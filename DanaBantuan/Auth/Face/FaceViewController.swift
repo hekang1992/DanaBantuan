@@ -164,6 +164,10 @@ extension FaceViewController {
                     let logoUrl = faceModel.orexilike ?? ""
                     self.faceView.twoImageView.kf.setImage(with: URL(string: logoUrl))
                 }
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }
@@ -186,6 +190,10 @@ extension FaceViewController {
 //                    await self.getUserMeaageInfo()
                     await self.getDetailInfo(with: self.productID)
                 }
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

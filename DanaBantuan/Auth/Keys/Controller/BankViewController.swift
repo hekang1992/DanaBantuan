@@ -203,6 +203,10 @@ class BankViewController: BaseViewController {
                 if model.mountization == "0" || model.mountization == "00" {
                     let modelArray = model.hairship?.calidaire ?? []
                     self.modelArray.accept(modelArray)
+                }else if model.mountization == "-2" {
+                    UserLoginConfig.deleteUserInformation()
+                    self.changeRootVc()
+                    ToastManager.showMessage(message: model.se ?? "")
                 }else {
                     ToastManager.showMessage(message: model.mountization ?? "")
                 }
@@ -225,6 +229,10 @@ extension BankViewController {
                     await self.getDetailInfo(with: productID)
                 }
 //                self.backProductPageVc()
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }

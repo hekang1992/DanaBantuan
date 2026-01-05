@@ -67,6 +67,10 @@ extension BaseViewController {
                 let name = model.hairship?.vovo?.jutcommonably ?? ""
                 let orderNo = model.hairship?.section?.selenality ?? ""
                 goNextVc(with: type, name: name, orderID: orderNo, productID: productID, model: model)
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }
         } catch {
             
@@ -205,6 +209,10 @@ extension BaseViewController {
                     }
                     self.goWebVc(with: pageUrl)
                 }
+            }else if model.mountization == "-2" {
+                UserLoginConfig.deleteUserInformation()
+                self.changeRootVc()
+                ToastManager.showMessage(message: model.se ?? "")
             }else {
                 ToastManager.showMessage(message: model.se ?? "")
             }
