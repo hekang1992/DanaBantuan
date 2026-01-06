@@ -224,8 +224,8 @@ extension BankViewController {
             let model = try await viewModel.saveUserBankDetailInfo(json: json)
             if model.mountization == "0" || model.mountization == "00" {
                 Task {
-                    await self.stayAlwaysApp()
                     await self.getDetailInfo(with: productID)
+                    await self.stayAlwaysApp()
                 }
 //                self.backProductPageVc()
             }else if model.mountization == "-2" {

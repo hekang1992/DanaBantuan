@@ -229,8 +229,8 @@ extension PersonalViewController {
             let model = try await viewModel.saveUserDetailInfo(json: json)
             if model.mountization == "0" || model.mountization == "00" {
                 Task {
-                    await self.stayAlwaysApp()
                     await self.getDetailInfo(with: productID)
+                    await self.stayAlwaysApp()
                 }
             }else if model.mountization == "-2" {
                 UserLoginConfig.deleteUserInformation()

@@ -185,9 +185,9 @@ extension FaceViewController {
             let model = try await viewModel.uploadImageInfo(json: json, data: data)
             if model.mountization == "0" || model.mountization == "00" {
                 Task {
-                    await self.stayAlwaysApp()
 //                    await self.getUserMeaageInfo()
                     await self.getDetailInfo(with: self.productID)
+                    await self.stayAlwaysApp()
                 }
             }else if model.mountization == "-2" {
                 UserLoginConfig.deleteUserInformation()

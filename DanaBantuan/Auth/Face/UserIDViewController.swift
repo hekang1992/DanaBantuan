@@ -231,9 +231,9 @@ extension UserIDViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 self.dismiss(animated: true) {
                     Task {
+                        await self.getDetailInfo(with: self.productID)
                         await self.stayAlwaysApp()
 //                        await self.getUserMeaageInfo()
-                        await self.getDetailInfo(with: self.productID)
                     }
                 }
             }else if model.mountization == "-2" {

@@ -256,8 +256,8 @@ extension ContactViewController {
             let model = try await viewModel.saveUserContactDetailInfo(json: params)
             
             if model.mountization == "0" || model.mountization == "00" {
+                await self.getDetailInfo(with: productID)
                 await self.stayAlwaysApp()
-                await getDetailInfo(with: productID)
             }else if model.mountization == "-2" {
                 UserLoginConfig.deleteUserInformation()
                 self.changeRootVc()
