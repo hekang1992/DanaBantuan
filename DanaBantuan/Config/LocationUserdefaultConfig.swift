@@ -2,7 +2,7 @@
 //  LocationUserdefaultConfig.swift
 //  DanaBantuan
 //
-//  Created by hekang on 2026/1/6.
+//  Created by Thomas Brown on 2026/1/6.
 //
 
 import Foundation

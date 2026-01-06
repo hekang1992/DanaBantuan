@@ -15,7 +15,6 @@ class StartViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         let bgImageView = UIImageView()
         bgImageView.contentMode = .scaleAspectFill
         bgImageView.image = UIImage(named: "start_launch_image")

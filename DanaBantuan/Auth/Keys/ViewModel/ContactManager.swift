@@ -42,16 +42,15 @@ final class ContactManager: NSObject {
         }
     }
     
-    // MARK: - 弹窗跳转系统设置
     private func showSettingAlert(from vc: UIViewController) {
         let alert = UIAlertController(
-            title: "无法访问通讯录",
-            message: "请在系统设置中开启通讯录权限",
+            title: LanguageManager.localizedString(for: "Contacts Permission"),
+            message: LanguageManager.localizedString(for: "NSContactsUsageDescription"),
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
-        alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Go to Settings"), style: .default) { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }

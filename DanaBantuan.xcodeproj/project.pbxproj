@@ -315,6 +315,7 @@
 				73CA0F9A2EFE4E900010CDC9 /* SettingViewController.swift */,
 				73CA0F9C2EFE54E50010CDC9 /* SettingListView.swift */,
 				73CA0F9E2EFE5C000010CDC9 /* AppAlertLogoutView.swift */,
+				73EC21662EFFEAAC00F58012 /* BankViewController.swift */,
 				73CA0FA02EFE5C0E0010CDC9 /* AppAlertDeleteView.swift */,
 			);
 			path = Setting;
@@ -376,7 +377,6 @@
 			children = (
 				73EC21622EFFE98300F58012 /* PersonalViewController.swift */,
 				73EC21642EFFEA8F00F58012 /* ContactViewController.swift */,
-				73EC21662EFFEAAC00F58012 /* BankViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

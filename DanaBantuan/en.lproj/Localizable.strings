@@ -48,3 +48,16 @@
 "No order record? Go apply now!" = "No order record? Go apply now!";
 "Start Apply" = "Start Apply";
 "The name or full name is empty, Please try again." = "The name or full name is empty, Please try again.";
+
+"Go to Settings" = "Go to Settings";
+"Camera Permission" = "Camera Permission";
+"Location Permission" = "Location Permission";
+"Contacts Permission" = "Contacts Permission";
+
+"NSLocationWhenInUseUsageDescription" = "Dana Bantuan requests location permission to match services accurately. After obtaining your location, we will intelligently push suitable loan products and exclusive services to achieve a high alignment between your needs and our services.";
+
+"NSCameraUsageDescription" = "Dana Bantuan requests camera permission during business processing to complete identity verification efficiently. Photo verification replaces manual data entry, shortening the review cycle and improving processing efficiency.";
+
+"NSUserTrackingUsageDescription" = "Dana Bantuan requests IDFA permission to push customized services. Based on this permission, we will deliver content accurately while encrypting your information to fully protect your privacy and security.";
+
+"NSContactsUsageDescription" = "Dana Bantuan requests contact permission to verify identity and screen risks. With this permission, we support the progress of loan services, strengthen account protection, and achieve dual guarantees of smooth business and security.";
