@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  DanaBantuan
+
+  Created by hekang on 2026/1/5.
+  
+*/
+
+"NSLocationWhenInUseUsageDescription" = "Dana Bantuan meminta izin lokasi untuk mencocokkan layanan dengan akurat. Setelah mendapatkan lokasi Anda, kami akan secara cerdas mengirimkan produk pinjaman dan layanan eksklusif yang sesuai untuk mencapai kesesuaian tinggi antara kebutuhan Anda dan layanan kami.";
+
+"NSCameraUsageDescription" = "Dana Bantuan meminta izin kamera saat pengolahan bisnis untuk menyelesaikan verifikasi identitas dengan efisien. Verifikasi foto menggantikan pengisian data manual, memperpendek siklus tinjauan dan meningkatkan efisiensi pengolahan.";
+
+"NSUserTrackingUsageDescription" = "Dana Bantuan meminta izin IDFA untuk mengirimkan layanan yang disesuaikan. Berdasarkan izin ini, kami akan mengirimkan konten dengan akurat sambil mengenkripsi informasi Anda untuk sepenuhnya melindungi privasi dan keamanan Anda.";
+
+"NSContactsUsageDescription" = "Dana Bantuan meminta izin kontak untuk memverifikasi identitas dan menyaring risiko. Dengan izin ini, kami mendukung perkembangan layanan pinjaman, memperkuat perlindungan akun, dan mencapai jaminan ganda yaitu kelancaran bisnis dan keamanan.";

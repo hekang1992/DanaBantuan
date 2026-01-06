@@ -78,7 +78,7 @@ class CameraOnlyManager: NSObject {
         alert.addAction(UIAlertAction(title: "取消", style: .cancel))
         alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
             guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-            UIApplication.shared.open(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         })
         
         vc.present(alert, animated: true)

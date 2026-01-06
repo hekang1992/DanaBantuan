@@ -144,7 +144,7 @@ extension HomeViewController {
         
         alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(url)
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         })
         
@@ -305,7 +305,7 @@ extension HomeViewController {
     
     private func clickHomeProductInfo() async {
         Task.detached {
-            await self.stayApp()
+            await self.stayAlwaysApp()
         }
         
         Task.detached {
@@ -343,15 +343,15 @@ extension HomeViewController {
         }
     }
     
-    private func stayApp() async {
+    private func stayAlwaysApp() async {
         if LanguageManager.currentLanguage == .en {
             return
         }
         let starttime = StayPointConfig.starttime ?? ""
         let leavetime = StayPointConfig.leavetime ?? ""
-        let locationJson = AppLocationModel.shared.locationJson ?? [:]
-        let amward = locationJson["amward"] ?? ""
-        let rhizeur = locationJson["rhizeur"] ?? ""
+        let locationJson = LocationUserdefaultConfig.getLocationInfo()
+        let amward = locationJson.longitude ?? ""
+        let rhizeur = locationJson.latitude ?? ""
         do {
             if starttime.isEmpty && leavetime.isEmpty {
                 return

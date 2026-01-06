@@ -202,7 +202,6 @@ class ContactViewController: BaseViewController {
             if let result = result {
                 print("result====\(result)")
                 Task {
-                    try? await Task.sleep(nanoseconds: 3_000_000_000)
                     AppLocationModel.shared.locationJson = result
                 }
             } else {
@@ -257,7 +256,7 @@ extension ContactViewController {
             let model = try await viewModel.saveUserContactDetailInfo(json: params)
             
             if model.mountization == "0" || model.mountization == "00" {
-                await self.stayApp()
+                await self.stayAlwaysApp()
                 await getDetailInfo(with: productID)
             }else if model.mountization == "-2" {
                 UserLoginConfig.deleteUserInformation()
@@ -309,13 +308,14 @@ extension ContactViewController {
 
 extension ContactViewController {
     
-    private func stayApp() async {
+    private func stayAlwaysApp() async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
         if LanguageManager.currentLanguage == .en {
             return
         }
-        let locationJson = AppLocationModel.shared.locationJson ?? [:]
-        let amward = locationJson["amward"] ?? ""
-        let rhizeur = locationJson["rhizeur"] ?? ""
+        let locationJson = LocationUserdefaultConfig.getLocationInfo()
+        let amward = locationJson.longitude ?? ""
+        let rhizeur = locationJson.latitude ?? ""
         do {
             let json = ["cupship": starttime,
                         "laud": String(Int(Date().timeIntervalSince1970)),

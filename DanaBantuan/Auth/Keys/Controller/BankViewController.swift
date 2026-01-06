@@ -181,7 +181,6 @@ class BankViewController: BaseViewController {
             if let result = result {
                 print("result====\(result)")
                 Task {
-                    try? await Task.sleep(nanoseconds: 3_000_000_000)
                     AppLocationModel.shared.locationJson = result
                 }
             } else {
@@ -225,7 +224,7 @@ extension BankViewController {
             let model = try await viewModel.saveUserBankDetailInfo(json: json)
             if model.mountization == "0" || model.mountization == "00" {
                 Task {
-                    await self.stayApp()
+                    await self.stayAlwaysApp()
                     await self.getDetailInfo(with: productID)
                 }
 //                self.backProductPageVc()
@@ -280,13 +279,14 @@ extension BankViewController {
 
 extension BankViewController {
     
-    private func stayApp() async {
+    private func stayAlwaysApp() async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
         if LanguageManager.currentLanguage == .en {
             return
         }
-        let locationJson = AppLocationModel.shared.locationJson ?? [:]
-        let amward = locationJson["amward"] ?? ""
-        let rhizeur = locationJson["rhizeur"] ?? ""
+        let locationJson = LocationUserdefaultConfig.getLocationInfo()
+        let amward = locationJson.longitude ?? ""
+        let rhizeur = locationJson.latitude ?? ""
         do {
             let json = ["cupship": starttime,
                         "laud": String(Int(Date().timeIntervalSince1970)),

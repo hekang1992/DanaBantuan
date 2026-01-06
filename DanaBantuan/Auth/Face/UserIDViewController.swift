@@ -132,7 +132,6 @@ class UserIDViewController: BaseViewController {
             if let result = result {
                 print("result====\(result)")
                 Task {
-                    try? await Task.sleep(nanoseconds: 3_000_000_000)
                     AppLocationModel.shared.locationJson = result
                 }
             } else {
@@ -232,7 +231,7 @@ extension UserIDViewController {
             if model.mountization == "0" || model.mountization == "00" {
                 self.dismiss(animated: true) {
                     Task {
-                        await self.stayApp()
+                        await self.stayAlwaysApp()
 //                        await self.getUserMeaageInfo()
                         await self.getDetailInfo(with: self.productID)
                     }
@@ -249,13 +248,14 @@ extension UserIDViewController {
         }
     }
     
-    private func stayApp() async {
+    private func stayAlwaysApp() async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
         if LanguageManager.currentLanguage == .en {
             return
         }
-        let locationJson = AppLocationModel.shared.locationJson ?? [:]
-        let amward = locationJson["amward"] ?? ""
-        let rhizeur = locationJson["rhizeur"] ?? ""
+        let locationJson = LocationUserdefaultConfig.getLocationInfo()
+        let amward = locationJson.longitude ?? ""
+        let rhizeur = locationJson.latitude ?? ""
         do {
             let json = ["cupship": starttime,
                         "laud": String(Int(Date().timeIntervalSince1970)),

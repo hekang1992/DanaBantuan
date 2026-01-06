@@ -82,6 +82,11 @@ extension LocationTool: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         
+        let latitude = "\(location.coordinate.latitude)"
+        let longitude = "\(location.coordinate.longitude)"
+        
+        LocationUserdefaultConfig.saveLocationInfo(latitude: String(latitude), longitude: String(longitude))
+        
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
             guard let self = self else { return }
             

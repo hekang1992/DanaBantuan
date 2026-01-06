@@ -136,7 +136,7 @@ extension AppTabBarController: UITabBarControllerDelegate {
         
         alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(url)
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         })
         
