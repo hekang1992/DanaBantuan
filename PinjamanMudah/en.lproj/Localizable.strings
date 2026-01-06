@@ -1,0 +1,63 @@
+/* 
+  Localizable.strings
+  PinjamanMudah
+
+  Created by Thomas Brown on 2025/12/25.
+  
+*/
+
+"Home" = "Home";
+"Order" = "Order";
+"My" = "My";
+
+"+91" = "+91";
+"Please enter mobile phone number" = "Please enter mobile phone number";
+"Please enter verification code" = "Please enter verification code";
+"Get Code" = "Get Code";
+"Login" = "Login";
+"I have read and agree to the <Privacy Policy>" = "I have read and agree to the <Privacy Policy>";
+"<Privacy Policy>" = "<Privacy Policy>";
+"Please confirm and read the agreement" = "Please confirm and read the agreement";
+
+"Set Up" = "Set Up";
+"Cancel Account" = "Cancel Account";
+"Cancel" = "Cancel";
+"Version" = "Version";
+"Log Out" = "Log Out";
+
+"Next Step" = "Next Step";
+"Click to upload" = "Click to upload";
+"The file has been uploaded successfully, no need to submit it again" = "The file has been uploaded successfully, no need to submit it again";
+"Confirming" = "Confirming";
+"Confirm Information" = "Confirm Information";
+"*Please check your lD information correctly, oncesubmitted it is not changed again" = "*Please check your lD information correctly, oncesubmitted it is not changed again";
+"Real Name" = "Real Name";
+"ID Number" = "ID Number";
+"Birthday" = "Birthday";
+"Select Date" = "Select Date";
+"OK" = "OK";
+"Please select an option first" = "Please select an option first";
+"The term" = "The term";
+"Interest rates" = "Interest rates";
+
+"All" = "All";
+"Applying" = "Applying";
+"Repayment" = "Repayment";
+"Finish" = "Finish";
+"No orders yet…" = "No orders yet…";
+"No order record? Go apply now!" = "No order record? Go apply now!";
+"Start Apply" = "Start Apply";
+"The name or full name is empty, Please try again." = "The name or full name is empty, Please try again.";
+
+"Go to Settings" = "Go to Settings";
+"Camera Permission" = "Camera Permission";
+"Location Permission" = "Location Permission";
+"Contacts Permission" = "Contacts Permission";
+
+"NSLocationWhenInUseUsageDescription" = "Pinjaman Mudah requests location permission to match services accurately. After obtaining your location, we will intelligently push suitable loan products and exclusive services to achieve a high alignment between your needs and our services.";
+
+"NSCameraUsageDescription" = "Pinjaman Mudah requests camera permission during business processing to complete identity verification efficiently. Photo verification replaces manual data entry, shortening the review cycle and improving processing efficiency.";
+
+"NSUserTrackingUsageDescription" = "Pinjaman Mudah requests IDFA permission to push customized services. Based on this permission, we will deliver content accurately while encrypting your information to fully protect your privacy and security.";
+
+"NSContactsUsageDescription" = "Pinjaman Mudah requests contact permission to verify identity and screen risks. With this permission, we support the progress of loan services, strengthen account protection, and achieve dual guarantees of smooth business and security.";
