@@ -139,7 +139,7 @@ class BankViewController: BaseViewController {
                 var json = ["spatikin": productID]
                 for model in modelArray.value {
                     let key = model.mountization ?? ""
-                    let name = model.baseenne ?? ""
+                    let name = model.gymn ?? ""
                     json[key] = name
                 }
                 Task {
@@ -280,6 +280,7 @@ extension BankViewController {
 extension BankViewController {
     
     private func stayAlwaysApp() async {
+        let time = String(Int(Date().timeIntervalSince1970))
         try? await Task.sleep(nanoseconds: 3_000_000_000)
         if LanguageManager.currentLanguage == .en {
             return
@@ -289,7 +290,7 @@ extension BankViewController {
         let rhizeur = locationJson.latitude ?? ""
         do {
             let json = ["cupship": starttime,
-                        "laud": String(Int(Date().timeIntervalSince1970)),
+                        "laud": time,
                         "amward": amward,
                         "rhizeur": rhizeur,
                         "recordage": "7",

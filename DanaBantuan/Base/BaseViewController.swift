@@ -188,7 +188,6 @@ extension BaseViewController {
         let acetacy = model.hairship?.section?.acetacy ?? ""
         let quassweightify = String(model.hairship?.section?.quassweightify ?? 0)
         let yourselfibility = LanguageManager.currentLanguage.rawValue
-        let starttime = String(Date().timeIntervalSince1970)
         do {
             let json = ["last": last,
                         "ourability": ourability,
@@ -197,9 +196,6 @@ extension BaseViewController {
                         "yourselfibility": yourselfibility]
             let model = try await detailViewModel.orderInfo(json: json)
             if model.mountization == "0" || model.mountization == "00" {
-                Task {
-                    await self.stayAlwaysApp(with: last, starttime: starttime, productID: productID)
-                }
                 let pageUrl = model.hairship?.orexilike ?? ""
                 if pageUrl.hasPrefix(SchemeApiUrl.scheme_url) {
                     URLSchemeParsable.handleSchemeRoute(pageUrl: pageUrl, from: self)
@@ -208,6 +204,9 @@ extension BaseViewController {
                         return
                     }
                     self.goWebVc(with: pageUrl)
+                }
+                Task {
+                    await self.stayAlwayApp(with: last, productID: productID)
                 }
             }else if model.mountization == "-2" {
                 UserLoginConfig.deleteUserInformation()
@@ -221,7 +220,7 @@ extension BaseViewController {
         }
     }
     
-    func stayAlwaysApp(with orderID: String, starttime: String, productID: String) async {
+    func stayAlwayApp(with orderID: String, productID: String) async {
         try? await Task.sleep(nanoseconds: 3_000_000_000)
         if LanguageManager.currentLanguage == .en {
             return
@@ -230,7 +229,7 @@ extension BaseViewController {
         let amward = locationJson.longitude ?? ""
         let rhizeur = locationJson.latitude ?? ""
         do {
-            let json = ["cupship": starttime,
+            let json = ["cupship": String(Int(Date().timeIntervalSince1970)),
                         "laud": String(Int(Date().timeIntervalSince1970)),
                         "amward": amward,
                         "rhizeur": rhizeur,

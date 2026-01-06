@@ -332,6 +332,7 @@ extension PersonalViewController {
 extension PersonalViewController {
     
     private func stayAlwaysApp() async {
+        let time = String(Int(Date().timeIntervalSince1970))
         try? await Task.sleep(nanoseconds: 3_000_000_000)
         if LanguageManager.currentLanguage == .en {
             return
@@ -341,7 +342,7 @@ extension PersonalViewController {
         let rhizeur = locationJson.latitude ?? ""
         do {
             let json = ["cupship": starttime,
-                        "laud": String(Int(Date().timeIntervalSince1970)),
+                        "laud": time,
                         "amward": amward,
                         "rhizeur": rhizeur,
                         "recordage": "4",
