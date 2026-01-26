@@ -25,7 +25,23 @@ class AppOneView: UIView {
             
             let one = model.relateform ?? ""
             let two = model.paintingsion ?? ""
-            itemLabel.text = String(format: "%@: %@", one, two)
+//            itemLabel.text = String(format: "%@: %@", one, two)
+            
+            let itemFullText = String(format: "%@: %@", one, two)
+            
+            let attributed1Text = NSMutableAttributedString(string: itemFullText)
+
+            attributed1Text.addAttribute(.foregroundColor,
+                                       value: UIColor.init(hex: "#759199"),
+                                       range: NSRange(location: 0, length: one.count))
+
+            attributed1Text.addAttribute(.foregroundColor,
+                                       value: UIColor.init(hex: "#052861"),
+                                       range: NSRange(location: one.count, length: two.count))
+
+            itemLabel.attributedText = attributed1Text
+            
+            
             maxLabel.text = model.algics ?? ""
             
             moneyLabel.text = model.persicfier ?? ""
@@ -130,7 +146,7 @@ class AppOneView: UIView {
         let itemLabel = UILabel()
         itemLabel.textAlignment = .right
         itemLabel.textColor = UIColor.init(hex: "#052861")
-        itemLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        itemLabel.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         return itemLabel
     }()
     

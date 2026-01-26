@@ -16,7 +16,7 @@ class OrderViewCell: UITableViewCell {
             guard let model = model else { return }
             let logoUrl = model.vituage ?? ""
             logoImageView.kf.setImage(with: URL(string: logoUrl))
-            nameLabel.text = model.tic ?? ""
+//            nameLabel.text = model.tic ?? ""
             descLabel.text = model.raphite ?? ""
             moneyLabel.text = model.situationsion ?? ""
             applyLabel.text = model.could?.placeuous ?? ""
@@ -71,13 +71,13 @@ class OrderViewCell: UITableViewCell {
         return logoImageView
     }()
     
-    lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel()
-        nameLabel.textAlignment = .left
-        nameLabel.textColor = UIColor.init(hex: "#0A1121")
-        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        return nameLabel
-    }()
+//    lazy var nameLabel: UILabel = {
+//        let nameLabel = UILabel()
+//        nameLabel.textAlignment = .left
+//        nameLabel.textColor = UIColor.init(hex: "#0A1121")
+//        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+//        return nameLabel
+//    }()
     
     lazy var descLabel: UILabel = {
         let descLabel = UILabel()
@@ -158,7 +158,7 @@ class OrderViewCell: UITableViewCell {
         whiteView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(5.pix())
-            make.size.equalTo(CGSize(width: 345.pix(), height: 125.pix()))
+            make.size.equalTo(CGSize(width: 345.pix(), height: 115.pix()))
             make.bottom.equalToSuperview().offset(-10.pix())
         }
         
@@ -168,16 +168,16 @@ class OrderViewCell: UITableViewCell {
             make.width.height.equalTo(38.pix())
         }
         
-        whiteView.addSubview(nameLabel)
-        nameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(11.pix())
-            make.left.equalTo(logoImageView.snp.right).offset(10.pix())
-            make.height.equalTo(16.pix())
-        }
+//        whiteView.addSubview(nameLabel)
+//        nameLabel.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(11.pix())
+//            make.left.equalTo(logoImageView.snp.right).offset(10.pix())
+//            make.height.equalTo(16.pix())
+//        }
         
         whiteView.addSubview(descLabel)
         descLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(5.pix())
+            make.top.equalToSuperview().offset(11.pix())
             make.left.equalTo(logoImageView.snp.right).offset(10.pix())
             make.height.equalTo(16.pix())
         }
@@ -191,7 +191,7 @@ class OrderViewCell: UITableViewCell {
         
         whiteView.addSubview(applyView)
         applyView.snp.makeConstraints { make in
-            make.top.equalTo(moneyLabel.snp.bottom).offset(5.pix())
+            make.top.equalTo(moneyLabel.snp.bottom).offset(13.pix())
             make.left.equalTo(logoImageView)
             make.size.equalTo(CGSize(width: 140.pix(), height: 38.pix()))
         }
