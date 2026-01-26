@@ -7,13 +7,15 @@
 */
 
 "Home" = "Home";
-"Order" = "Order";
-"My" = "My";
+"Order" = "Orders";
+"My" = "Me";
 
 "+91" = "+91";
+"Phone number" = "Phone number";
+"Verification code" = "Verification code";
 "Please enter mobile phone number" = "Please enter mobile phone number";
 "Please enter verification code" = "Please enter verification code";
-"Get Code" = "Get Code";
+"Get Code" = "Send code";
 "Login" = "Login";
 "I have read and agree to the <Privacy Policy>" = "I have read and agree to the <Privacy Policy>";
 "<Privacy Policy>" = "<Privacy Policy>";
@@ -41,9 +43,10 @@
 "Interest rates" = "Interest rates";
 
 "All" = "All";
-"Applying" = "Applying";
+"Applying" = "In progress";
 "Repayment" = "Repayment";
-"Finish" = "Finish";
+"Finish" = "Completed";
+
 "No orders yet…" = "No orders yet…";
 "No order record? Go apply now!" = "No order record? Go apply now!";
 "Start Apply" = "Start Apply";

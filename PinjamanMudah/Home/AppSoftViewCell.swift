@@ -16,14 +16,14 @@ class AppSoftViewCell: UITableViewCell {
             guard let model = model else { return }
             let logoUrl = model.vituage ?? ""
             logoImageView.kf.setImage(with: URL(string: logoUrl))
-            nameLabel.text = model.tic ?? ""
+//            nameLabel.text = model.tic ?? ""
             descLabel.text = model.algics ?? ""
             moneyLabel.text = model.persicfier ?? ""
             applyLabel.text = model.penoern ?? ""
-            oneLabel.text = LanguageManager.localizedString(for: "The term")
-            twoLabel.text = model.paintingsion ?? ""
-            threeLabel.text = LanguageManager.localizedString(for: "Interest rates")
-            fourLabel.text = model.hydroing ?? ""
+//            oneLabel.text = LanguageManager.localizedString(for: "The term")
+//            twoLabel.text = model.paintingsion ?? ""
+//            threeLabel.text = LanguageManager.localizedString(for: "Interest rates")
+//            fourLabel.text = model.hydroing ?? ""
         }
     }
     
@@ -42,13 +42,13 @@ class AppSoftViewCell: UITableViewCell {
         return logoImageView
     }()
     
-    lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel()
-        nameLabel.textAlignment = .left
-        nameLabel.textColor = UIColor.init(hex: "#0A1121")
-        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        return nameLabel
-    }()
+//    lazy var nameLabel: UILabel = {
+//        let nameLabel = UILabel()
+//        nameLabel.textAlignment = .left
+//        nameLabel.textColor = UIColor.init(hex: "#0A1121")
+//        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+//        return nameLabel
+//    }()
     
     lazy var descLabel: UILabel = {
         let descLabel = UILabel()
@@ -80,45 +80,45 @@ class AppSoftViewCell: UITableViewCell {
         return applyLabel
     }()
     
-    lazy var lineView: UIView = {
-        let lineView = UIView()
-        lineView.backgroundColor = UIColor(hex: "#DBF1F9")
-        lineView.layer.cornerRadius = 1
-        lineView.layer.masksToBounds = true
-        return lineView
-    }()
-    
-    lazy var oneLabel: UILabel = {
-        let oneLabel = UILabel()
-        oneLabel.textAlignment = .left
-        oneLabel.textColor = UIColor.init(hex: "#759199")
-        oneLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        return oneLabel
-    }()
-    
-    lazy var twoLabel: UILabel = {
-        let twoLabel = UILabel()
-        twoLabel.textAlignment = .left
-        twoLabel.textColor = UIColor.init(hex: "#0A1121")
-        twoLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        return twoLabel
-    }()
-    
-    lazy var threeLabel: UILabel = {
-        let threeLabel = UILabel()
-        threeLabel.textAlignment = .left
-        threeLabel.textColor = UIColor.init(hex: "#759199")
-        threeLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        return threeLabel
-    }()
-    
-    lazy var fourLabel: UILabel = {
-        let fourLabel = UILabel()
-        fourLabel.textAlignment = .left
-        fourLabel.textColor = UIColor.init(hex: "#0A1121")
-        fourLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        return fourLabel
-    }()
+//    lazy var lineView: UIView = {
+//        let lineView = UIView()
+//        lineView.backgroundColor = UIColor(hex: "#DBF1F9")
+//        lineView.layer.cornerRadius = 1
+//        lineView.layer.masksToBounds = true
+//        return lineView
+//    }()
+//    
+//    lazy var oneLabel: UILabel = {
+//        let oneLabel = UILabel()
+//        oneLabel.textAlignment = .left
+//        oneLabel.textColor = UIColor.init(hex: "#759199")
+//        oneLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+//        return oneLabel
+//    }()
+//    
+//    lazy var twoLabel: UILabel = {
+//        let twoLabel = UILabel()
+//        twoLabel.textAlignment = .left
+//        twoLabel.textColor = UIColor.init(hex: "#0A1121")
+//        twoLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+//        return twoLabel
+//    }()
+//    
+//    lazy var threeLabel: UILabel = {
+//        let threeLabel = UILabel()
+//        threeLabel.textAlignment = .left
+//        threeLabel.textColor = UIColor.init(hex: "#759199")
+//        threeLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+//        return threeLabel
+//    }()
+//    
+//    lazy var fourLabel: UILabel = {
+//        let fourLabel = UILabel()
+//        fourLabel.textAlignment = .left
+//        fourLabel.textColor = UIColor.init(hex: "#0A1121")
+//        fourLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+//        return fourLabel
+//    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -128,26 +128,26 @@ class AppSoftViewCell: UITableViewCell {
         whiteView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(5.pix())
-            make.size.equalTo(CGSize(width: 345.pix(), height: 125.pix()))
+            make.size.equalTo(CGSize(width: 345.pix(), height: 70.pix()))
             make.bottom.equalToSuperview().offset(-10.pix())
         }
         
         whiteView.addSubview(logoImageView)
         logoImageView.snp.makeConstraints { make in
-            make.top.left.equalToSuperview().inset(12.pix())
+            make.top.left.equalToSuperview().inset(15.pix())
             make.width.height.equalTo(38.pix())
         }
         
-        whiteView.addSubview(nameLabel)
-        nameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(11.pix())
-            make.left.equalTo(logoImageView.snp.right).offset(10.pix())
-            make.height.equalTo(16.pix())
-        }
+//        whiteView.addSubview(nameLabel)
+//        nameLabel.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(11.pix())
+//            make.left.equalTo(logoImageView.snp.right).offset(10.pix())
+//            make.height.equalTo(16.pix())
+//        }
         
         whiteView.addSubview(descLabel)
         descLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(5.pix())
+            make.top.equalToSuperview().offset(15.pix())
             make.left.equalTo(logoImageView.snp.right).offset(10.pix())
             make.height.equalTo(16.pix())
         }
@@ -161,8 +161,8 @@ class AppSoftViewCell: UITableViewCell {
         
         whiteView.addSubview(applyImageView)
         applyImageView.snp.makeConstraints { make in
-            make.top.equalTo(moneyLabel.snp.bottom).offset(5.pix())
-            make.left.equalTo(logoImageView)
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-15.pix())
             make.size.equalTo(CGSize(width: 140.pix(), height: 38.pix()))
         }
         
@@ -171,42 +171,42 @@ class AppSoftViewCell: UITableViewCell {
             make.edges.equalToSuperview()
         }
         
-        whiteView.addSubview(lineView)
-        lineView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.top.equalToSuperview().offset(15.pix())
-            make.width.equalTo(1)
-            make.left.equalToSuperview().offset(200.pix())
-        }
-        
-        whiteView.addSubview(oneLabel)
-        whiteView.addSubview(twoLabel)
-        whiteView.addSubview(threeLabel)
-        whiteView.addSubview(fourLabel)
-        
-        oneLabel.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(30.pix())
-            make.top.equalToSuperview().offset(14.pix())
-            make.height.equalTo(16.pix())
-        }
-        
-        twoLabel.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(30.pix())
-            make.top.equalTo(oneLabel.snp.bottom).offset(7.pix())
-            make.height.equalTo(16.pix())
-        }
-        
-        threeLabel.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(30.pix())
-            make.top.equalTo(twoLabel.snp.bottom).offset(14.pix())
-            make.height.equalTo(16.pix())
-        }
-        
-        fourLabel.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(30.pix())
-            make.top.equalTo(threeLabel.snp.bottom).offset(7.pix())
-            make.height.equalTo(16.pix())
-        }
+//        whiteView.addSubview(lineView)
+//        lineView.snp.makeConstraints { make in
+//            make.centerY.equalToSuperview()
+//            make.top.equalToSuperview().offset(15.pix())
+//            make.width.equalTo(1)
+//            make.left.equalToSuperview().offset(200.pix())
+//        }
+//        
+//        whiteView.addSubview(oneLabel)
+//        whiteView.addSubview(twoLabel)
+//        whiteView.addSubview(threeLabel)
+//        whiteView.addSubview(fourLabel)
+//        
+//        oneLabel.snp.makeConstraints { make in
+//            make.left.equalTo(lineView.snp.right).offset(30.pix())
+//            make.top.equalToSuperview().offset(14.pix())
+//            make.height.equalTo(16.pix())
+//        }
+//        
+//        twoLabel.snp.makeConstraints { make in
+//            make.left.equalTo(lineView.snp.right).offset(30.pix())
+//            make.top.equalTo(oneLabel.snp.bottom).offset(7.pix())
+//            make.height.equalTo(16.pix())
+//        }
+//        
+//        threeLabel.snp.makeConstraints { make in
+//            make.left.equalTo(lineView.snp.right).offset(30.pix())
+//            make.top.equalTo(twoLabel.snp.bottom).offset(14.pix())
+//            make.height.equalTo(16.pix())
+//        }
+//        
+//        fourLabel.snp.makeConstraints { make in
+//            make.left.equalTo(lineView.snp.right).offset(30.pix())
+//            make.top.equalTo(threeLabel.snp.bottom).offset(7.pix())
+//            make.height.equalTo(16.pix())
+//        }
     }
     
     required init?(coder: NSCoder) {

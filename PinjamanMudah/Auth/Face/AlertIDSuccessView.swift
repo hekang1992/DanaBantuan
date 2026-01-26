@@ -262,7 +262,7 @@ class AlertIDSuccessView: UIView {
         threeLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(12.pix())
-            make.width.equalTo(90)
+            make.width.equalTo(140)
         }
         
         oneFiled.snp.makeConstraints { make in

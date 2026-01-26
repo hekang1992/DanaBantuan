@@ -60,7 +60,7 @@ class LoginView: UIView {
     lazy var phoneFiled: UITextField = {
         let phoneFiled = UITextField()
         phoneFiled.keyboardType = .numberPad
-        let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Please enter mobile phone number"), attributes: [
+        let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Phone number"), attributes: [
             .foregroundColor: UIColor.init(hex: "#759199") as Any,
             .font: UIFont.systemFont(ofSize: 14, weight: .regular)
         ])
@@ -81,7 +81,7 @@ class LoginView: UIView {
     lazy var codeFiled: UITextField = {
         let codeFiled = UITextField()
         codeFiled.keyboardType = .numberPad
-        let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Please enter verification code"), attributes: [
+        let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Verification code"), attributes: [
             .foregroundColor: UIColor.init(hex: "#759199") as Any,
             .font: UIFont.systemFont(ofSize: 14, weight: .regular)
         ])
@@ -196,7 +196,7 @@ class LoginView: UIView {
             make.left.equalTo(logoImageView)
             make.top.equalTo(logoImageView.snp.bottom).offset(14)
             make.height.equalTo(26.pix())
-            make.width.equalTo(298.pix())
+//            make.width.equalTo(298.pix())
         }
         phoneView.snp.makeConstraints { make in
             make.top.equalTo(typeImageView.snp.bottom).offset(38)

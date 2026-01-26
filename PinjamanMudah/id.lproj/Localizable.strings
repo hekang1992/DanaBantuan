@@ -11,6 +11,8 @@
 "My" = "Ku";
 
 "+91" = "+62";
+"Phone number" = "Nomor telepon";
+"Verification code" = "Kode verifikasi";
 "Please enter mobile phone number" = "Silakan masukkan telepon seluler";
 "Please enter verification code" = "Silakan masukkan kode verifikasi";
 "Get Code" = "Kode";
@@ -25,15 +27,15 @@
 "Version" = "Versi";
 "Log Out" = "Keluar";
 
-"Next Step" = "Langkah Selanjutnya";
+"Next Step" = "Berikutnya";
 "Click to upload" = "Klik untuk mengunggah";
 "The file has been uploaded successfully, no need to submit it again" = "Berkas sudah berhasil diunggah, tidak perlu dikirim lagi";
 "Confirming" = "Mengonfirmasi";
 "Confirm Information" = "Konfirmasikan Informasi";
 "*Please check your lD information correctly, oncesubmitted it is not changed again" = "*Mohon periksa kembali informasi lD Anda dengan benar, jika sudah terkirim tidak akan diubah lagi";
-"Real Name" = "Nama Sesuai KTP";
+"Real Name" = "Nama asli";
 "ID Number" = "Nomor KTP";
-"Birthday" = "Ulang Tahun";
+"Birthday" = "Hari ulang tahun";
 "Select Date" = "Pilih Tanggal";
 "OK" = "OKE";
 "Please select an option first" = "Silakan pilih salah satu opsi terlebih dahulu";
@@ -41,9 +43,10 @@
 "Interest rates" = "Suku bunga";
 
 "All" = "Semua";
-"Applying" = "Melamar";
-"Repayment" = "Pelunasan";
-"Finish" = "Selesai";
+"Applying" = "Dalam proses";
+"Repayment" = "Belum lunas";
+"Finish" = "Lunas";
+
 "No orders yet…" = "Belum ada pesanan…";
 "No order record? Go apply now!" = "Belum ada pesanan? Daftar sekarang!";
 "Start Apply" = "Ajukan Sekarang";
