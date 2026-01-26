@@ -326,6 +326,27 @@ extension ProductViewController {
         self.headView.configure(withTitle: name)
         self.nextBtn.setTitle(model.hairship?.section?.penoern ?? "", for: .normal)
         
+        
+        let one = model.hairship?.section?.flavmainment ?? ""
+        
+        let two = model.hairship?.section?.acetacy ?? ""
+        
+        
+        let itemFullText = String(format: "%@: %@", one, two)
+        
+        let attributed1Text = NSMutableAttributedString(string: itemFullText)
+
+        attributed1Text.addAttribute(.foregroundColor,
+                                   value: UIColor.init(hex: "#759199"),
+                                   range: NSRange(location: 0, length: one.count + 1))
+
+        attributed1Text.addAttribute(.foregroundColor,
+                                   value: UIColor.init(hex: "#052861"),
+                                   range: NSRange(location: one.count, length: two.count))
+
+        itemLabel.attributedText = attributed1Text
+        
+        
         let logoUrl = model.hairship?.section?.vituage ?? ""
         logoImageView.kf.setImage(with: URL(string: logoUrl))
         nameLabel.text = name

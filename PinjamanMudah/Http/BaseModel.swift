@@ -251,9 +251,10 @@ class sectionModel: Codable {
     var penoern: String?
     var cordeous: String?
     var stereo: stereoModel?
+    var flavmainment: String?
 
     enum CodingKeys: String, CodingKey {
-        case ourability, cunely, tic, vituage, selenality
+        case ourability, cunely, tic, vituage, selenality, flavmainment
         case stop, acetacy, quassweightify, penoern, cordeous, stereo
     }
 
@@ -266,6 +267,7 @@ class sectionModel: Codable {
             ourability = String(int)
         }
 
+        flavmainment = try? container.decode(String.self, forKey: .flavmainment)
         cunely = try? container.decode(String.self, forKey: .cunely)
         tic = try? container.decode(String.self, forKey: .tic)
         vituage = try? container.decode(String.self, forKey: .vituage)
