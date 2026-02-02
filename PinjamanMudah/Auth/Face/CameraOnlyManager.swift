@@ -117,29 +117,45 @@ extension CameraOnlyManager: UIImagePickerControllerDelegate, UINavigationContro
     
     private func hidePickerView(pickerView: UIView) {
         if #available(iOS 26, *) {
-            let name = "SwiftUI._UIGraphicsView"
-            if let cls = NSClassFromString(name) {
-                for view in pickerView.subviews {
-                    if view.isKind(of: cls) {
-                        if view.bounds.width == 48 && view.bounds.height == 48 {
-                            if view.frame.minX > UIScreen.main.bounds.width / 2.0 {
-                                view.isHidden = true
-                                return
-                            }
-                        }
-                    }
-                    hidePickerView(pickerView: view)
-                }
-            }
-        }else {
-            let name = "CAMFlipButton"
-            for bbview in pickerView.subviews {
-                if bbview.description.contains(name) {
-                    bbview.isHidden = true
+            hideFlipButtonForiOS26AndAbove(in: pickerView)
+        } else {
+            hideFlipButtonForiOS25AndBelow(in: pickerView)
+        }
+    }
+    
+    private func hideFlipButtonForiOS26AndAbove(in view: UIView) {
+        guard let targetClass = NSClassFromString("SwiftUI._UIGraphicsView") else {
+            return
+        }
+        
+        hideSpecificSubview(in: view, targetClass: targetClass) { subview in
+            subview.bounds.width == 48 &&
+            subview.bounds.height == 48 &&
+            subview.frame.minX > UIScreen.main.bounds.width / 2.0
+        }
+    }
+    
+    private func hideFlipButtonForiOS25AndBelow(in view: UIView) {
+        hideSpecificSubview(in: view) { subview in
+            subview.description.contains("CAMFlipButton")
+        }
+    }
+    
+    private func hideSpecificSubview(in view: UIView,
+                                     targetClass: AnyClass? = nil,
+                                     condition: (UIView) -> Bool) {
+        for subview in view.subviews {
+            if let targetClass = targetClass {
+                if subview.isKind(of: targetClass) && condition(subview) {
+                    subview.isHidden = true
                     return
                 }
-                hidePickerView(pickerView: bbview)
+            } else if condition(subview) {
+                subview.isHidden = true
+                return
             }
+            
+            hideSpecificSubview(in: subview, targetClass: targetClass, condition: condition)
         }
     }
     
