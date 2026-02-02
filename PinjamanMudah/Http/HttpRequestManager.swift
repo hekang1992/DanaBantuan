@@ -8,8 +8,8 @@
 import Foundation
 import Alamofire
 
-let base_url = "http://8.215.85.208:6853/readywise"
-let base_h5_url = "http://8.215.85.208:6853"
+let base_url = "https://sushree-trading.com/readywise"
+let base_h5_url = "https://sushree-trading.com"
 
 final class HttpRequestManager {
     
