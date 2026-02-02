@@ -96,7 +96,6 @@ class URLSchemeParsable: NSObject {
     }
     
     private static func navigateToOrders(from viewController: BaseViewController) {
-        // 跳转到订单页
         
     }
     
@@ -111,7 +110,6 @@ class URLSchemeParsable: NSObject {
     }
     
     private static func navigateToContact(from viewController: BaseViewController) {
-        // 跳转到联系页
         
     }
     

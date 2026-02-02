@@ -27,6 +27,10 @@ class LoginViewModel {
         }
     }
     
+}
+
+extension LoginViewModel {
+    
     func loginInfo(json: [String: String]) async throws -> BaseModel {
         
         LoadingView.shared.show()

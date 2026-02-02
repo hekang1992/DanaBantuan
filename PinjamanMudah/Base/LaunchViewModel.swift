@@ -37,6 +37,10 @@ class LaunchViewModel {
         }
     }
     
+}
+
+extension LaunchViewModel {
+    
     /// upload_location_info
     func uploadLocationinfo(json: [String: String]) async throws -> BaseModel {
         

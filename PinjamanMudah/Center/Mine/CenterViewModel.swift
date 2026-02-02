@@ -9,24 +9,6 @@ import Foundation
 
 class CenterViewModel {
     
-    func centerInfo(json: [String: String]) async throws -> BaseModel {
-        
-        LoadingView.shared.show()
-        
-        defer {
-            DispatchQueue.main.async {
-                LoadingView.shared.hide()
-            }
-        }
-        
-        do {
-            let model: BaseModel = try await HttpRequestManager.shared.get("/alwaysad/interency", parameters: json)
-            return model
-        } catch {
-            throw error
-        }
-    }
-    
     func logoutInfo(json: [String: String]) async throws -> BaseModel {
         
         LoadingView.shared.show()
@@ -57,6 +39,28 @@ class CenterViewModel {
         
         do {
             let model: BaseModel = try await HttpRequestManager.shared.get("/alwaysad/paintingsion", parameters: json)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+}
+
+extension CenterViewModel {
+    
+    func centerInfo(json: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            DispatchQueue.main.async {
+                LoadingView.shared.hide()
+            }
+        }
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.get("/alwaysad/interency", parameters: json)
             return model
         } catch {
             throw error

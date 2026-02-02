@@ -30,8 +30,8 @@ class IDFVManager {
         return idfv
     }
     
-    private let keychainService = "com.idfv.PinjamanMudah.app"
-    private let keychainAccount = "device_idfv"
+    private let keychainService = "com.idfv.PinjamanMudah"
+    private let keychainAccount = "device_idfv_app"
     
     private  func saveIDFVToKeychain(_ idfv: String) {
         guard let data = idfv.data(using: .utf8) else { return }
