@@ -12,7 +12,9 @@ class ProductViewModel {
     /// get_product_detail_info
     func productDetailInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -30,7 +32,9 @@ class ProductViewModel {
     
     func getUserlInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -48,7 +52,9 @@ class ProductViewModel {
     
     func uploadImageInfo(json: [String: String], data: Data) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -67,7 +73,9 @@ class ProductViewModel {
     /// sace_user_info
     func saveUserlInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -94,7 +102,9 @@ class ProductViewModel {
     /// order_info
     func orderInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {

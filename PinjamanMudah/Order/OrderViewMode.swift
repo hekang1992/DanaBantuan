@@ -11,7 +11,9 @@ class OrderViewMode {
     
     func orderListInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {

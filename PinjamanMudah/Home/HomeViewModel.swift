@@ -11,7 +11,9 @@ class HomeViewModel {
     
     func homeInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -29,7 +31,9 @@ class HomeViewModel {
     
     func applyProductInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -48,7 +52,9 @@ class HomeViewModel {
     /// save_user_bank_detail_info
     func getAddresslInfo() async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {

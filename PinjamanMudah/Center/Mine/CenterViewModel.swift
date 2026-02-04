@@ -11,7 +11,9 @@ class CenterViewModel {
     
     func logoutInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -29,7 +31,9 @@ class CenterViewModel {
     
     func deleteInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -51,7 +55,9 @@ extension CenterViewModel {
     
     func centerInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {

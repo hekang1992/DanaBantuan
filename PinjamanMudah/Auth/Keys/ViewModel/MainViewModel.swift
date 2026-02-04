@@ -12,7 +12,9 @@ class MainViewModel {
     /// get_user_detail_info
     func userDetailInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -31,7 +33,9 @@ class MainViewModel {
     /// save_user_detail_info
     func saveUserDetailInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -50,7 +54,9 @@ class MainViewModel {
     /// get_user_contact_detail_info
     func userContactDetailInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -69,7 +75,9 @@ class MainViewModel {
     /// save_user_detail_info
     func saveUserContactDetailInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -98,7 +106,9 @@ class MainViewModel {
     /// get_user_bank_detail_info
     func userBankDetailInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
@@ -117,7 +127,9 @@ class MainViewModel {
     /// save_user_bank_detail_info
     func saveUserBankDetailInfo(json: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
+        DispatchQueue.main.async {
+            LoadingView.shared.show()
+        }
         
         defer {
             DispatchQueue.main.async {
